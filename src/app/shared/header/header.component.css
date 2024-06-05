@@ -10,7 +10,7 @@
 
 .logo{
     aspect-ratio: 1.8 /1  ;
-    height: 150px;
+    height: 100px;
 }
 
 .header{
@@ -30,7 +30,7 @@
 .header-list-item{
     list-style: none;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 15px;
     color: #3e3e3e;
 }
 

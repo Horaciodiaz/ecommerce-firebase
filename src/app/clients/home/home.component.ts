@@ -6,31 +6,30 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  imagenes = [
+  images = [
     {
       link: '../../../assets/aro1.jpg',
-      alt: "Aro new born color verde"
+      alt: "Aro new born"
     },
     {
       link: '../../../assets/aro2.jpg',
-      alt: "Aro new born color rosa"
+      alt: "Aro new born"
     },
     {
       link: '../../../assets/aro3.jpg',
-      alt: "Aro new born color amarillo"
+      alt: "Aro new born"
     },
     {
       link: '../../../assets/hamaca1.jpg',
-      alt: "mi primera hamaca color amarillo"
+      alt: "mi primera hamaca"
     },
     {
       link: '../../../assets/hamaca2.jpg',
-      alt: "mi primera hamaca color rosa"
+      alt: "mi primera hamaca"
     },
     {
       link: '../../../assets/hamaca3.jpg',
-      alt: "mi primera hamaca color azul"
-    },
-    
+      alt: "mi primera hamaca"
+    }
   ];
 }

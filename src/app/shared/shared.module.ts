@@ -4,6 +4,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
+import { SearchComponent } from './search/search.component';
+import { ShoppingCartComponent } from '../clients/shopping-cart/shopping-cart.component';
+
 
 
 
@@ -11,11 +14,12 @@ import { RouterModule } from '@angular/router';
   declarations: [
     NavbarComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    SearchComponent,
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
   ],
   exports:[
     NavbarComponent,

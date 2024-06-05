@@ -1,0 +1,28 @@
+.formulario{
+	width: 400px;
+	display: flex;
+	flex-direction: column;
+	gap: 15px
+}
+
+p{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+input{
+	padding: 10px;
+	/* border: none; */
+	border-radius: 10px;
+}
+
+span{
+	color: red
+}
+
+textarea{
+	min-height: 100px;
+	padding: 10px;
+}

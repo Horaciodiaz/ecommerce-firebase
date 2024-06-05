@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ClientsComponent } from './clients.component';
 import { SharedModule } from '../shared/shared.module';
 import { ClientsRoutingModule } from './clients-routing.module';
-import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 
 
@@ -16,13 +20,16 @@ import { ContactComponent } from './contact/contact.component';
     ClientsComponent,
     HomeComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    ShoppingCartComponent
   ],
   imports: [
     CommonModule,
     ClientsRoutingModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    NgbCarouselModule,
+    NgbDropdownModule
   ]
 })
 export class ClientsModule { }

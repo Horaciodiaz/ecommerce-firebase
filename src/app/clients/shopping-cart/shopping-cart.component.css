@@ -1,0 +1,47 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-height: 400px;
+}
+th, td {
+    /* border: 1px solid black; */
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+
+tfoot td{
+    text-align: right;
+}
+
+button{
+    border: none;
+    border-radius: 10px;
+}
+
+.delete{
+    background-color: red;
+    color: #f2f2f2;
+}
+
+.vacio{
+    width: 400px;
+    height: 300px;
+    margin: 25px;
+    border-radius: 10px;
+    background-color: #b2ecf3;
+    display: grid;
+    place-items: center;
+    align-content: center;
+}
+
+.vacio button{
+    padding: 10px 20px;
+    box-shadow: 3px 3px 10px #969696c5;
+}
+.vacio button:hover{
+    padding: 10px 20px;
+    box-shadow: 3px 3px 10px #8b8b8b;
+}

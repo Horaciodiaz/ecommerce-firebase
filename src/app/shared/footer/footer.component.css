@@ -5,6 +5,7 @@ footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-top: 20px;
 }
 
 footer h3, p{
@@ -29,7 +30,7 @@ footer h3, p{
     list-style: none;
     color: #1f1f1f;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .footer-column ul>li:hover{
