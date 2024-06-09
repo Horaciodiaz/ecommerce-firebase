@@ -2,10 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 import { SearchComponent } from './search/search.component';
-import { ShoppingCartComponent } from '../clients/shopping-cart/shopping-cart.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 
 
@@ -14,8 +13,8 @@ import { ShoppingCartComponent } from '../clients/shopping-cart/shopping-cart.co
   declarations: [
     NavbarComponent,
     FooterComponent,
-    HeaderComponent,
     SearchComponent,
+    CarouselComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +23,7 @@ import { ShoppingCartComponent } from '../clients/shopping-cart/shopping-cart.co
   exports:[
     NavbarComponent,
     FooterComponent,
-    HeaderComponent
+    CarouselComponent
   ]
 })
 export class SharedModule { }

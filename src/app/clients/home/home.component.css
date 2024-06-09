@@ -1,19 +1,71 @@
-#carrusel{
-    width: 600px;
+#carrusel {
+    width: calc(100vw - 18px);
+    margin-bottom: 20px;
 }
 
-#carrusel img{
-    aspect-ratio: 1;
+h2 {
+    color: #fff;
+    text-shadow: 2px 2px 0px #000;
+    font-size: 60px;
+}
+
+.new-offers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    min-height: 700px;
+    gap: 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "new-props new-backdrops offers-props"
+        "new-props new-backdrops offers-props";
+}
+
+.new-offers img {
+    height: 100%;
     width: 100%;
-    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
-.overlay {
-    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
-    padding: 20px;
-    height: 140px;
-    bottom: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    border-radius: 0 0 10px 10px;
+.new-offers>div {
+    text-align: center;
+    padding: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.new-offers img:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+
+.new-props {
+    grid-area: new-props;
+    /* background-image: url(../../../assets/aro1.jpg); */
+}
+
+.new-backdrops {
+    grid-area: new-backdrops;
+    /* background-image: url(../../../assets/fondo-bosque.jpg); */
+}
+
+.offers-props {
+    grid-area: offers-props;
+    /* background-image: url(../../../assets/hamaca1.jpg); */
+
+}
+
+.offers-backdrops {
+    grid-area: offers-backdrops;
+    /* background-image: url(../../../assets/fondo-otoño.jpg); */
+}
+
+.texto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    z-index: 3;
 }

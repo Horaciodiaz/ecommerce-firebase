@@ -1,6 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
-@import url(https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap);
 
 *{
-    font-family: 'Merriweather', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body, html{
+    margin: 0;
+}
+
+h1,h2,h3,h4{
+    font-family: "Yeseva One", serif;
+}
+
+.snap-container {
+    height: 100vh;
+    overflow: auto;
+    scroll-snap-type: y mandatory;
+}
+
+.snap-section {
+    text-align: center;
+    /* padding: 200px 300px 0 300px; */
+    scroll-snap-align: start;
+    min-height: 60vh;
 }

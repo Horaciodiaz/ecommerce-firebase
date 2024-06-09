@@ -8,28 +8,34 @@ import { Component } from '@angular/core';
 export class HomeComponent {
   images = [
     {
-      link: '../../../assets/aro1.jpg',
-      alt: "Aro new born"
+      link: '../../../assets/aro.jpg',
+      alt: "Aro new born",
+      prioridad: "primero"
     },
     {
-      link: '../../../assets/aro2.jpg',
-      alt: "Aro new born"
+      link: '../../../assets/aro.jpg',
+      alt: "Aro new born",
+      prioridad: "segundo"
     },
     {
-      link: '../../../assets/aro3.jpg',
-      alt: "Aro new born"
+      link: '../../../assets/aro.jpg',
+      alt: "Aro new born",
+      prioridad: "tercero"
     },
     {
       link: '../../../assets/hamaca1.jpg',
-      alt: "mi primera hamaca"
+      alt: "mi primera hamaca",
+      prioridad: "segundo"
     },
     {
       link: '../../../assets/hamaca2.jpg',
-      alt: "mi primera hamaca"
+      alt: "mi primera hamaca",
+      prioridad: "cuarto"
     },
     {
       link: '../../../assets/hamaca3.jpg',
-      alt: "mi primera hamaca"
+      alt: "mi primera hamaca",
+      prioridad: "primero"
     }
   ];
 }

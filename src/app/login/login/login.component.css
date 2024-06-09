@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .snap-container {
+    height: 100vh;
+    overflow: auto;  
+    scroll-snap-type: y mandatory;  
+  }
+  
+  .snap-section {
+    text-align: center;
+    padding: 200px 300px 0 300px;
+    scroll-snap-align: start;
+    min-height: 60vh;  
+  }
+  
+  .snap-section:nth-child(1) {
+    background: #556270;
+  }
+  
+  .snap-section:nth-child(2) {
+    background: #4ecdc4;
+  }
+  
+  .snap-section:nth-child(3) {
+    background: #c7f464;
+  }
+  
+  .snap-section:nth-child(4) {
+    background: #ff6b6b;
+  }
+  
+  .snap-section:nth-child(5) {
+    background: #c44d58;
+  }
+  
+  .snap-section h3 {
+    font-family: 'Pacifico', cursive;
+    font-size: 52px;
+    color: white;
+    margin-bottom: 30px;
+  }
+  
+  .snap-section p {
+    font-family: 'Arimo', sans-serif;
+    color: white;
+    font-size: 26px;
+  }

@@ -10,10 +10,6 @@ nav{
     z-index: 3;
     background-color: #fff;
 }
-
-h1{
-    width: 300px;
-}
     
 .navbar-list{
     display: flex;
@@ -33,6 +29,28 @@ h1{
 }
 
 .navbar-list-item:hover{
+    color: #2b2b2b;
+    text-shadow: 1px 1px 3px #b9b9b9;
+}
+
+.logo{
+    cursor: pointer;
+}
+
+.header-list{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin: 0;
+}
+
+.header-list-item{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.header-list-item:hover{
     color: #2b2b2b;
     text-shadow: 1px 1px 3px #b9b9b9;
 }
