@@ -170,12 +170,12 @@ button:hover {
   z-index: -1;
 }
 
-.previous {
+/* .previous {
   transform: translateX(-100%);
   opacity: 0.2;
   transition: opacity 800ms ease-in-out, transform 800ms ease-in-out;
   z-index: -1;
-}
+} */
 
 .text-active {
   opacity: 1;

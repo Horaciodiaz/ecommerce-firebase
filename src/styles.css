@@ -18,7 +18,7 @@ h1,h2,h3,h4{
 }
 
 .snap-container {
-    height: 100dvh;
+    height: calc(100vh - 96px);
     overflow: auto;
     scroll-snap-type: y mandatory;
 }
