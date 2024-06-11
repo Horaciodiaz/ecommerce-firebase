@@ -3,3 +3,10 @@ main{
     justify-items: center;
     align-items: start;
 }
+main::-webkit-scrollbar {
+    display: none; /* Oculta las barras de desplazamiento */
+}
+
+.last{
+    min-height: 36vh;
+}

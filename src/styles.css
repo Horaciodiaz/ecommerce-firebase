@@ -8,6 +8,9 @@
 
 body, html{
     margin: 0;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    
 }
 
 h1,h2,h3,h4{
@@ -15,14 +18,14 @@ h1,h2,h3,h4{
 }
 
 .snap-container {
-    height: 100vh;
+    height: 100dvh;
     overflow: auto;
     scroll-snap-type: y mandatory;
 }
 
 .snap-section {
     text-align: center;
-    /* padding: 200px 300px 0 300px; */
     scroll-snap-align: start;
-    min-height: 60vh;
+    min-height: 84dvh;
+    width: 100%;
 }

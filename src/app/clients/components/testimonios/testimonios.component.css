@@ -1,0 +1,41 @@
+.testimonials {
+    display: grid;
+    grid-template-rows: auto auto; /* Dos filas, una para el título y otra para los testimonios */
+    grid-template-columns: repeat(4, 1fr); /* Cuatro columnas de igual tamaño */
+    gap: 0 20px; /* Espacio entre los elementos */
+    width: 75%;
+    margin: 0 auto;
+  }
+  
+  .title {
+    grid-column: 1 / -1; /* El título ocupa todas las columnas */
+    margin: 10px;
+    font-size: 40px;
+  }
+  
+  .testimonial{
+    height: 250px;
+    /* border: 2px solid #ffa3f7; */
+    text-align: justify;
+    padding: 10px 25px;
+  }
+
+  .fa-quote-left{
+    font-size: 40px;
+  }
+
+  .cita{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+.cita h4{
+  display: inline;
+}
+
+.cita img{
+  height: 30px;
+  border-radius: 50%;
+  aspect-ratio: 1;
+}

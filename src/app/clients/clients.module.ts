@@ -6,9 +6,11 @@ import { ClientsComponent } from './clients.component';
 import { SharedModule } from '../shared/shared.module';
 import { ClientsRoutingModule } from './clients-routing.module';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { ByCategoriesComponent } from './components/by-categories/by-categories.component';
+import { TestimoniosComponent } from './components/testimonios/testimonios.component';
+import { QuickContactComponent } from './components/quick-contact/quick-contact.component';
 
 
 
@@ -16,9 +18,11 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
   declarations: [
     ClientsComponent,
     HomeComponent,
-    AboutComponent,
     ContactComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    ByCategoriesComponent,
+    TestimoniosComponent,
+    QuickContactComponent
   ],
   imports: [
     CommonModule,

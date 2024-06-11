@@ -1,6 +1,6 @@
 .carousel-container {
   position: relative;
-  aspect-ratio: 2.5 / 1;
+  /* aspect-ratio: 2.5 / 1; */
   margin: auto;
   overflow: hidden;
 }
@@ -10,7 +10,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  aspect-ratio: 2.5 / 1;
+  aspect-ratio: 2.45 / 1;
 }
 
 .carousel-slide {
@@ -62,13 +62,17 @@
   font-size: 20px !important;
   background-color: rgba(0, 0, 0, 0.3);
   color: white;
-  border: 2px solid white; /* Borde de doble línea blanca */
+  border: 2px solid white;
+  /* Borde de doble línea blanca */
   cursor: pointer;
   border-radius: 10px;
   z-index: 4;
-  width: auto; /* Ancho automático basado en el contenido */
-  align-self: flex-start; /* Alineación del botón */
-  white-space: nowrap; /* Evita que el texto del botón se divida en varias líneas */
+  width: auto;
+  /* Ancho automático basado en el contenido */
+  align-self: flex-start;
+  /* Alineación del botón */
+  white-space: nowrap;
+  /* Evita que el texto del botón se divida en varias líneas */
 }
 
 .carousel-caption button:hover {
@@ -106,6 +110,7 @@ button:hover {
   bottom: 0;
   width: 100%;
 }
+
 .carousel-dots,
 .carousel-buttons {
   z-index: 1;
@@ -126,16 +131,42 @@ button:hover {
 }
 
 .active {
-  opacity: 1;
+  /* opacity: 1;
   transform: translateX(0%);
-  transition: opacity 800ms ease-in-out, transform 800ms ease-in-out;
+  transition: opacity 800ms ease-in-out, transform 800ms ease-in-out; */
+  animation: enter 1s ease-in 0s 1 normal forwards;
   z-index: 1;
 }
 
+@keyframes enter {
+	0% {
+		opacity: 0;
+		transform: translateX(-30px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes leave {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+}
+
 .inactive {
-  opacity: 0.2;
+  animation: leave 1s ease-out 0s 1 normal forwards;
+  /* opacity: 0.2;
   transform: translateX(100%);
-  transition: opacity 800ms ease-in-out, transform 800ms ease-in-out;
+  transition: opacity 800ms ease-in-out, transform 800ms ease-in-out; */
   z-index: -1;
 }
 
@@ -146,13 +177,13 @@ button:hover {
   z-index: -1;
 }
 
-.text-active{
+.text-active {
   opacity: 1;
   transition: opacity 1.6s ease-in-out;
   z-index: 1;
 }
 
-.text-inactive{
+.text-inactive {
   opacity: 0;
   transition: opacity 1s ease-in-out;
   z-index: -1;
