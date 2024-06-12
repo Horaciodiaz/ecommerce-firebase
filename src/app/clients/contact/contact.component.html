@@ -1,51 +1,32 @@
-<div class="formulario">
-    <h2>Formulario de contacto</h2>
-    <h5>Escríbenos y en breve los pondremos en contacto contigo</h5>
+<div class="snap-section form" style="padding: 15px;">
+    <form class="formulario">
+        <h2>Formulario de Contacto</h2>
+        
+        <label for="nombre">Nombres y Apellidos</label>
+        <input type="text" id="nombre" name="nombre" required placeholder="Escriba su nombre completo aqui...">
 
-
-    <form>
-
-
-        <p>
-            <label for="nombre" class="colocar_nombre">Nombre
-                <span class="obligatorio">*</span>
-            </label>
-            <input type="text" name="introducir_nombre" id="nombre" required="obligatorio"
-                placeholder="Escribe tu nombre">
-        </p>
-
-
-        <p>
-            <label for="telefone" class="colocar_telefono">Teléfono
-            </label>
-            <input type="tel" name="introducir_telefono" id="telefono" placeholder="Escribe tu teléfono">
-        </p>
-
-
-        <p>
-            <label for="asunto" class="colocar_asunto">Localidad
-                <span class="obligatorio">*</span>
-            </label>
-            <input type="text" name="provincia" id="assunto" required="obligatorio" placeholder="Provincia">
-            <input type="text" name="departamento" id="assunto" required="obligatorio" placeholder="Departamento">
-            <input type="text" name="localidad" id="assunto" required="obligatorio" placeholder="Localidad">
-        </p>
-
-        <p>
-            <label for="mensaje" class="colocar_mensaje">Mensaje
-                <span class="obligatorio">*</span>
-            </label>
-            <textarea name="introducir_mensaje" class="texto_mensaje" id="mensaje" required="obligatorio"
-                placeholder="Deja aquí tu comentario..."></textarea>
-        </p>
-
-        <button type="submit" name="enviar_formulario" id="enviar">
-            <p>Enviar</p>
-        </button>
-
-        <p class="aviso">
-            <span class="obligatorio"> * </span>los campos son obligatorios.
-        </p>
-
+        <label for="telefono">Whatsapp</label>
+        <input type="tel" id="telefono" name="telefono" required placeholder="Escriba su numero de Whatsapp aqui...">
+        
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="Escriba su correo electronico aqui...">
+        
+        <label for="provincia">Provincia</label>
+        <input list="provinciaList" id="provincia" name="provincia" autocomplete="off" required placeholder="Escriba su provincia aqui...">
+        
+        
+        <label for="localidad">Localidad</label>
+        <input type="text" id="localidad" name="localidad" required placeholder="Escriba su localidad aqui...">
+        
+        <label for="codigo-postal">Código Postal</label>
+        <input type="text" id="codigo-postal" name="codigo-postal" required placeholder="Escriba su codigo postal aqui...">
+        
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Escriba su mensaje aqui..."></textarea>
+        
+        <div class="botones">
+            <button type="submit">Enviar <i class="fa-solid fa-paper-plane"></i></button>
+            <button type="reset">Cancelar <i class="fa-solid fa-delete-left"></i></button>
+        </div>
     </form>
 </div>

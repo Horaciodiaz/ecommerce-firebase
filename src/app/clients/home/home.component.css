@@ -3,7 +3,10 @@
 } */
 
 #categories{
-    background: #2325261c;
+    background: #afaeaa;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #afaeaa);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #afaeaa); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 
 }
 
@@ -67,7 +70,7 @@ h2 {
 
 .poster {
     position: relative;
-    width: fit-content;
+    /* width: fit-content; */
     height: 655px;  
     overflow: hidden;
     cursor: pointer;
@@ -122,6 +125,8 @@ h2 {
 }
 
 .testimonios-contacto{
-    background-color: #2325261c;
+    background: #afaeaa;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #afaeaa);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #afaeaa); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding: 10px 0 20px 0px;
 }
