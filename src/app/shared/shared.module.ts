@@ -4,7 +4,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { SearchComponent } from './search/search.component';
-import { CarouselComponent } from './carousel/carousel.component';
 
 
 
@@ -13,8 +12,7 @@ import { CarouselComponent } from './carousel/carousel.component';
   declarations: [
     NavbarComponent,
     FooterComponent,
-    SearchComponent,
-    CarouselComponent
+    SearchComponent
   ],
   imports: [
     CommonModule,
@@ -22,8 +20,7 @@ import { CarouselComponent } from './carousel/carousel.component';
   ],
   exports:[
     NavbarComponent,
-    FooterComponent,
-    CarouselComponent
+    FooterComponent
   ]
 })
 export class SharedModule { }

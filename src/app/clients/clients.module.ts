@@ -11,6 +11,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ByCategoriesComponent } from './components/by-categories/by-categories.component';
 import { TestimoniosComponent } from './components/testimonios/testimonios.component';
 import { QuickContactComponent } from './components/quick-contact/quick-contact.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 
 
@@ -22,7 +23,8 @@ import { QuickContactComponent } from './components/quick-contact/quick-contact.
     ShoppingCartComponent,
     ByCategoriesComponent,
     TestimoniosComponent,
-    QuickContactComponent
+    QuickContactComponent,
+    CarouselComponent
   ],
   imports: [
     CommonModule,
