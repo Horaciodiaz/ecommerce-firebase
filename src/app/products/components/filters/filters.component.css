@@ -1,0 +1,60 @@
+.filter-panel {
+    width: 250px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+}
+
+.filter-section {
+    margin-bottom: 20px;
+}
+
+.filter-section h4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.filter-section .arrow {
+    transition: transform 0.3s ease;
+}
+
+.filter-section .arrow.rotated {
+    transform: rotate(180deg);
+}
+
+.subcategories {
+    margin-left: 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.subcategories.open {
+    max-height: 200px; /* Ajusta este valor según sea necesario */
+}
+
+.filter-section label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+button {
+    display: block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #666666;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: -2px 4px #000;
+}
+
+button:hover {
+    background-color: #353535;
+    box-shadow: 0px 0px #000;
+}

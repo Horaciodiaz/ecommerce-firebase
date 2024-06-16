@@ -1,13 +1,7 @@
 <div class="snap-section products">
     <h2>Nuestros Productos</h2>
     <div class="filters">
-        <ul>
-            <h3>Filtros</h3>
-            <li *ngFor="let i of array">
-                <h4>Categoria</h4>
-                <p>sub categoria</p>
-            </li>
-        </ul>
+        <app-filters></app-filters>
     </div>
     <div class="product-list">
         <app-card *ngFor="let i of array"></app-card>

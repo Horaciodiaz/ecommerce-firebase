@@ -1,0 +1,40 @@
+<div class="filter-panel">
+    <h3>Filtros</h3>
+    <div class="filter-section">
+        <h4 (click)="toggleCategory('fondos')">
+            Fondos
+            <span class="arrow" [ngClass]="{'rotated': isCategoryOpen('fondos')}">▼</span>
+        </h4>
+        <div [ngClass]="{'subcategories': true, 'open': isCategoryOpen('fondos')}">
+            <label *ngFor="let estilo of estilosFondos">
+                <input type="checkbox" name="fondo" [value]="estilo" (change)="filterBySubCategory('fondo', estilo)"> {{estilo}}
+            </label>
+        </div>
+    </div>
+
+    <div class="filter-section">
+        <h4 (click)="toggleCategory('props')">
+            Props
+            <span class="arrow" [ngClass]="{'rotated': isCategoryOpen('props')}">▼</span>
+        </h4>
+        <div [ngClass]="{'subcategories': true, 'open': isCategoryOpen('props')}">
+            <label *ngFor="let prop of props">
+                <input type="checkbox" name="prop" [value]="prop" (change)="filterBySubCategory('prop', prop)"> {{prop}}
+            </label>
+        </div>
+    </div>
+
+    <div class="filter-section">
+        <h4 (click)="toggleCategory('decoraciones')">
+            Decoraciones
+            <span class="arrow" [ngClass]="{'rotated': isCategoryOpen('decoraciones')}">▼</span>
+        </h4>
+        <div [ngClass]="{'subcategories': true, 'open': isCategoryOpen('decoraciones')}">
+            <label *ngFor="let decoracion of decoraciones">
+                <input type="checkbox" name="decoracion" [value]="decoracion" (change)="filterBySubCategory('decoracion', decoracion)"> {{decoracion}}
+            </label>
+        </div>
+    </div>
+
+    <button (click)="resetFilters()">Restablecer</button>
+</div>

@@ -5,6 +5,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductComponent } from './product/product.component';
 import { CardComponent } from './components/card/card.component';
 import { FormsModule } from '@angular/forms';
+import { FiltersComponent } from './components/filters/filters.component';
 
 
 
@@ -12,7 +13,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     ProductListComponent,
     ProductComponent,
-    CardComponent
+    CardComponent,
+    FiltersComponent
   ],
   imports: [
     CommonModule,

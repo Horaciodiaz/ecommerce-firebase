@@ -12,6 +12,7 @@ import { ByCategoriesComponent } from './components/by-categories/by-categories.
 import { TestimoniosComponent } from './components/testimonios/testimonios.component';
 import { QuickContactComponent } from './components/quick-contact/quick-contact.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { CategoriesComponent } from './components/categories/categories.component';
 
 
 
@@ -24,7 +25,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     ByCategoriesComponent,
     TestimoniosComponent,
     QuickContactComponent,
-    CarouselComponent
+    CarouselComponent,
+    CategoriesComponent
   ],
   imports: [
     CommonModule,

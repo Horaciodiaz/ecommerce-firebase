@@ -6,7 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./clients.component.css']
 })
 export class ClientsComponent {
-  constructor(){
-    console.log("hola mundo")
-  }
+
 }

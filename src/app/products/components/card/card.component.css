@@ -1,6 +1,7 @@
 .card{
     height: 350px;
     width: 250px;
+    color: #383838;
     view-timeline-name: --image;
     view-timeline-axis: block;
 
@@ -8,6 +9,7 @@
     animation-name: show;
     animation-range: entry 25% cover 30%;
     animation-fill-mode: both;
+    cursor: pointer;
 }
 
 .card img{
@@ -22,6 +24,10 @@
     margin: 8px;
 }
 
+.card:hover{
+    color: #000000;
+}
+
 .card p{
     margin:0;
 }
@@ -29,11 +35,14 @@
 @keyframes show {
     from{
         opacity: 0;
-        scale: 25%;
+        /* scale: 25%; */
+        transform: translateX(25%);
+
     }
 
     to{
         opacity: 1;
-        scale: 100%;
+        /* scale: 100%; */
+        transform: translateX(0%);
     }
 }
