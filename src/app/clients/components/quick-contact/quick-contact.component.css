@@ -73,3 +73,50 @@ img {
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+
+@media (width < 480px) {
+    .message {
+        padding: 0;
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    .message a{
+        background-color: #fff;
+        font-size: 23px;
+        width: 230px;
+    }
+    #quick-contact {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            "title"
+            "message";
+        height: 77vh;
+        width: 100%;
+        gap: 10px 0;
+        /* margin: 30px 0 0 0; */
+        /* Ajustar altura según contenido */
+    }
+
+    #quick-contact .img {
+        grid-area: 1 / 1 / 3 / 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.8;
+    }
+    #quick-contact .title,
+    #quick-contact .message {
+        position: relative;
+        z-index: 1;
+    }
+    .title{
+        color: #fff;
+        text-shadow: 2px 2px 15px #000;
+        text-align: end;
+    }
+}

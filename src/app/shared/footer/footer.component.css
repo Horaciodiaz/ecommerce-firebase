@@ -66,3 +66,24 @@ p {
     text-align: center;
     font-size: 15px;
 }
+
+
+@media (width < 480px){
+    .footer-column{
+        margin: 5px 15px;
+    }
+    .footer-column ul{
+        gap: 10px;
+    }
+    .footer-column .cont{
+        align-items: center;
+    }
+    footer{
+        width: 100%;
+        margin: 0;
+        padding: 40px 0;
+    }
+    footer h5{
+        margin: 20px 0;
+    }
+}

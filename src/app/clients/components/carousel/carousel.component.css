@@ -200,3 +200,28 @@ button:hover {
 .carousel-caption .image-btn {
   font-size: 20px;
 }
+
+@media (width < 480px){
+  .carousel-inner{
+    /* aspect-ratio: none; */
+    width: 100%;
+    height: 80vh;
+  }
+  .carousel-caption{
+    width: 65%;
+    bottom: 0;
+    left: 0;
+    top: auto;
+    padding: 0 27% 10% 8%;
+    background: linear-gradient(#35353500, #0000008f, #000000cf);
+  }
+  .carousel-caption h3{
+    font-size: 45px;
+  }
+  .carousel-caption p{
+    font-size: 17px;
+  }
+  .carousel-caption button{
+    font-size: 17px;
+  }
+}

@@ -110,3 +110,21 @@ h2 {
     left: 0;
     z-index: 300;
 }
+
+@media (width < 480px){
+    .new-offers{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas: "new-props" "new-backdrops" "offers-props";
+    }
+    .title{
+        font-size: 30px;
+        padding: 10px 0 0 0;
+    }
+    .poster{
+        height: 213px;
+    }
+    h2{
+        font-size: 42px;
+    }
+}

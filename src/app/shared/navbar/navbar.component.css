@@ -56,3 +56,21 @@ nav{
     color: #2b2b2b;
     text-shadow: 1px 1px 3px #b9b9b9;
 }
+
+@media (width < 480px){
+    nav{
+        flex-direction: column;
+    }
+    .navbar-list{
+        gap: 15px;
+        margin: 0;
+    }
+    .navbar-list-item{
+        font-size: 17px;
+    }
+    .header-list{
+        gap: 30px;
+        padding: 0;
+        margin: 10px
+    }
+}

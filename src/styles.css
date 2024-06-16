@@ -29,3 +29,17 @@ h1,h2,h3,h4{
     min-height: 84dvh;
     width: 100%;
 }
+
+@media (width < 480px){
+    body, html{
+        width: 100vw !important;
+    }
+    .snap-container {
+        height: calc(100vh - 190px);
+        overflow-x: hidden;
+    }
+    .snap-section {
+        width: 100vw;
+        min-height: 76dvh;
+    }
+}

@@ -39,3 +39,29 @@
   border-radius: 50%;
   aspect-ratio: 1;
 }
+
+@media (width < 480px){
+  #testimonials{
+    height: 75vh;
+  }
+  .testimonials{
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    gap: 0;
+  }
+  .title{
+    font-size: 30px;
+    margin: 5px;
+  }
+  .testimonial{
+    padding: 0;
+    margin: 5px 15px;
+    height: auto;
+  }
+  .testimonial p{
+    margin: 10px 0;
+  }
+  .fa-quote-left{
+    font-size: 30px;
+  }
+}

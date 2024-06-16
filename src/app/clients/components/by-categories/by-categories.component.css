@@ -91,3 +91,20 @@ img{
     color: #fff;
     text-shadow: 3px 1px 12px #000;
 }
+
+@media (width < 480px){
+    .byCategories{
+        gap: 10px;
+        width: 95%;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .title{
+        font-size: 30px;
+    }
+    .category{
+        height: 208px;
+    }
+    .category .texto{
+        font-size: 30px;
+    }
+}
