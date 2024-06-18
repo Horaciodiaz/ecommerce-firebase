@@ -35,7 +35,7 @@ h1,h2,h3,h4{
         width: 100vw !important;
     }
     .snap-container {
-        height: calc(100vh - 190px);
+        height: calc(100vh - 130px);
         overflow-x: hidden;
     }
     .snap-section {
