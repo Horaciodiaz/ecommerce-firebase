@@ -70,7 +70,13 @@ p {
 
 @media (width < 480px){
     .footer-column{
-        margin: 5px 15px;
+        margin: 5px 10px;
+    }
+    .footer-column:nth-child(1){
+        margin-right: 0;
+    }
+    .footer-column:nth-child(2){
+        margin-left: 0;
     }
     .footer-column ul{
         gap: 10px;
@@ -85,5 +91,8 @@ p {
     }
     footer h5{
         margin: 20px 0;
+    }
+    .footer-column ul li{
+        font-size: 17px;
     }
 }

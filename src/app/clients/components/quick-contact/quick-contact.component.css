@@ -84,8 +84,8 @@ img {
     }
     .message a{
         background-color: #fff;
-        font-size: 23px;
-        width: 230px;
+        font-size: 17px;
+        width: 175px;
     }
     #quick-contact {
         grid-template-columns: 1fr;

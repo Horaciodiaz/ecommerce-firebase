@@ -116,13 +116,15 @@ h2 {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(3, 1fr);
         grid-template-areas: "new-props" "new-backdrops" "offers-props";
+        gap: 0;
+        min-height: 550px;
     }
     .title{
         font-size: 30px;
         padding: 10px 0 0 0;
     }
     .poster{
-        height: 213px;
+        height: 183px;
     }
     h2{
         font-size: 42px;
