@@ -14,7 +14,7 @@ export class FiltersComponent {
 
   openCategory: string = '';
 
-  constructor(private router: Router, private filterService: FilterService) {}
+  constructor(public router: Router, private filterService: FilterService) {}
 
   toggleCategory(category: string) {
     if (this.openCategory === category) {

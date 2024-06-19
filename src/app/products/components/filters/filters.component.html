@@ -1,7 +1,7 @@
 <div class="filter-panel">
     <h3>Filtros</h3>
     <div class="filter-section">
-        <h4 (click)="toggleCategory('fondos')">
+        <h4 (click)="toggleCategory('fondos')" routerLink="fondos">
             Fondos
             <span class="arrow" [ngClass]="{'rotated': isCategoryOpen('fondos')}">▼</span>
         </h4>
@@ -13,7 +13,7 @@
     </div>
 
     <div class="filter-section">
-        <h4 (click)="toggleCategory('props')">
+        <h4 (click)="toggleCategory('props')" routerLink="props">
             Props
             <span class="arrow" [ngClass]="{'rotated': isCategoryOpen('props')}">▼</span>
         </h4>
@@ -25,7 +25,7 @@
     </div>
 
     <div class="filter-section">
-        <h4 (click)="toggleCategory('decoraciones')">
+        <h4 (click)="toggleCategory('decoraciones')" routerLink="decos">
             Decoraciones
             <span class="arrow" [ngClass]="{'rotated': isCategoryOpen('decoraciones')}">▼</span>
         </h4>

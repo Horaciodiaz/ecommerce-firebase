@@ -1,4 +1,4 @@
-<div class="snap-section product">
+<!-- <div class="snap-section product">
     <div class="product-container">
         <div class="product-images">
             <img [src]="selectedImage" alt="Product Image" class="main-image">
@@ -35,6 +35,49 @@
 
             <button (click)="addToCart()" class="add-to-cart-btn">Añadir al Carrito <i class="fa-solid fa-cart-plus"></i></button>
 
+            <div class="product-tags">
+                <label>Tags:</label>
+                <span *ngFor="let tag of product.tags" class="tag">{{ tag }}</span>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="snap-section product">
+    <div class="product-container">
+        <div class="product-images">
+            <img [src]="selectedImage" alt="Product Image" class="main-image">
+            <div class="thumbnail-images">
+                <img *ngFor="let image of product.images" [src]="image" alt="Product Thumbnail"
+                    (click)="selectImage(image)" class="thumbnail-image">
+            </div>
+        </div>
+
+        <div class="product-details">
+            <h1 class="product-name">{{ product.name }}</h1>
+            <p class="product-price">${{ product.price }}</p>
+            <p class="product-description">{{ product.description }}</p>
+
+            <!-- <div class="product-options">
+                <div class="product-colors" *ngIf="product.colors && product.colors.length > 0">
+                    <label>Colores:</label>
+                    <div style="display: flex; gap: 10px;" class="color-option">
+                        <button *ngFor="let color of product.colors" [ngClass]="{'active': color === selectedColor}"
+                            (click)="selectColor(color)">
+                            {{ color }}
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-sizes" *ngIf="product.sizes && product.sizes.length > 0">
+                    <label>Tamaños: </label>
+                    <select [(ngModel)]="selectedSize">
+                        <option *ngFor="let size of product.sizes" [value]="size"> {{ size }}</option>
+                    </select>
+                </div>
+            </div> -->
+
+            <button class="add-to-cart-btn">Añadir al Carrito <i class="fa-solid fa-cart-plus"></i></button>
+            <!-- (click)="addToCart()" -->
             <div class="product-tags">
                 <label>Tags:</label>
                 <span *ngFor="let tag of product.tags" class="tag">{{ tag }}</span>

@@ -1,0 +1,9 @@
+<div class="snap-section products">
+    <h2 *ngIf="router.url[router.url.length - 21] != '/'">Nuestros Productos</h2>
+    <div class="filters" *ngIf="router.url[router.url.length - 21] != '/'">
+        <app-filters></app-filters>
+    </div>
+    <div class="product-list">
+        <router-outlet></router-outlet>
+    </div>
+</div>

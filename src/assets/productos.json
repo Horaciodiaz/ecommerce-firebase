@@ -1,0 +1,258 @@
+{
+    "backdrops": [
+        {
+            "id": "rXmGvq3D3JWLN5m4MwGk",
+            "name": "Backdrop de playa",
+            "price": 50,
+            "description": "Un Backdrop perfecto para sesiones veraniegas",
+            "tags": [
+                "verano",
+                "playa",
+                "arena"
+            ],
+            "themes": [
+                "verano",
+                "tropical"
+            ],
+            "inStock": true,
+            "sizes": [
+                "pequeño",
+                "mediano",
+                "grande"
+            ],
+            "images": [
+                "../../../../assets/floral.jpg",
+                "../../../../assets/floral.jpg",
+                "../../../../assets/floral.jpg"
+            ]
+        },
+        {
+            "id": "5PZbKX4EzWmAsC42D4oH",
+            "name": "Backdrop de bosque",
+            "price": 40,
+            "description": "Ideal para sesiones en la naturaleza",
+            "tags": [
+                "naturaleza",
+                "bosque",
+                "árboles"
+            ],
+            "themes": [
+                "naturaleza",
+                "aventura"
+            ],
+            "inStock": false,
+            "sizes": [
+                "mediano",
+                "grande"
+            ],
+            "images": [
+                "../../../../assets/navidad.jpg",
+                "../../../../assets/navidad.jpg"
+            ]
+        }
+    ],
+    "props": [
+        {
+            "id": "6YoJZxXm2t4vQmUJXrBp",
+            "name": "Silla vintage",
+            "price": 30,
+            "description": "Una silla de estilo vintage perfecta para sesiones retro",
+            "tags": [
+                "vintage",
+                "madera",
+                "retro"
+            ],
+            "themes": [
+                "retro",
+                "clásico"
+            ],
+            "inStock": true,
+            "size": "mediano",
+            "color": "marrón",
+            "upholstered": true,
+            "upholsteryCount": 1,
+            "upholsteryColor": "rojo",
+            "ageRange": "adulto",
+            "images": [
+                "../../../../assets/cillita1.jpg",
+                "../../../../assets/cillita1.jpg"
+            ]
+        },
+        {
+            "id": "3c8UApX8R7qZb1AZy9YF",
+            "name": "Globo terráqueo",
+            "price": 15,
+            "description": "Un prop educativo y decorativo",
+            "tags": [
+                "educación",
+                "mundo",
+                "geografía"
+            ],
+            "themes": [
+                "educativo",
+                "viaje"
+            ],
+            "inStock": true,
+            "size": "pequeño",
+            "color": "azul",
+            "upholstered": false,
+            "upholsteryCount": 0,
+            "upholsteryColor": null,
+            "ageRange": "todas las edades",
+            "images": [
+                "../../../../assets/hamaca1.jpg",
+                "../../../../assets/hamaca2.jpg"
+            ]
+        }
+    ],
+    "decos": [
+        {
+            "id": "9GkPQ7hY5B2vX1mWzJ3N",
+            "name": "Decoración de fiesta",
+            "price": 75,
+            "description": "Perfecta para una fiesta temática",
+            "tags": [
+                "fiesta",
+                "colorido",
+                "diversión"
+            ],
+            "themes": [
+                "cumpleaños",
+                "celebración"
+            ],
+            "inStock": true,
+            "backdrop": "Fondo de fiesta",
+            "props": [
+                {
+                    "id": "7KmYvJX9Z4wUcB5xP3N",
+                    "name": "Confeti",
+                    "price": 5,
+                    "description": "Confeti de colores",
+                    "tags": [
+                        "fiesta",
+                        "celebración"
+                    ],
+                    "themes": [
+                        "fiesta",
+                        "colorido"
+                    ],
+                    "inStock": true,
+                    "size": "pequeño",
+                    "color": "multicolor",
+                    "upholstered": false,
+                    "upholsteryCount": 0,
+                    "upholsteryColor": null,
+                    "ageRange": "todas las edades",
+                    "images": [
+                        "../../../../assets/cillita1.jpg",
+                        "../../../../assets/cillita1.jpg"
+                    ]
+                },
+                {
+                    "id": "8S3mB2vY4W5hZ1Q7N9G",
+                    "name": "Globo",
+                    "price": 2,
+                    "description": "Globo inflable",
+                    "tags": [
+                        "fiesta",
+                        "decoración"
+                    ],
+                    "themes": [
+                        "cumpleaños",
+                        "celebración"
+                    ],
+                    "inStock": true,
+                    "size": "mediano",
+                    "color": "rojo",
+                    "upholstered": false,
+                    "upholsteryCount": 0,
+                    "upholsteryColor": null,
+                    "ageRange": "todas las edades",
+                    "images": [
+                        "../../../../assets/cillita1.jpg",
+                        "../../../../assets/cillita1.jpg"
+                    ]
+                }
+            ],
+            "images": [
+                "../../../../assets/hamaca3.jpg",
+                "../../../../assets/hamaca3.jpg"
+            ]
+        },
+        {
+            "id": "A2nW1B3kZ4cX8R7vY9Q",
+            "name": "Decoración de Navidad",
+            "price": 100,
+            "description": "Ideal para celebrar la Navidad",
+            "tags": [
+                "Navidad",
+                "invierno",
+                "decoración"
+            ],
+            "themes": [
+                "Navidad",
+                "festivo"
+            ],
+            "inStock": true,
+            "backdrop": "Backdrop navideño",
+            "props": [
+                {
+                    "id": "B4mX2vY8S3hZ1Q7N9GkP",
+                    "name": "Árbol de Navidad",
+                    "price": 60,
+                    "description": "Árbol decorado con luces",
+                    "tags": [
+                        "Navidad",
+                        "árbol",
+                        "luces"
+                    ],
+                    "themes": [
+                        "Navidad",
+                        "invierno"
+                    ],
+                    "inStock": true,
+                    "size": "grande",
+                    "color": "verde",
+                    "upholstered": false,
+                    "upholsteryCount": 0,
+                    "upholsteryColor": null,
+                    "ageRange": "todas las edades",
+                    "images": [
+                        "../../../../assets/cillita1.jpg",
+                        "../../../../assets/cillita1.jpg"
+                    ]
+                },
+                {
+                    "id": "C8R7vY9GkPQ7hY5B2vX1",
+                    "name": "Regalos falsos",
+                    "price": 10,
+                    "description": "Cajas de regalo decorativas",
+                    "tags": [
+                        "Navidad",
+                        "regalos",
+                        "decoración"
+                    ],
+                    "themes": [
+                        "Navidad",
+                        "invierno"
+                    ],
+                    "inStock": true,
+                    "size": "pequeño",
+                    "color": "rojo",
+                    "upholstered": false,
+                    "upholsteryCount": 0,
+                    "upholsteryColor": null,
+                    "ageRange": "todas las edades",
+                    "images": [
+                        "../../../../assets/cillita1.jpg",
+                        "../../../../assets/cillita1.jpg"
+                    ]
+                }
+            ],
+            "images": [
+                "../../../../assets/aro1.jpg",
+                "../../../../assets/aro2.jpg"
+            ]
+        }
+    ]
+}

@@ -5,7 +5,10 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductComponent } from './product/product.component';
 import { CardComponent } from './components/card/card.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { FiltersComponent } from './components/filters/filters.component';
+import { ProductsService } from './services/products.service';
+import { ProductsComponent } from './products.component';
 
 
 
@@ -14,12 +17,14 @@ import { FiltersComponent } from './components/filters/filters.component';
     ProductListComponent,
     ProductComponent,
     CardComponent,
-    FiltersComponent
+    FiltersComponent,
+    ProductsComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
-    ProductsRoutingModule
+    ProductsRoutingModule,
+    HttpClientModule
   ]
 })
 export class ProductsModule { }

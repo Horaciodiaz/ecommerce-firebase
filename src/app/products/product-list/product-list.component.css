@@ -1,29 +1,22 @@
-.products{
-    display: grid;
-    grid-template-areas: 
-    "... titulo titulo"
-    "filters product-list product-list";
-}
 
-h2{
-    grid-area: titulo;
-    font-size: 40px;
-}
-
-li{
-    list-style: none;
-    text-align: left;
-}
-
-.filters{
-    grid-area: filters;
-    width: 300px;
-}
-
-.product-list{
-    grid-area: product-list;
+.list{
     display: grid;
     gap: 20px 30px;
     grid-template-columns: repeat(4, minmax(240px, 1fr));
     margin-bottom: 16px;
+}
+
+.cardAnimation{
+    animation: intro 1s ease 0s 1 normal forwards;
+}
+@keyframes intro {
+	0% {
+		opacity: 0;
+		transform: translateY(50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }

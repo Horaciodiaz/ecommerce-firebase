@@ -1,3 +1,4 @@
+
 .filter-panel {
     width: 250px;
     padding: 15px;
@@ -18,7 +19,7 @@
 }
 
 .filter-section .arrow {
-    transition: transform 0.3s ease;
+    transition: transform 0.8s ease;
 }
 
 .filter-section .arrow.rotated {
@@ -29,7 +30,7 @@
     margin-left: 10px;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.8s ease;
 }
 
 .subcategories.open {

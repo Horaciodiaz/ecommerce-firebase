@@ -12,9 +12,7 @@ const routes: Routes = [
     component: ClientsComponent,
     children: [
       { path: '', component: HomeComponent },
-      { path: 'props', loadChildren: () => import('../products/products.module').then(m => m.ProductsModule) },
-      { path: 'decos', loadChildren: () => import('../products/products.module').then(m => m.ProductsModule) },
-      { path: 'fondos', loadChildren: () => import('../products/products.module').then(m => m.ProductsModule) },
+      { path: 'productos', loadChildren: () => import('../products/products.module').then(m => m.ProductsModule) },
       { path: 'contacto', component: ContactComponent },
       { path: 'mi-carrito', component: ShoppingCartComponent },
       { path: '**', redirectTo: '' }
