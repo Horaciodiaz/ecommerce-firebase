@@ -11,6 +11,7 @@
     grid-column: 1 / -1; /* El título ocupa todas las columnas */
     margin: 10px;
     font-size: 40px;
+    text-align: center;
   }
   
   .testimonial{

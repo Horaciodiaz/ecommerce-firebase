@@ -17,18 +17,6 @@ h1,h2,h3,h4{
     font-family: "Yeseva One", serif;
 }
 
-.snap-container {
-    height: calc(100vh - 96px);
-    overflow: auto;
-    scroll-snap-type: y mandatory;
-}
-
-.snap-section {
-    text-align: center;
-    scroll-snap-align: start;
-    min-height: 84dvh;
-    width: 100%;
-}
 
 @media (width < 480px){
     body, html{
@@ -37,9 +25,12 @@ h1,h2,h3,h4{
     .snap-container {
         height: calc(100vh - 130px);
         overflow-x: hidden;
+        overflow: auto;
+        scroll-snap-type: y mandatory;
     }
     .snap-section {
         width: 100vw;
         min-height: 76dvh;
+        scroll-snap-align: start;
     }
 }

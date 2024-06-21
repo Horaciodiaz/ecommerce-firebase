@@ -21,9 +21,9 @@
                 "grande"
             ],
             "images": [
-                "../../../../assets/floral.jpg",
-                "../../../../assets/floral.jpg",
-                "../../../../assets/floral.jpg"
+                "../../../../assets/playa.jpg",
+                "../../../../assets/playa.jpg",
+                "../../../../assets/playa.jpg"
             ]
         },
         {
@@ -46,8 +46,8 @@
                 "grande"
             ],
             "images": [
-                "../../../../assets/navidad.jpg",
-                "../../../../assets/navidad.jpg"
+                "../../../../assets/fondo-bosque.jpg",
+                "../../../../assets/fondo-bosque.jpg"
             ]
         }
     ],
@@ -80,12 +80,12 @@
         },
         {
             "id": "3c8UApX8R7qZb1AZy9YF",
-            "name": "Globo terráqueo",
+            "name": "Hamaca",
             "price": 15,
-            "description": "Un prop educativo y decorativo",
+            "description": "Un prop que brilla por si solo",
             "tags": [
-                "educación",
-                "mundo",
+                "Hamacas",
+                "infantiles",
                 "geografía"
             ],
             "themes": [
@@ -98,10 +98,443 @@
             "upholstered": false,
             "upholsteryCount": 0,
             "upholsteryColor": null,
-            "ageRange": "todas las edades",
+            "ageRange": "años 1+",
             "images": [
                 "../../../../assets/hamaca1.jpg",
-                "../../../../assets/hamaca2.jpg"
+                "../../../../assets/hamaca2.jpg",
+                "../../../../assets/hamaca3.jpg"
+            ]
+        },
+        {
+            "id": "3c8UApX8R7qZb1AZy9YF",
+            "name": "Hamaca",
+            "price": 15,
+            "description": "Un prop que brilla por si solo",
+            "tags": [
+                "Hamacas",
+                "infantiles",
+                "geografía"
+            ],
+            "themes": [
+                "educativo",
+                "viaje"
+            ],
+            "inStock": true,
+            "size": "pequeño",
+            "color": "azul",
+            "upholstered": false,
+            "upholsteryCount": 0,
+            "upholsteryColor": null,
+            "ageRange": "años 1+",
+            "images": [
+                "../../../../assets/hamaca1.jpg",
+                "../../../../assets/hamaca2.jpg",
+                "../../../../assets/hamaca3.jpg"
+            ]
+        },
+        {
+            "id": "3c8UApX8R7qZb1AZy9YF",
+            "name": "Hamaca",
+            "price": 15,
+            "description": "Un prop que brilla por si solo",
+            "tags": [
+                "Hamacas",
+                "infantiles",
+                "geografía"
+            ],
+            "themes": [
+                "educativo",
+                "viaje"
+            ],
+            "inStock": true,
+            "size": "pequeño",
+            "color": "azul",
+            "upholstered": false,
+            "upholsteryCount": 0,
+            "upholsteryColor": null,
+            "ageRange": "años 1+",
+            "images": [
+                "../../../../assets/hamaca1.jpg",
+                "../../../../assets/hamaca2.jpg",
+                "../../../../assets/hamaca3.jpg"
+            ]
+        },
+        {
+            "id": "3c8UApX8R7qZb1AZy9YF",
+            "name": "Hamaca",
+            "price": 15,
+            "description": "Un prop que brilla por si solo",
+            "tags": [
+                "Hamacas",
+                "infantiles",
+                "geografía"
+            ],
+            "themes": [
+                "educativo",
+                "viaje"
+            ],
+            "inStock": true,
+            "size": "pequeño",
+            "color": "azul",
+            "upholstered": false,
+            "upholsteryCount": 0,
+            "upholsteryColor": null,
+            "ageRange": "años 1+",
+            "images": [
+                "../../../../assets/hamaca1.jpg",
+                "../../../../assets/hamaca2.jpg",
+                "../../../../assets/hamaca3.jpg"
+            ]
+        },
+        {
+            "id": "3c8UApX8R7qZb1AZy9YF",
+            "name": "Hamaca",
+            "price": 15,
+            "description": "Un prop que brilla por si solo",
+            "tags": [
+                "Hamacas",
+                "infantiles",
+                "geografía"
+            ],
+            "themes": [
+                "educativo",
+                "viaje"
+            ],
+            "inStock": true,
+            "size": "pequeño",
+            "color": "azul",
+            "upholstered": false,
+            "upholsteryCount": 0,
+            "upholsteryColor": null,
+            "ageRange": "años 1+",
+            "images": [
+                "../../../../assets/hamaca1.jpg",
+                "../../../../assets/hamaca2.jpg",
+                "../../../../assets/hamaca3.jpg"
+            ]
+        },
+        {
+            "id": "3c8UApX8R7qZb1AZy9YF",
+            "name": "Hamaca",
+            "price": 15,
+            "description": "Un prop que brilla por si solo",
+            "tags": [
+                "Hamacas",
+                "infantiles",
+                "geografía"
+            ],
+            "themes": [
+                "educativo",
+                "viaje"
+            ],
+            "inStock": true,
+            "size": "pequeño",
+            "color": "azul",
+            "upholstered": false,
+            "upholsteryCount": 0,
+            "upholsteryColor": null,
+            "ageRange": "años 1+",
+            "images": [
+                "../../../../assets/hamaca1.jpg",
+                "../../../../assets/hamaca2.jpg",
+                "../../../../assets/hamaca3.jpg"
+            ]
+        },
+        {
+            "id": "3c8UApX8R7qZb1AZy9YF",
+            "name": "Hamaca",
+            "price": 15,
+            "description": "Un prop que brilla por si solo",
+            "tags": [
+                "Hamacas",
+                "infantiles",
+                "geografía"
+            ],
+            "themes": [
+                "educativo",
+                "viaje"
+            ],
+            "inStock": true,
+            "size": "pequeño",
+            "color": "azul",
+            "upholstered": false,
+            "upholsteryCount": 0,
+            "upholsteryColor": null,
+            "ageRange": "años 1+",
+            "images": [
+                "../../../../assets/hamaca1.jpg",
+                "../../../../assets/hamaca2.jpg",
+                "../../../../assets/hamaca3.jpg"
+            ]
+        },
+        {
+            "id": "3c8UApX8R7qZb1AZy9YF",
+            "name": "Hamaca",
+            "price": 15,
+            "description": "Un prop que brilla por si solo",
+            "tags": [
+                "Hamacas",
+                "infantiles",
+                "geografía"
+            ],
+            "themes": [
+                "educativo",
+                "viaje"
+            ],
+            "inStock": true,
+            "size": "pequeño",
+            "color": "azul",
+            "upholstered": false,
+            "upholsteryCount": 0,
+            "upholsteryColor": null,
+            "ageRange": "años 1+",
+            "images": [
+                "../../../../assets/hamaca1.jpg",
+                "../../../../assets/hamaca2.jpg",
+                "../../../../assets/hamaca3.jpg"
+            ]
+        },
+        {
+            "id": "3c8UApX8R7qZb1AZy9YF",
+            "name": "Hamaca",
+            "price": 15,
+            "description": "Un prop que brilla por si solo",
+            "tags": [
+                "Hamacas",
+                "infantiles",
+                "geografía"
+            ],
+            "themes": [
+                "educativo",
+                "viaje"
+            ],
+            "inStock": true,
+            "size": "pequeño",
+            "color": "azul",
+            "upholstered": false,
+            "upholsteryCount": 0,
+            "upholsteryColor": null,
+            "ageRange": "años 1+",
+            "images": [
+                "../../../../assets/hamaca1.jpg",
+                "../../../../assets/hamaca2.jpg",
+                "../../../../assets/hamaca3.jpg"
+            ]
+        },
+        {
+            "id": "3c8UApX8R7qZb1AZy9YF",
+            "name": "Hamaca",
+            "price": 15,
+            "description": "Un prop que brilla por si solo",
+            "tags": [
+                "Hamacas",
+                "infantiles",
+                "geografía"
+            ],
+            "themes": [
+                "educativo",
+                "viaje"
+            ],
+            "inStock": true,
+            "size": "pequeño",
+            "color": "azul",
+            "upholstered": false,
+            "upholsteryCount": 0,
+            "upholsteryColor": null,
+            "ageRange": "años 1+",
+            "images": [
+                "../../../../assets/hamaca1.jpg",
+                "../../../../assets/hamaca2.jpg",
+                "../../../../assets/hamaca3.jpg"
+            ]
+        },
+        {
+            "id": "3c8UApX8R7qZb1AZy9YF",
+            "name": "Hamaca",
+            "price": 15,
+            "description": "Un prop que brilla por si solo",
+            "tags": [
+                "Hamacas",
+                "infantiles",
+                "geografía"
+            ],
+            "themes": [
+                "educativo",
+                "viaje"
+            ],
+            "inStock": true,
+            "size": "pequeño",
+            "color": "azul",
+            "upholstered": false,
+            "upholsteryCount": 0,
+            "upholsteryColor": null,
+            "ageRange": "años 1+",
+            "images": [
+                "../../../../assets/hamaca1.jpg",
+                "../../../../assets/hamaca2.jpg",
+                "../../../../assets/hamaca3.jpg"
+            ]
+        },
+        {
+            "id": "3c8UApX8R7qZb1AZy9YF",
+            "name": "Hamaca",
+            "price": 15,
+            "description": "Un prop que brilla por si solo",
+            "tags": [
+                "Hamacas",
+                "infantiles",
+                "geografía"
+            ],
+            "themes": [
+                "educativo",
+                "viaje"
+            ],
+            "inStock": true,
+            "size": "pequeño",
+            "color": "azul",
+            "upholstered": false,
+            "upholsteryCount": 0,
+            "upholsteryColor": null,
+            "ageRange": "años 1+",
+            "images": [
+                "../../../../assets/hamaca1.jpg",
+                "../../../../assets/hamaca2.jpg",
+                "../../../../assets/hamaca3.jpg"
+            ]
+        },
+        {
+            "id": "3c8UApX8R7qZb1AZy9YF",
+            "name": "Hamaca",
+            "price": 15,
+            "description": "Un prop que brilla por si solo",
+            "tags": [
+                "Hamacas",
+                "infantiles",
+                "geografía"
+            ],
+            "themes": [
+                "educativo",
+                "viaje"
+            ],
+            "inStock": true,
+            "size": "pequeño",
+            "color": "azul",
+            "upholstered": false,
+            "upholsteryCount": 0,
+            "upholsteryColor": null,
+            "ageRange": "años 1+",
+            "images": [
+                "../../../../assets/hamaca1.jpg",
+                "../../../../assets/hamaca2.jpg",
+                "../../../../assets/hamaca3.jpg"
+            ]
+        },
+        {
+            "id": "3c8UApX8R7qZb1AZy9YF",
+            "name": "Hamaca",
+            "price": 15,
+            "description": "Un prop que brilla por si solo",
+            "tags": [
+                "Hamacas",
+                "infantiles",
+                "geografía"
+            ],
+            "themes": [
+                "educativo",
+                "viaje"
+            ],
+            "inStock": true,
+            "size": "pequeño",
+            "color": "azul",
+            "upholstered": false,
+            "upholsteryCount": 0,
+            "upholsteryColor": null,
+            "ageRange": "años 1+",
+            "images": [
+                "../../../../assets/hamaca1.jpg",
+                "../../../../assets/hamaca2.jpg",
+                "../../../../assets/hamaca3.jpg"
+            ]
+        },
+        {
+            "id": "3c8UApX8R7qZb1AZy9YF",
+            "name": "Hamaca",
+            "price": 15,
+            "description": "Un prop que brilla por si solo",
+            "tags": [
+                "Hamacas",
+                "infantiles",
+                "geografía"
+            ],
+            "themes": [
+                "educativo",
+                "viaje"
+            ],
+            "inStock": true,
+            "size": "pequeño",
+            "color": "azul",
+            "upholstered": false,
+            "upholsteryCount": 0,
+            "upholsteryColor": null,
+            "ageRange": "años 1+",
+            "images": [
+                "../../../../assets/hamaca1.jpg",
+                "../../../../assets/hamaca2.jpg",
+                "../../../../assets/hamaca3.jpg"
+            ]
+        },
+        {
+            "id": "3c8UApX8R7qZb1AZy9YF",
+            "name": "Hamaca",
+            "price": 15,
+            "description": "Un prop que brilla por si solo",
+            "tags": [
+                "Hamacas",
+                "infantiles",
+                "geografía"
+            ],
+            "themes": [
+                "educativo",
+                "viaje"
+            ],
+            "inStock": true,
+            "size": "pequeño",
+            "color": "azul",
+            "upholstered": false,
+            "upholsteryCount": 0,
+            "upholsteryColor": null,
+            "ageRange": "años 1+",
+            "images": [
+                "../../../../assets/hamaca1.jpg",
+                "../../../../assets/hamaca2.jpg",
+                "../../../../assets/hamaca3.jpg"
+            ]
+        },
+        {
+            "id": "3c8UApX8R7qZb1AZy9YF",
+            "name": "Hamaca",
+            "price": 15,
+            "description": "Un prop que brilla por si solo",
+            "tags": [
+                "Hamacas",
+                "infantiles",
+                "geografía"
+            ],
+            "themes": [
+                "educativo",
+                "viaje"
+            ],
+            "inStock": true,
+            "size": "pequeño",
+            "color": "azul",
+            "upholstered": false,
+            "upholsteryCount": 0,
+            "upholsteryColor": null,
+            "ageRange": "años 1+",
+            "images": [
+                "../../../../assets/hamaca1.jpg",
+                "../../../../assets/hamaca2.jpg",
+                "../../../../assets/hamaca3.jpg"
             ]
         }
     ],
