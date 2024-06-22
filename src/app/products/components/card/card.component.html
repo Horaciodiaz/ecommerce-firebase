@@ -1,5 +1,9 @@
-<div class="card" [routerLink]="['/productos', product.id]">
-    <img [src]="product.images[0]" alt="sillita" loading="lazy">
-    <h4>{{product.name}}</h4>
-    <p>{{product.price | currency}}</p>
+<div class="card">
+    <figure>
+        <img [src]="product.images[0]" alt="sillita" loading="lazy">
+    </figure>
+    <div class="text">
+        <h4>{{product.name}}</h4>
+        <p>{{product.price | currency}}</p>
+    </div>
 </div>

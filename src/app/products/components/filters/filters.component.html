@@ -2,40 +2,34 @@
     <h3>Filtros</h3>
 
     <div class="filter-section">
-        <h4 (click)="toggleCategory('props')" routerLink="props">
+        <h4 (click)="toggleCategory('Props')" routerLink="props">
             Props
-            <span class="arrow" [ngClass]="{'rotated': isCategoryOpen('props')}">▼</span>
+            <span class="arrow" [ngClass]="{'rotated': isCategoryOpen('Props')}"><i class="fa-solid fa-circle-chevron-down"></i></span>
         </h4>
-        <div [ngClass]="{'subcategories': true, 'open': isCategoryOpen('props')}">
-            <label *ngFor="let prop of props">
-                <input type="checkbox" name="prop" [value]="prop" (change)="filterBySubCategory('prop', prop)"> {{prop}}
-            </label>
+        <div [ngClass]="{'subcategories': true, 'open': isCategoryOpen('Props')}">
+            <button class="subCategory" *ngFor="let category of categories" (click)="filterBySubCategory(category)"> {{category}}</button>
         </div>
     </div>
 
     <div class="filter-section">
-        <h4 (click)="toggleCategory('decoraciones')" routerLink="decos">
+        <h4 (click)="toggleCategory('Decos')" routerLink="decos">
             Decoraciones
-            <span class="arrow" [ngClass]="{'rotated': isCategoryOpen('decoraciones')}">▼</span>
+            <span class="arrow" [ngClass]="{'rotated': isCategoryOpen('Decos')}"><i class="fa-solid fa-circle-chevron-down"></i></span>
         </h4>
-        <div [ngClass]="{'subcategories': true, 'open': isCategoryOpen('decoraciones')}">
-            <label *ngFor="let decoracion of decoraciones">
-                <input type="checkbox" name="decoracion" [value]="decoracion" (change)="filterBySubCategory('decoracion', decoracion)"> {{decoracion}}
-            </label>
+        <div [ngClass]="{'subcategories': true, 'open': isCategoryOpen('Decos')}">
+            <button class="subCategory" *ngFor="let category of categories" (click)="filterBySubCategory(category)"> {{category}}</button>
         </div>
     </div>
 
     <div class="filter-section">
-        <h4 (click)="toggleCategory('fondos')" routerLink="fondos">
+        <h4 (click)="toggleCategory('Backdrops')" routerLink="fondos">
             Fondos
-            <span class="arrow" [ngClass]="{'rotated': isCategoryOpen('fondos')}">▼</span>
+            <span class="arrow" [ngClass]="{'rotated': isCategoryOpen('Backdrops')}"><i class="fa-solid fa-circle-chevron-down"></i></span>
         </h4>
-        <div [ngClass]="{'subcategories': true, 'open': isCategoryOpen('fondos')}">
-            <label *ngFor="let estilo of estilosFondos">
-                <input type="checkbox" name="fondo" [value]="estilo" (change)="filterBySubCategory('fondo', estilo)"> {{estilo}}
-            </label>
+        <div [ngClass]="{'subcategories': true, 'open': isCategoryOpen('Backdrops')}">
+            <button class="subCategory" *ngFor="let category of categories" (click)="filterBySubCategory(category)"> {{category}}</button>
         </div>
     </div>
 
-    <button (click)="resetFilters()">Restablecer</button>
+    <button [routerLink]="['/productos', category]">Restablecer</button>
 </div>

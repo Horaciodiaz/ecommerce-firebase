@@ -7,6 +7,7 @@
 }
 
 h2{
+    text-align: center;
     grid-area: titulo;
     font-size: 40px;
 }

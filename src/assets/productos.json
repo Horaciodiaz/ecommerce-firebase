@@ -2,8 +2,9 @@
     "backdrops": [
         {
             "id": "rXmGvq3D3JWLN5m4MwGk",
+            "category": "veraniego",
             "name": "Backdrop de playa",
-            "price": 50,
+            "price": 50000,
             "description": "Un Backdrop perfecto para sesiones veraniegas",
             "tags": [
                 "verano",
@@ -28,8 +29,9 @@
         },
         {
             "id": "5PZbKX4EzWmAsC42D4oH",
+            "category": "pepe",
             "name": "Backdrop de bosque",
-            "price": 40,
+            "price": 40000,
             "description": "Ideal para sesiones en la naturaleza",
             "tags": [
                 "naturaleza",
@@ -54,21 +56,13 @@
     "props": [
         {
             "id": "6YoJZxXm2t4vQmUJXrBp",
+            "category": "pendejo",
             "name": "Silla vintage",
-            "price": 30,
+            "price": 30000,
             "description": "Una silla de estilo vintage perfecta para sesiones retro",
-            "tags": [
-                "vintage",
-                "madera",
-                "retro"
-            ],
-            "themes": [
-                "retro",
-                "clásico"
-            ],
             "inStock": true,
             "size": "mediano",
-            "color": "marrón",
+            "colors": ["marrón"],
             "upholstered": true,
             "upholsteryCount": 1,
             "upholsteryColor": "rojo",
@@ -80,21 +74,13 @@
         },
         {
             "id": "3c8UApX8R7qZb1AZy9YF",
+            "category": "gil",
             "name": "Hamaca",
-            "price": 15,
+            "price": 15000,
             "description": "Un prop que brilla por si solo",
-            "tags": [
-                "Hamacas",
-                "infantiles",
-                "geografía"
-            ],
-            "themes": [
-                "educativo",
-                "viaje"
-            ],
             "inStock": true,
             "size": "pequeño",
-            "color": "azul",
+            "colors": ["azul"],
             "upholstered": false,
             "upholsteryCount": 0,
             "upholsteryColor": null,
@@ -107,21 +93,13 @@
         },
         {
             "id": "3c8UApX8R7qZb1AZy9YF",
+            "category": "humahuaca",
             "name": "Hamaca",
-            "price": 15,
+            "price": 15000,
             "description": "Un prop que brilla por si solo",
-            "tags": [
-                "Hamacas",
-                "infantiles",
-                "geografía"
-            ],
-            "themes": [
-                "educativo",
-                "viaje"
-            ],
             "inStock": true,
             "size": "pequeño",
-            "color": "azul",
+            "colors": ["azul"],
             "upholstered": false,
             "upholsteryCount": 0,
             "upholsteryColor": null,
@@ -134,21 +112,13 @@
         },
         {
             "id": "3c8UApX8R7qZb1AZy9YF",
+            "category": "alto bobo",
             "name": "Hamaca",
-            "price": 15,
+            "price": 15000,
             "description": "Un prop que brilla por si solo",
-            "tags": [
-                "Hamacas",
-                "infantiles",
-                "geografía"
-            ],
-            "themes": [
-                "educativo",
-                "viaje"
-            ],
             "inStock": true,
             "size": "pequeño",
-            "color": "azul",
+            "colors": ["azul"],
             "upholstered": false,
             "upholsteryCount": 0,
             "upholsteryColor": null,
@@ -161,21 +131,13 @@
         },
         {
             "id": "3c8UApX8R7qZb1AZy9YF",
+            "category": "lolcito",
             "name": "Hamaca",
-            "price": 15,
+            "price": 15000,
             "description": "Un prop que brilla por si solo",
-            "tags": [
-                "Hamacas",
-                "infantiles",
-                "geografía"
-            ],
-            "themes": [
-                "educativo",
-                "viaje"
-            ],
             "inStock": true,
             "size": "pequeño",
-            "color": "azul",
+            "colors": ["azul"],
             "upholstered": false,
             "upholsteryCount": 0,
             "upholsteryColor": null,
@@ -188,21 +150,13 @@
         },
         {
             "id": "3c8UApX8R7qZb1AZy9YF",
+            "category": "ni idea rey",
             "name": "Hamaca",
-            "price": 15,
+            "price": 15000,
             "description": "Un prop que brilla por si solo",
-            "tags": [
-                "Hamacas",
-                "infantiles",
-                "geografía"
-            ],
-            "themes": [
-                "educativo",
-                "viaje"
-            ],
             "inStock": true,
             "size": "pequeño",
-            "color": "azul",
+            "colors": ["azul"],
             "upholstered": false,
             "upholsteryCount": 0,
             "upholsteryColor": null,
@@ -215,21 +169,13 @@
         },
         {
             "id": "3c8UApX8R7qZb1AZy9YF",
+            "category": "asdasdasd",
             "name": "Hamaca",
-            "price": 15,
+            "price": 15000,
             "description": "Un prop que brilla por si solo",
-            "tags": [
-                "Hamacas",
-                "infantiles",
-                "geografía"
-            ],
-            "themes": [
-                "educativo",
-                "viaje"
-            ],
             "inStock": true,
             "size": "pequeño",
-            "color": "azul",
+            "colors": ["azul"],
             "upholstered": false,
             "upholsteryCount": 0,
             "upholsteryColor": null,
@@ -242,21 +188,13 @@
         },
         {
             "id": "3c8UApX8R7qZb1AZy9YF",
+            "category": "hbbbbb",
             "name": "Hamaca",
-            "price": 15,
+            "price": 15000,
             "description": "Un prop que brilla por si solo",
-            "tags": [
-                "Hamacas",
-                "infantiles",
-                "geografía"
-            ],
-            "themes": [
-                "educativo",
-                "viaje"
-            ],
             "inStock": true,
             "size": "pequeño",
-            "color": "azul",
+            "colors": ["azul"],
             "upholstered": false,
             "upholsteryCount": 0,
             "upholsteryColor": null,
@@ -269,21 +207,13 @@
         },
         {
             "id": "3c8UApX8R7qZb1AZy9YF",
+            "category": "xd jajant",
             "name": "Hamaca",
-            "price": 15,
+            "price": 15000,
             "description": "Un prop que brilla por si solo",
-            "tags": [
-                "Hamacas",
-                "infantiles",
-                "geografía"
-            ],
-            "themes": [
-                "educativo",
-                "viaje"
-            ],
             "inStock": true,
             "size": "pequeño",
-            "color": "azul",
+            "colors": ["azul"],
             "upholstered": false,
             "upholsteryCount": 0,
             "upholsteryColor": null,
@@ -296,21 +226,13 @@
         },
         {
             "id": "3c8UApX8R7qZb1AZy9YF",
+            "category": "pero che",
             "name": "Hamaca",
-            "price": 15,
+            "price": 15000,
             "description": "Un prop que brilla por si solo",
-            "tags": [
-                "Hamacas",
-                "infantiles",
-                "geografía"
-            ],
-            "themes": [
-                "educativo",
-                "viaje"
-            ],
             "inStock": true,
             "size": "pequeño",
-            "color": "azul",
+            "colors": ["azul"],
             "upholstered": false,
             "upholsteryCount": 0,
             "upholsteryColor": null,
@@ -323,21 +245,13 @@
         },
         {
             "id": "3c8UApX8R7qZb1AZy9YF",
+            "category": "PEEEERP",
             "name": "Hamaca",
-            "price": 15,
+            "price": 15000,
             "description": "Un prop que brilla por si solo",
-            "tags": [
-                "Hamacas",
-                "infantiles",
-                "geografía"
-            ],
-            "themes": [
-                "educativo",
-                "viaje"
-            ],
             "inStock": true,
             "size": "pequeño",
-            "color": "azul",
+            "colors": ["azul"],
             "upholstered": false,
             "upholsteryCount": 0,
             "upholsteryColor": null,
@@ -350,21 +264,13 @@
         },
         {
             "id": "3c8UApX8R7qZb1AZy9YF",
+            "category": "pedro pedro",
             "name": "Hamaca",
-            "price": 15,
+            "price": 15000,
             "description": "Un prop que brilla por si solo",
-            "tags": [
-                "Hamacas",
-                "infantiles",
-                "geografía"
-            ],
-            "themes": [
-                "educativo",
-                "viaje"
-            ],
             "inStock": true,
             "size": "pequeño",
-            "color": "azul",
+            "colors": ["azul"],
             "upholstered": false,
             "upholsteryCount": 0,
             "upholsteryColor": null,
@@ -377,21 +283,13 @@
         },
         {
             "id": "3c8UApX8R7qZb1AZy9YF",
+            "category": "ta piola",
             "name": "Hamaca",
-            "price": 15,
+            "price": 15000,
             "description": "Un prop que brilla por si solo",
-            "tags": [
-                "Hamacas",
-                "infantiles",
-                "geografía"
-            ],
-            "themes": [
-                "educativo",
-                "viaje"
-            ],
             "inStock": true,
             "size": "pequeño",
-            "color": "azul",
+            "colors": ["azul"],
             "upholstered": false,
             "upholsteryCount": 0,
             "upholsteryColor": null,
@@ -404,21 +302,13 @@
         },
         {
             "id": "3c8UApX8R7qZb1AZy9YF",
+            "category": "todo joya",
             "name": "Hamaca",
-            "price": 15,
+            "price": 15000,
             "description": "Un prop que brilla por si solo",
-            "tags": [
-                "Hamacas",
-                "infantiles",
-                "geografía"
-            ],
-            "themes": [
-                "educativo",
-                "viaje"
-            ],
             "inStock": true,
             "size": "pequeño",
-            "color": "azul",
+            "colors": ["azul"],
             "upholstered": false,
             "upholsteryCount": 0,
             "upholsteryColor": null,
@@ -431,21 +321,13 @@
         },
         {
             "id": "3c8UApX8R7qZb1AZy9YF",
+            "category": "ya no",
             "name": "Hamaca",
-            "price": 15,
+            "price": 15000,
             "description": "Un prop que brilla por si solo",
-            "tags": [
-                "Hamacas",
-                "infantiles",
-                "geografía"
-            ],
-            "themes": [
-                "educativo",
-                "viaje"
-            ],
             "inStock": true,
             "size": "pequeño",
-            "color": "azul",
+            "colors": ["azul"],
             "upholstered": false,
             "upholsteryCount": 0,
             "upholsteryColor": null,
@@ -458,75 +340,13 @@
         },
         {
             "id": "3c8UApX8R7qZb1AZy9YF",
+            "category": "xddddddddd",
             "name": "Hamaca",
-            "price": 15,
+            "price": 15000,
             "description": "Un prop que brilla por si solo",
-            "tags": [
-                "Hamacas",
-                "infantiles",
-                "geografía"
-            ],
-            "themes": [
-                "educativo",
-                "viaje"
-            ],
             "inStock": true,
             "size": "pequeño",
-            "color": "azul",
-            "upholstered": false,
-            "upholsteryCount": 0,
-            "upholsteryColor": null,
-            "ageRange": "años 1+",
-            "images": [
-                "../../../../assets/hamaca1.jpg",
-                "../../../../assets/hamaca2.jpg",
-                "../../../../assets/hamaca3.jpg"
-            ]
-        },
-        {
-            "id": "3c8UApX8R7qZb1AZy9YF",
-            "name": "Hamaca",
-            "price": 15,
-            "description": "Un prop que brilla por si solo",
-            "tags": [
-                "Hamacas",
-                "infantiles",
-                "geografía"
-            ],
-            "themes": [
-                "educativo",
-                "viaje"
-            ],
-            "inStock": true,
-            "size": "pequeño",
-            "color": "azul",
-            "upholstered": false,
-            "upholsteryCount": 0,
-            "upholsteryColor": null,
-            "ageRange": "años 1+",
-            "images": [
-                "../../../../assets/hamaca1.jpg",
-                "../../../../assets/hamaca2.jpg",
-                "../../../../assets/hamaca3.jpg"
-            ]
-        },
-        {
-            "id": "3c8UApX8R7qZb1AZy9YF",
-            "name": "Hamaca",
-            "price": 15,
-            "description": "Un prop que brilla por si solo",
-            "tags": [
-                "Hamacas",
-                "infantiles",
-                "geografía"
-            ],
-            "themes": [
-                "educativo",
-                "viaje"
-            ],
-            "inStock": true,
-            "size": "pequeño",
-            "color": "azul",
+            "colors": ["azul"],
             "upholstered": false,
             "upholsteryCount": 0,
             "upholsteryColor": null,
@@ -541,8 +361,9 @@
     "decos": [
         {
             "id": "9GkPQ7hY5B2vX1mWzJ3N",
+            "category": "asdasdbbbbbb",
             "name": "Decoración de fiesta",
-            "price": 75,
+            "price": 75000,
             "description": "Perfecta para una fiesta temática",
             "tags": [
                 "fiesta",
@@ -558,8 +379,9 @@
             "props": [
                 {
                     "id": "7KmYvJX9Z4wUcB5xP3N",
+                    "category": "aaaabbbccc",
                     "name": "Confeti",
-                    "price": 5,
+                    "price": 5000,
                     "description": "Confeti de colores",
                     "tags": [
                         "fiesta",
@@ -571,7 +393,7 @@
                     ],
                     "inStock": true,
                     "size": "pequeño",
-                    "color": "multicolor",
+                    "colors": "multicolor",
                     "upholstered": false,
                     "upholsteryCount": 0,
                     "upholsteryColor": null,
@@ -583,8 +405,9 @@
                 },
                 {
                     "id": "8S3mB2vY4W5hZ1Q7N9G",
+                    "category": "aaaabbbbsssdd",
                     "name": "Globo",
-                    "price": 2,
+                    "price": 2000,
                     "description": "Globo inflable",
                     "tags": [
                         "fiesta",
@@ -596,7 +419,7 @@
                     ],
                     "inStock": true,
                     "size": "mediano",
-                    "color": "rojo",
+                    "colors": "rojo",
                     "upholstered": false,
                     "upholsteryCount": 0,
                     "upholsteryColor": null,
@@ -613,9 +436,10 @@
             ]
         },
         {
-            "id": "A2nW1B3kZ4cX8R7vY9Q",
+            "id": "A2nW1B3kZ4cX8R7vY9Qs",
+            "category": "ggggffff",
             "name": "Decoración de Navidad",
-            "price": 100,
+            "price": 100000,
             "description": "Ideal para celebrar la Navidad",
             "tags": [
                 "Navidad",
@@ -631,8 +455,9 @@
             "props": [
                 {
                     "id": "B4mX2vY8S3hZ1Q7N9GkP",
+                    "category": "asdasdasdqqqqqq",
                     "name": "Árbol de Navidad",
-                    "price": 60,
+                    "price": 60000,
                     "description": "Árbol decorado con luces",
                     "tags": [
                         "Navidad",
@@ -645,7 +470,7 @@
                     ],
                     "inStock": true,
                     "size": "grande",
-                    "color": "verde",
+                    "colors": "verde",
                     "upholstered": false,
                     "upholsteryCount": 0,
                     "upholsteryColor": null,
@@ -657,8 +482,9 @@
                 },
                 {
                     "id": "C8R7vY9GkPQ7hY5B2vX1",
+                    "category": "qqqqwwwww",
                     "name": "Regalos falsos",
-                    "price": 10,
+                    "price": 10000,
                     "description": "Cajas de regalo decorativas",
                     "tags": [
                         "Navidad",
@@ -671,7 +497,7 @@
                     ],
                     "inStock": true,
                     "size": "pequeño",
-                    "color": "rojo",
+                    "colors": "rojo",
                     "upholstered": false,
                     "upholsteryCount": 0,
                     "upholsteryColor": null,

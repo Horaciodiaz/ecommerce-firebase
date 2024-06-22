@@ -15,19 +15,22 @@ export class ProductComponent{
   selectedImage: string = '';
   selectedColor: string = '';
   selectedSize: string = '';
-  productID: string = '';
+  productId: string = '';
   
   constructor(public router: Router, private productService: ProductsService, private route: ActivatedRoute){
-    route.params.subscribe( Param => {
-      this.productID = Param['id'];
-    })
   }
 
   ngOnInit(): void {
     this.loadProductDetails();
+    this.route.params.subscribe(params => {
+      this.productId = params['id'];
+      if (this.productId) {
+        this.loadProductDetails();
+      }
+    });
   }
   loadProductDetails(): void {
-    this.productService.getProduct(this.productID).subscribe(
+    this.productService.getProduct(this.productId).subscribe(
       (product: Prop | Decoration | Backdrop) => {
         this.product = product;
         this.selectedImage = product.images[0];
@@ -45,5 +48,6 @@ export class ProductComponent{
   selectColor(color: string): void {
     this.selectedColor = color;
   }
+
 
 }

@@ -25,8 +25,8 @@
 }
 
 .main-image {
-  width: 500px;
-  height: 500px;
+  width: 650px;
+  aspect-ratio: 1;
   object-fit: cover;
   border-radius: 5px;
 }
@@ -53,22 +53,24 @@
 .product-details {
   flex: 0;
   text-align: left;
-  min-width: 280px;
+  min-width: 360px;
 }
 
 .product-name {
-  font-size: 35px;
-  margin: 10px 0;
+  font-size: 50px;
+  margin: 0;
 }
 
 .product-price {
-  font-size: 20px;
-  color: #888;
+  font-size: 40px;
+  color: #292929;
   margin-bottom: 10px;
+  font-weight: 600;
 }
 
 .product-description {
   margin-bottom: 20px;
+  font-size: 20px;
   text-align: justify;
 }
 
@@ -109,6 +111,7 @@
   border: none;
   cursor: pointer;
   border-radius: 5px;
+  font-size: 20px;
 }
 
 .add-to-cart-btn:hover {

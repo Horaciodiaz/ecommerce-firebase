@@ -13,17 +13,28 @@
 
     cursor: pointer;
     transition: color .5s ease;
+
 }
 
-.card img{
+figure{
+    overflow: hidden;
+    width: 100%;
+    height: 80%;
+    margin: 0;
+}
+
+figure img{
     width: 100%;
     object-fit: cover;
-    height: 80%;
+    height: 100%;
     outline: 3px solid #fff;
     outline-offset: -10px;
+    transform: scale(1);
+    transition: transform 1000ms;
+
 }
 
-.card h4{
+.text h4{
     margin: 8px;
 }
 
@@ -31,8 +42,19 @@
     color: #000000;
 }
 
-.card p{
-    margin:0;
+.card:hover figure img{
+    transform: scale(1.07);
+
+}
+
+.text p{
+    margin: 8px;
+}
+
+.text{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 @keyframes show {

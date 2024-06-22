@@ -1,5 +1,5 @@
 export interface Product {
-    id: number;
+    id: string;
     name: string;
     price: number;
     description: string;
@@ -14,7 +14,7 @@ export interface Backdrop extends Product {
 
 export interface Prop extends Product {
     size: string;
-    color: string;
+    colors: string[];
     upholstered: boolean;
     upholsteryCount: number;
     upholsteryColor: string | null;

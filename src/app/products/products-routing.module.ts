@@ -5,16 +5,23 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductsComponent } from './products.component';
 
 const routes: Routes = [
-  { path: '', component: ProductsComponent,
+  {
+    path: '',
+    component: ProductsComponent,
     children: [
-      { path: 'props', component: ProductListComponent },
-      { path: 'fondos', component: ProductListComponent },
-      { path: 'decos', component: ProductListComponent },
-      { path: ':id', component: ProductComponent },
-      { path: '**', redirectTo: 'props' }
+      {
+        path: ':category',
+        children: [
+          { path: ':id', component: ProductComponent }, // Ruta para producto específico
+          { path: ':subcategory', component: ProductListComponent }, // Ruta para subcategoría
+          { path: '', pathMatch: 'full', component: ProductListComponent }, // Ruta para categoría sin subcategoría
+          { path: '**', redirectTo: 'props' } // Ruta por defecto dentro de ProductsComponent
+        ]
+      },
+      { path: '**', redirectTo: '' } // Ruta por defecto dentro de ProductsComponent
     ]
-   },
-  { path: '**', redirectTo: 'props' }
+  },
+  { path: '**', redirectTo: '' } // Ruta por defecto global
 ];
 
 @NgModule({

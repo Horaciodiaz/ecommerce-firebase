@@ -5,6 +5,9 @@
     background-color: #f9f9f9;
     border-radius: 6px;
 }
+.filter-panel h3{
+    margin: 0;
+}
 
 .filter-section {
     margin-bottom: 20px;
@@ -23,18 +26,21 @@
 }
 
 .filter-section .arrow.rotated {
-    transform: rotate(180deg);
+    transform: rotate(90deg);
 }
 
 .subcategories {
     margin-left: 10px;
     max-height: 0;
-    overflow: hidden;
+    height: clamp(0);
+    overflow-y: scroll;
     transition: max-height 0.8s ease;
+    scrollbar-width: thin; /* Ancho del scroll, 'thin' para barras delgadas */
+    scrollbar-color: #888 #f1f1f1; /* Color del thumb y del track */
 }
-
 .subcategories.open {
     max-height: 200px; /* Ajusta este valor según sea necesario */
+
 }
 
 .filter-section label {
@@ -58,4 +64,15 @@ button {
 button:hover {
     background-color: #353535;
     box-shadow: 0px 0px #000;
+}
+
+.subCategory{
+    background-color: inherit;
+    color: #000;
+    box-shadow: none;
+    padding: 0;
+}
+.subCategory:hover{
+    background-color: inherit;
+    color: aqua;
 }

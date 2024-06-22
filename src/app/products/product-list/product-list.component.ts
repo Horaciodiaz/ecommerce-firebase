@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from '../services/products.service';
 import { Product } from '../interfaces/productInterface';
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -9,35 +10,79 @@ import { Product } from '../interfaces/productInterface';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
-  array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,7,18];
   products: Product[] = [];
+  category: string = 'props';
+  subcategory: string = '';
 
-  constructor(private router: Router, private productService: ProductsService){
-    console.log(this.router.url);
-  }
+  constructor(private router: Router ,private productService: ProductsService, private route: ActivatedRoute){}
 
   ngOnInit(): void {
-    this.loadProducts();
+    this.route.params.pipe(
+      switchMap(params => {
+        this.category = params['category'];
+        return this.route.queryParams;
+      })
+    ).subscribe(queryParams => {
+      let subcategory = queryParams['subcategory'] || '';
+
+      if (subcategory === '') {
+        this.loadProductsByCategory(this.category);
+      } else {
+        this.loadProductsBySubcategory(this.category, subcategory);
+      }
+    });
   }
 
-  loadProducts() {
-    if (this.router.url === '/productos/props') {
-      this.productService.getProps().subscribe(data => {
-        this.products = data;
-      });
-    } else if (this.router.url === '/productos/fondos') {
-      this.productService.getBackdrops().subscribe(data => {
-        this.products = data;
-      });
-    } else {
-      this.productService.getDecos().subscribe(data => {
-        this.products = data;
-      });
+  loadProductsByCategory(category: string) {
+    switch (category) {
+      case 'props':
+        this.productService.getProps().subscribe(data => {
+          this.products = data;
+        });
+        break;
+      
+      case 'fondos':
+        this.productService.getBackdrops().subscribe(data => {
+          this.products = data;
+        });
+        break;
+
+      default:
+        this.productService.getDecos().subscribe(data => {
+          this.products = data;
+        });
+        break;
     }
   }
 
-  // onClickProduct(product: number){
-  //   this.router.navigate(['/productos', { queryParams: { queryParams: product } }])
-  // }
+  loadProductsBySubcategory(category: string, subcategory: string) {
+    switch (category) {
+      case 'props':
+        this.productService.getPropsSubCategory(subcategory).subscribe(data => {
+          this.products = data;
+          console.log("props", data);
+        });
+        break;
+      
+      case 'fondos':
+        this.productService.getBackdropsSubCategory(subcategory).subscribe(data => {
+          this.products = data;
+          console.log("fondos", data);
+        });
+        break;
+
+      default:
+        this.productService.getDecosSubCategory(subcategory).subscribe(data => {
+          this.products = data;
+          console.log("decos", data);
+        });
+        break;
+    }
+  }
+  
+  sendToProduct(product: Product){
+    this.router.navigate(['/productos', 
+      this.category, product.id]);
+  }
 
 }
