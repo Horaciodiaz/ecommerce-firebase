@@ -7,7 +7,7 @@
             <span class="arrow" [ngClass]="{'rotated': isCategoryOpen('Props')}"><i class="fa-solid fa-circle-chevron-down"></i></span>
         </h4>
         <div [ngClass]="{'subcategories': true, 'open': isCategoryOpen('Props')}">
-            <button class="subCategory" *ngFor="let category of categories" (click)="filterBySubCategory(category)"> {{category}}</button>
+            <button class="subCategory" *ngFor="let category of categories" (click)="filterBySubCategory(category)"> {{category | titlecase}}</button>
         </div>
     </div>
 
@@ -17,7 +17,7 @@
             <span class="arrow" [ngClass]="{'rotated': isCategoryOpen('Decos')}"><i class="fa-solid fa-circle-chevron-down"></i></span>
         </h4>
         <div [ngClass]="{'subcategories': true, 'open': isCategoryOpen('Decos')}">
-            <button class="subCategory" *ngFor="let category of categories" (click)="filterBySubCategory(category)"> {{category}}</button>
+            <button class="subCategory" *ngFor="let category of categories" (click)="filterBySubCategory(category)"> {{category | titlecase}}</button>
         </div>
     </div>
 
@@ -27,7 +27,7 @@
             <span class="arrow" [ngClass]="{'rotated': isCategoryOpen('Backdrops')}"><i class="fa-solid fa-circle-chevron-down"></i></span>
         </h4>
         <div [ngClass]="{'subcategories': true, 'open': isCategoryOpen('Backdrops')}">
-            <button class="subCategory" *ngFor="let category of categories" (click)="filterBySubCategory(category)"> {{category}}</button>
+            <button class="subCategory" *ngFor="let category of categories" (click)="filterBySubCategory(category)"> {{category | titlecase}}</button>
         </div>
     </div>
 

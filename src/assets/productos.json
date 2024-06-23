@@ -3,7 +3,7 @@
         {
             "id": "rXmGvq3D3JWLN5m4MwGk",
             "category": "veraniego",
-            "name": "Backdrop de playa",
+            "name": "Fondo de playa",
             "price": 50000,
             "description": "Un Backdrop perfecto para sesiones veraniegas",
             "tags": [
@@ -29,8 +29,8 @@
         },
         {
             "id": "5PZbKX4EzWmAsC42D4oH",
-            "category": "pepe",
-            "name": "Backdrop de bosque",
+            "category": "bosques",
+            "name": "Fondo de bosque",
             "price": 40000,
             "description": "Ideal para sesiones en la naturaleza",
             "tags": [
@@ -60,7 +60,7 @@
             "name": "Silla vintage",
             "price": 30000,
             "description": "Una silla de estilo vintage perfecta para sesiones retro",
-            "inStock": true,
+            "inStock": false,
             "size": "mediano",
             "colors": ["marrón"],
             "upholstered": true,
@@ -92,12 +92,12 @@
             ]
         },
         {
-            "id": "3c8UApX8R7qZb1AZy9YF",
+            "id": "3c8UApX8R7qZcfAZy9YF",
             "category": "humahuaca",
             "name": "Hamaca",
             "price": 15000,
             "description": "Un prop que brilla por si solo",
-            "inStock": true,
+            "inStock": false,
             "size": "pequeño",
             "colors": ["azul"],
             "upholstered": false,
@@ -111,7 +111,7 @@
             ]
         },
         {
-            "id": "3c8UApX8R7qZb1AZy9YF",
+            "id": "3c8UApXcf7qZb1AZy9YF",
             "category": "alto bobo",
             "name": "Hamaca",
             "price": 15000,
@@ -130,12 +130,12 @@
             ]
         },
         {
-            "id": "3c8UApX8R7qZb1AZy9YF",
+            "id": "3ccfApX8R7qZb1AZy9YF",
             "category": "lolcito",
             "name": "Hamaca",
             "price": 15000,
             "description": "Un prop que brilla por si solo",
-            "inStock": true,
+            "inStock": false,
             "size": "pequeño",
             "colors": ["azul"],
             "upholstered": false,
@@ -149,12 +149,12 @@
             ]
         },
         {
-            "id": "3c8UApX8R7qZb1AZy9YF",
+            "id": "3cgggpX8R7qZb1AZy9YF",
             "category": "ni idea rey",
             "name": "Hamaca",
             "price": 15000,
             "description": "Un prop que brilla por si solo",
-            "inStock": true,
+            "inStock": false,
             "size": "pequeño",
             "colors": ["azul"],
             "upholstered": false,
@@ -168,7 +168,7 @@
             ]
         },
         {
-            "id": "3c8UApX8R7qZb1AZy9YF",
+            "id": "248UApX8R7qZb1AZy9YF",
             "category": "asdasdasd",
             "name": "Hamaca",
             "price": 15000,
@@ -187,7 +187,7 @@
             ]
         },
         {
-            "id": "3c8UApX8R7qZb1AZy9YF",
+            "id": "3c8UApX8R7qZb1AZy55F",
             "category": "hbbbbb",
             "name": "Hamaca",
             "price": 15000,
@@ -206,12 +206,12 @@
             ]
         },
         {
-            "id": "3c8UApX8R7qZb1AZy9YF",
+            "id": "3c8UApX8R55Zb1AZy9YF",
             "category": "xd jajant",
             "name": "Hamaca",
             "price": 15000,
             "description": "Un prop que brilla por si solo",
-            "inStock": true,
+            "inStock": false,
             "size": "pequeño",
             "colors": ["azul"],
             "upholstered": false,
@@ -225,12 +225,12 @@
             ]
         },
         {
-            "id": "3c8UApX8R7qZb1AZy9YF",
+            "id": "3c8UApX8R7qZ555Zy9YF",
             "category": "pero che",
             "name": "Hamaca",
             "price": 15000,
             "description": "Un prop que brilla por si solo",
-            "inStock": true,
+            "inStock": false,
             "size": "pequeño",
             "colors": ["azul"],
             "upholstered": false,
@@ -244,12 +244,12 @@
             ]
         },
         {
-            "id": "3c8UApX8R7qZb1AZy9YF",
+            "id": "3c8U5558R7qZb1AZy9YF",
             "category": "PEEEERP",
             "name": "Hamaca",
             "price": 15000,
             "description": "Un prop que brilla por si solo",
-            "inStock": true,
+            "inStock": false,
             "size": "pequeño",
             "colors": ["azul"],
             "upholstered": false,
@@ -263,12 +263,12 @@
             ]
         },
         {
-            "id": "3c8UApX8R7qZb1AZy9YF",
+            "id": "3c8U7778R7qZb1AZy9YF",
             "category": "pedro pedro",
             "name": "Hamaca",
             "price": 15000,
             "description": "Un prop que brilla por si solo",
-            "inStock": true,
+            "inStock": false,
             "size": "pequeño",
             "colors": ["azul"],
             "upholstered": false,
@@ -282,7 +282,7 @@
             ]
         },
         {
-            "id": "3c8UApX8R7qZb1AZy9YF",
+            "id": "3c77ApX8R7qZb1AZy9YF",
             "category": "ta piola",
             "name": "Hamaca",
             "price": 15000,
@@ -301,12 +301,12 @@
             ]
         },
         {
-            "id": "3c8UApX8R7qZb1AZy9YF",
+            "id": "3c7UApX8R7qZb1AZy9YF",
             "category": "todo joya",
             "name": "Hamaca",
             "price": 15000,
             "description": "Un prop que brilla por si solo",
-            "inStock": true,
+            "inStock": false,
             "size": "pequeño",
             "colors": ["azul"],
             "upholstered": false,
@@ -320,12 +320,12 @@
             ]
         },
         {
-            "id": "3c8UApX8R7qZb1AZy9YF",
+            "id": "3c8UApX8R7qZ71AZy9YF",
             "category": "ya no",
             "name": "Hamaca",
             "price": 15000,
             "description": "Un prop que brilla por si solo",
-            "inStock": true,
+            "inStock": false,
             "size": "pequeño",
             "colors": ["azul"],
             "upholstered": false,
@@ -339,12 +339,12 @@
             ]
         },
         {
-            "id": "3c8UApX8R7qZb1AZy9YF",
+            "id": "3c8UApz8R7qZb1AZy9YF",
             "category": "xddddddddd",
             "name": "Hamaca",
             "price": 15000,
             "description": "Un prop que brilla por si solo",
-            "inStock": true,
+            "inStock": false,
             "size": "pequeño",
             "colors": ["azul"],
             "upholstered": false,
@@ -361,7 +361,7 @@
     "decos": [
         {
             "id": "9GkPQ7hY5B2vX1mWzJ3N",
-            "category": "asdasdbbbbbb",
+            "category": "navidad",
             "name": "Decoración de fiesta",
             "price": 75000,
             "description": "Perfecta para una fiesta temática",
@@ -437,7 +437,397 @@
         },
         {
             "id": "A2nW1B3kZ4cX8R7vY9Qs",
-            "category": "ggggffff",
+            "category": "pascuas",
+            "name": "Decoración de Navidad",
+            "price": 100000,
+            "description": "Ideal para celebrar la Navidad",
+            "tags": [
+                "Navidad",
+                "invierno",
+                "decoración"
+            ],
+            "themes": [
+                "Navidad",
+                "festivo"
+            ],
+            "inStock": true,
+            "backdrop": "Backdrop navideño",
+            "props": [
+                {
+                    "id": "B4mX2vY8S3hZ1Q7N9GkP",
+                    "category": "asdasdasdqqqqqq",
+                    "name": "Árbol de Navidad",
+                    "price": 60000,
+                    "description": "Árbol decorado con luces",
+                    "tags": [
+                        "Navidad",
+                        "árbol",
+                        "luces"
+                    ],
+                    "themes": [
+                        "Navidad",
+                        "invierno"
+                    ],
+                    "inStock": true,
+                    "size": "grande",
+                    "colors": "verde",
+                    "upholstered": false,
+                    "upholsteryCount": 0,
+                    "upholsteryColor": null,
+                    "ageRange": "todas las edades",
+                    "images": [
+                        "../../../../assets/cillita1.jpg",
+                        "../../../../assets/cillita1.jpg"
+                    ]
+                },
+                {
+                    "id": "C8R7vY9GkPQ7hY5B2vX1",
+                    "category": "qqqqwwwww",
+                    "name": "Regalos falsos",
+                    "price": 10000,
+                    "description": "Cajas de regalo decorativas",
+                    "tags": [
+                        "Navidad",
+                        "regalos",
+                        "decoración"
+                    ],
+                    "themes": [
+                        "Navidad",
+                        "invierno"
+                    ],
+                    "inStock": true,
+                    "size": "pequeño",
+                    "colors": "rojo",
+                    "upholstered": false,
+                    "upholsteryCount": 0,
+                    "upholsteryColor": null,
+                    "ageRange": "todas las edades",
+                    "images": [
+                        "../../../../assets/cillita1.jpg",
+                        "../../../../assets/cillita1.jpg"
+                    ]
+                }
+            ],
+            "images": [
+                "../../../../assets/aro1.jpg",
+                "../../../../assets/aro2.jpg"
+            ]
+        },
+        {
+            "id": "A2nW1B3kZ4cX8R7vY9Qs",
+            "category": "newborn",
+            "name": "Decoración de Navidad",
+            "price": 100000,
+            "description": "Ideal para celebrar la Navidad",
+            "tags": [
+                "Navidad",
+                "invierno",
+                "decoración"
+            ],
+            "themes": [
+                "Navidad",
+                "festivo"
+            ],
+            "inStock": true,
+            "backdrop": "Backdrop navideño",
+            "props": [
+                {
+                    "id": "B4mX2vY8S3hZ1Q7N9GkP",
+                    "category": "asdasdasdqqqqqq",
+                    "name": "Árbol de Navidad",
+                    "price": 60000,
+                    "description": "Árbol decorado con luces",
+                    "tags": [
+                        "Navidad",
+                        "árbol",
+                        "luces"
+                    ],
+                    "themes": [
+                        "Navidad",
+                        "invierno"
+                    ],
+                    "inStock": true,
+                    "size": "grande",
+                    "colors": "verde",
+                    "upholstered": false,
+                    "upholsteryCount": 0,
+                    "upholsteryColor": null,
+                    "ageRange": "todas las edades",
+                    "images": [
+                        "../../../../assets/cillita1.jpg",
+                        "../../../../assets/cillita1.jpg"
+                    ]
+                },
+                {
+                    "id": "C8R7vY9GkPQ7hY5B2vX1",
+                    "category": "qqqqwwwww",
+                    "name": "Regalos falsos",
+                    "price": 10000,
+                    "description": "Cajas de regalo decorativas",
+                    "tags": [
+                        "Navidad",
+                        "regalos",
+                        "decoración"
+                    ],
+                    "themes": [
+                        "Navidad",
+                        "invierno"
+                    ],
+                    "inStock": true,
+                    "size": "pequeño",
+                    "colors": "rojo",
+                    "upholstered": false,
+                    "upholsteryCount": 0,
+                    "upholsteryColor": null,
+                    "ageRange": "todas las edades",
+                    "images": [
+                        "../../../../assets/cillita1.jpg",
+                        "../../../../assets/cillita1.jpg"
+                    ]
+                }
+            ],
+            "images": [
+                "../../../../assets/aro1.jpg",
+                "../../../../assets/aro2.jpg"
+            ]
+        },
+        {
+            "id": "A2nW1B3kZ4cX8R7vY9Qs",
+            "category": "otoño",
+            "name": "Decoración de Navidad",
+            "price": 100000,
+            "description": "Ideal para celebrar la Navidad",
+            "tags": [
+                "Navidad",
+                "invierno",
+                "decoración"
+            ],
+            "themes": [
+                "Navidad",
+                "festivo"
+            ],
+            "inStock": true,
+            "backdrop": "Backdrop navideño",
+            "props": [
+                {
+                    "id": "B4mX2vY8S3hZ1Q7N9GkP",
+                    "category": "asdasdasdqqqqqq",
+                    "name": "Árbol de Navidad",
+                    "price": 60000,
+                    "description": "Árbol decorado con luces",
+                    "tags": [
+                        "Navidad",
+                        "árbol",
+                        "luces"
+                    ],
+                    "themes": [
+                        "Navidad",
+                        "invierno"
+                    ],
+                    "inStock": true,
+                    "size": "grande",
+                    "colors": "verde",
+                    "upholstered": false,
+                    "upholsteryCount": 0,
+                    "upholsteryColor": null,
+                    "ageRange": "todas las edades",
+                    "images": [
+                        "../../../../assets/cillita1.jpg",
+                        "../../../../assets/cillita1.jpg"
+                    ]
+                },
+                {
+                    "id": "C8R7vY9GkPQ7hY5B2vX1",
+                    "category": "qqqqwwwww",
+                    "name": "Regalos falsos",
+                    "price": 10000,
+                    "description": "Cajas de regalo decorativas",
+                    "tags": [
+                        "Navidad",
+                        "regalos",
+                        "decoración"
+                    ],
+                    "themes": [
+                        "Navidad",
+                        "invierno"
+                    ],
+                    "inStock": true,
+                    "size": "pequeño",
+                    "colors": "rojo",
+                    "upholstered": false,
+                    "upholsteryCount": 0,
+                    "upholsteryColor": null,
+                    "ageRange": "todas las edades",
+                    "images": [
+                        "../../../../assets/cillita1.jpg",
+                        "../../../../assets/cillita1.jpg"
+                    ]
+                }
+            ],
+            "images": [
+                "../../../../assets/aro1.jpg",
+                "../../../../assets/aro2.jpg"
+            ]
+        },
+        {
+            "id": "A2nW1B3kZ4cX8R7vY9Qs",
+            "category": "playa",
+            "name": "Decoración de Navidad",
+            "price": 100000,
+            "description": "Ideal para celebrar la Navidad",
+            "tags": [
+                "Navidad",
+                "invierno",
+                "decoración"
+            ],
+            "themes": [
+                "Navidad",
+                "festivo"
+            ],
+            "inStock": true,
+            "backdrop": "Backdrop navideño",
+            "props": [
+                {
+                    "id": "B4mX2vY8S3hZ1Q7N9GkP",
+                    "category": "asdasdasdqqqqqq",
+                    "name": "Árbol de Navidad",
+                    "price": 60000,
+                    "description": "Árbol decorado con luces",
+                    "tags": [
+                        "Navidad",
+                        "árbol",
+                        "luces"
+                    ],
+                    "themes": [
+                        "Navidad",
+                        "invierno"
+                    ],
+                    "inStock": true,
+                    "size": "grande",
+                    "colors": "verde",
+                    "upholstered": false,
+                    "upholsteryCount": 0,
+                    "upholsteryColor": null,
+                    "ageRange": "todas las edades",
+                    "images": [
+                        "../../../../assets/cillita1.jpg",
+                        "../../../../assets/cillita1.jpg"
+                    ]
+                },
+                {
+                    "id": "C8R7vY9GkPQ7hY5B2vX1",
+                    "category": "qqqqwwwww",
+                    "name": "Regalos falsos",
+                    "price": 10000,
+                    "description": "Cajas de regalo decorativas",
+                    "tags": [
+                        "Navidad",
+                        "regalos",
+                        "decoración"
+                    ],
+                    "themes": [
+                        "Navidad",
+                        "invierno"
+                    ],
+                    "inStock": true,
+                    "size": "pequeño",
+                    "colors": "rojo",
+                    "upholstered": false,
+                    "upholsteryCount": 0,
+                    "upholsteryColor": null,
+                    "ageRange": "todas las edades",
+                    "images": [
+                        "../../../../assets/cillita1.jpg",
+                        "../../../../assets/cillita1.jpg"
+                    ]
+                }
+            ],
+            "images": [
+                "../../../../assets/aro1.jpg",
+                "../../../../assets/aro2.jpg"
+            ]
+        },
+        {
+            "id": "A2nW1B3kZ4cX8R7vY9Qs",
+            "category": "florales",
+            "name": "Decoración de Navidad",
+            "price": 100000,
+            "description": "Ideal para celebrar la Navidad",
+            "tags": [
+                "Navidad",
+                "invierno",
+                "decoración"
+            ],
+            "themes": [
+                "Navidad",
+                "festivo"
+            ],
+            "inStock": true,
+            "backdrop": "Backdrop navideño",
+            "props": [
+                {
+                    "id": "B4mX2vY8S3hZ1Q7N9GkP",
+                    "category": "asdasdasdqqqqqq",
+                    "name": "Árbol de Navidad",
+                    "price": 60000,
+                    "description": "Árbol decorado con luces",
+                    "tags": [
+                        "Navidad",
+                        "árbol",
+                        "luces"
+                    ],
+                    "themes": [
+                        "Navidad",
+                        "invierno"
+                    ],
+                    "inStock": true,
+                    "size": "grande",
+                    "colors": "verde",
+                    "upholstered": false,
+                    "upholsteryCount": 0,
+                    "upholsteryColor": null,
+                    "ageRange": "todas las edades",
+                    "images": [
+                        "../../../../assets/cillita1.jpg",
+                        "../../../../assets/cillita1.jpg"
+                    ]
+                },
+                {
+                    "id": "C8R7vY9GkPQ7hY5B2vX1",
+                    "category": "qqqqwwwww",
+                    "name": "Regalos falsos",
+                    "price": 10000,
+                    "description": "Cajas de regalo decorativas",
+                    "tags": [
+                        "Navidad",
+                        "regalos",
+                        "decoración"
+                    ],
+                    "themes": [
+                        "Navidad",
+                        "invierno"
+                    ],
+                    "inStock": true,
+                    "size": "pequeño",
+                    "colors": "rojo",
+                    "upholstered": false,
+                    "upholsteryCount": 0,
+                    "upholsteryColor": null,
+                    "ageRange": "todas las edades",
+                    "images": [
+                        "../../../../assets/cillita1.jpg",
+                        "../../../../assets/cillita1.jpg"
+                    ]
+                }
+            ],
+            "images": [
+                "../../../../assets/aro1.jpg",
+                "../../../../assets/aro2.jpg"
+            ]
+        },
+        {
+            "id": "A2nW1B3kZ4cX8R7vY9Qs",
+            "category": "navidad",
             "name": "Decoración de Navidad",
             "price": 100000,
             "description": "Ideal para celebrar la Navidad",

@@ -2,6 +2,7 @@ main{
     display: grid;
     justify-items: center;
     align-items: start;
+    background-color: #f0f0f0;
 }
 main::-webkit-scrollbar {
     display: none; /* Oculta las barras de desplazamiento */

@@ -10,7 +10,7 @@ import { Backdrop, Decoration, Prop } from '../interfaces/productInterface';
 })
 export class ProductComponent{
 
-  product!:  Prop | Backdrop | Decoration
+  product!:  Prop | Backdrop | Decoration;
 
   selectedImage: string = '';
   selectedColor: string = '';
@@ -29,6 +29,7 @@ export class ProductComponent{
       }
     });
   }
+
   loadProductDetails(): void {
     this.productService.getProduct(this.productId).subscribe(
       (product: Prop | Decoration | Backdrop) => {
@@ -49,5 +50,15 @@ export class ProductComponent{
     this.selectedColor = color;
   }
 
+  formatPrice(price: number): string {
+    const formattedPrice = new Intl.NumberFormat('es-ES', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }).format(price);
 
+    // Reemplaza 'US$' con '' y coloca '$' al principio
+    return '$' + formattedPrice.replace('US$', '');
+  }
 }

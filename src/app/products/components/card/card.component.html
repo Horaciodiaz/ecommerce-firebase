@@ -1,9 +1,12 @@
 <div class="card">
     <figure>
+        <p class="stock" *ngIf="product.inStock">En Stock</p>
         <img [src]="product.images[0]" alt="sillita" loading="lazy">
     </figure>
     <div class="text">
         <h4>{{product.name}}</h4>
-        <p>{{product.price | currency}}</p>
+        <p>{{product.description}}</p>
+        <p>{{formatPrice(product.price)}}</p>
+        <button>Ver más</button>
     </div>
 </div>

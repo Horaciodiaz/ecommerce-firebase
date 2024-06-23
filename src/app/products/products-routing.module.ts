@@ -18,7 +18,7 @@ const routes: Routes = [
           { path: '**', redirectTo: 'props' } // Ruta por defecto dentro de ProductsComponent
         ]
       },
-      { path: '**', redirectTo: '' } // Ruta por defecto dentro de ProductsComponent
+      { path: '**', redirectTo: 'props' } // Ruta por defecto dentro de ProductsComponent
     ]
   },
   { path: '**', redirectTo: '' } // Ruta por defecto global
