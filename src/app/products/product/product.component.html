@@ -1,30 +1,26 @@
 <div class="snap-section product">
     <div class="product-container">
-        <div class="product-images">
-            <img [src]="selectedImage" alt="Product Image" class="main-image">
-            <div class="thumbnail-images">
-                <img *ngFor="let image of product.images" [src]="image" alt="Product Thumbnail"
-                    (click)="selectImage(image)" class="thumbnail-image">
-            </div>
+        <div class="thumbnail-images">
+            <img *ngFor="let image of product.images" [src]="image" alt="Product Thumbnail"
+                (click)="selectImage(image)" class="thumbnail-image">
         </div>
+            <img [src]="selectedImage" alt="Product Image" class="main-image">
 
         <div class="product-details">
             <h1 class="product-name">{{ product.name | titlecase }}</h1>
             <p class="product-price">{{ formatPrice(product.price) }}</p>
-            <p *ngIf="product.inStock; else Pedido">En stock</p>
-            <ng-template #Pedido>A pedido</ng-template>
-            <button class="btn add-to-cart-btn">Añadir al Carrito <i class="fa-solid fa-cart-plus"></i></button>
-            <button class="btn add-to-favorite-btn">Añadir a Favoritos <i class="fa-solid fa-heart"></i></button>
+            <p class="stock" *ngIf="product.inStock; else Pedido">En stock</p>
+            <ng-template #Pedido><p class="stock">A pedido <i class="fa-regular fa-clock"></i></p></ng-template>
+            <div class="buttons">
+                <button class="btn add-to-cart-btn">Añadir al Carrito <i class="fa-solid fa-cart-plus"></i></button>
+                <button class="btn add-to-favorite-btn">Añadir a Favoritos <i class="fa-solid fa-heart"></i></button>
+            </div>
             <p class="product-description"><span>Descripción:</span> {{ product.description }}</p>
-            <!-- <div class="product-options">
-                <div class="product-colors" *ngSwitch="">
 
-                </div>
-            </div> -->
-<!-- 
-            <div class="product-options">
+
+            <div class="product-options" *ngIf="isProp(product)">
                 <div class="product-colors" *ngIf="product.colors && product.colors.length > 0">
-                    <label>Colores:</label>
+                    <p>Colores:</p>
                     <div style="display: flex; gap: 10px;" class="color-option">
                         <button *ngFor="let color of product.colors" [ngClass]="{'active': color === selectedColor}"
                             (click)="selectColor(color)">
@@ -32,7 +28,7 @@
                         </button>
                     </div>
                 </div>
-
+<!-- 
                 <div class="product-sizes" *ngIf="product.sizes && product.sizes.length > 0">
                     <label>Tamaños: </label>
                     <select [(ngModel)]="selectedSize">

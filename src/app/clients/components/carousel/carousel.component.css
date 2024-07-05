@@ -1,6 +1,54 @@
+/*
+.carousel-dots {
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.carousel-dots span {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  background-color: #eeeeee98;
+  box-sizing: border-box;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: width 0.5s ease;
+}
+
+.carousel-dots .active-dot {
+  width: 100px;
+  box-sizing: border-box;
+  border: 1px solid #eeeeee98;
+}
+
+.carousel-dots .progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  
+  background-color: #ff6a6a;
+  animation: progress 5s linear infinite;
+}
+
+@keyframes progress {
+  0% { 
+    width: 0%;
+  }
+  100% { 
+    width: 100%; 
+  }
+} */
+
 .carousel-container {
   position: relative;
-  /* aspect-ratio: 2.5 / 1; */
   margin: auto;
   overflow: hidden;
 }
@@ -20,7 +68,7 @@
 }
 
 .carousel-image {
-  width: 100%;
+  width: calc(100% + 30px);
   height: 100%;
   object-fit: cover;
   display: block;
@@ -32,10 +80,11 @@
   color: white;
   padding: 10px;
   border-radius: 5px;
-  top: 200px;
+  top: 50%;
   left: 60px;
   width: 40%;
   display: flex;
+  transform: translateY(-50%);
   flex-direction: column;
 }
 
@@ -63,21 +112,16 @@
   background-color: rgba(0, 0, 0, 0.3);
   color: white;
   border: 2px solid white;
-  /* Borde de doble línea blanca */
   cursor: pointer;
   border-radius: 10px;
   z-index: 4;
   width: auto;
-  /* Ancho automático basado en el contenido */
   align-self: flex-start;
-  /* Alineación del botón */
   white-space: nowrap;
-  /* Evita que el texto del botón se divida en varias líneas */
 }
 
 .carousel-caption button:hover {
   background-color: rgba(0, 0, 0, 0.7);
-  /* box-shadow: 3px 3px 5px #000;  */
 }
 
 .carousel-buttons {
@@ -105,7 +149,6 @@ button:hover {
 .carousel-dots {
   text-align: center;
   padding: 10px 0;
-  /* background: rgba(0, 0, 0, 0.2); */
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -131,16 +174,17 @@ button:hover {
 }
 
 .active {
-  /* opacity: 1;
-  transform: translateX(0%);
-  transition: opacity 800ms ease-in-out, transform 800ms ease-in-out; */
-  animation: enter 1s ease-in 0s 1 normal forwards;
+  animation: enter .8s ease 0s 1 normal forwards;
   z-index: 1;
+}
+.inactive {
+  animation: leave .8s ease-out 0s 1 normal forwards;
+  z-index: -1;
 }
 
 @keyframes enter {
 	0% {
-		opacity: 0;
+		opacity: 0.5;
 		transform: translateX(-30px);
 	}
 
@@ -151,7 +195,7 @@ button:hover {
 }
 
 @keyframes leave {
-  0% {
+  40% {
     opacity: 1;
     transform: translateX(0);
   }
@@ -162,20 +206,6 @@ button:hover {
   }
 }
 
-.inactive {
-  animation: leave 1s ease-out 0s 1 normal forwards;
-  /* opacity: 0.2;
-  transform: translateX(100%);
-  transition: opacity 800ms ease-in-out, transform 800ms ease-in-out; */
-  z-index: -1;
-}
-
-/* .previous {
-  transform: translateX(-100%);
-  opacity: 0.2;
-  transition: opacity 800ms ease-in-out, transform 800ms ease-in-out;
-  z-index: -1;
-} */
 
 .text-active {
   opacity: 1;

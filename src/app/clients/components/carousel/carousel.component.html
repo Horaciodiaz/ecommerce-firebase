@@ -1,22 +1,42 @@
+<!-- <div class="carousel-container">
+  <div class="carousel-inner"
+    [ngStyle]="{'transform': 'translateX(' + (-currentIndex * 100 ) + '%)'}">
+    <div *ngFor="let image of images; let i = index" class="carousel-slide">
+      <img [src]="image.link" class="carousel-image">
+      <div class="carousel-caption">
+        <h3>{{ image.text }}</h3>
+        <button>{{ image.buttonText }}</button>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-button left" (click)="prev()">&#10094;</button>
+  <button class="carousel-button right" (click)="next()">&#10095;</button>
+  <div class="carousel-dots">
+    <span *ngFor="let image of images; let i = index" [ngClass]="{'active-dot': i === currentIndex}"
+      (click)="goToIndex(i)">
+      <div class="progress-bar" *ngIf="i === currentIndex"></div>
+    </span>
+  </div>
+</div> -->
 <div class="carousel-container">
-    <div class="carousel-inner">
-        <div *ngFor="let image of images; let i = index" class="carousel-slide"
-            [ngClass]="{'active': i === currentIndex, 'inactive': i !== currentIndex, 'previous': i === previousIndex}"
-            [@carouselAnimation]="i === currentIndex ? 'enter' : 'leave'">
-            <img [src]="image.link" class="carousel-image">
-            <div class="carousel-caption" [ngClass]="{'text-active': i === currentIndex, 'text-inactive': i !== currentIndex}">
-                <h3>{{ image.text }}</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum fugiat iusto sint deserunt ipsam eum!</p>
-                <button class="image-btn">{{ image.buttonText }}</button>
-            </div>
-        </div>
-        <div class="carousel-buttons">
-            <button class="left" (click)="prev()">&#10094;</button>
-            <button class="right" (click)="next()">&#10095;</button>
-        </div>
-    </div>
-    <div class="carousel-dots">
-        <span *ngFor="let image of images; let i = index" [class.active]="i === currentIndex"
-            (click)="goToIndex(i)"></span>
-    </div>
+  <div class="carousel-inner">
+      <div *ngFor="let image of images; let i = index" class="carousel-slide"
+          [ngClass]="{'active': i === currentIndex, 'inactive': i !== currentIndex, 'previous': i === previousIndex}"
+          [@carouselAnimation]="i === currentIndex ? 'enter' : 'leave'">
+          <img [src]="image.link" class="carousel-image">
+          <div class="carousel-caption" [ngClass]="{'text-active': i === currentIndex, 'text-inactive': i !== currentIndex}">
+              <h3>{{ image.text }}</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum fugiat iusto sint deserunt ipsam eum!</p>
+              <button class="image-btn">{{ image.buttonText }}</button>
+          </div>
+      </div>
+      <div class="carousel-buttons">
+          <button class="left" (click)="prev()">&#10094;</button>
+          <button class="right" (click)="next()">&#10095;</button>
+      </div>
+  </div>
+  <div class="carousel-dots">
+      <span *ngFor="let image of images; let i = index" [class.active]="i === currentIndex"
+          (click)="goToIndex(i)"></span>
+  </div>
 </div>

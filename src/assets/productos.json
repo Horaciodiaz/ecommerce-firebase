@@ -62,7 +62,7 @@
             "description": "Una silla de estilo vintage perfecta para sesiones retro",
             "inStock": false,
             "size": "mediano",
-            "colors": ["marrón"],
+            "colors": ["marrón", "amarillo"],
             "upholstered": true,
             "upholsteryCount": 1,
             "upholsteryColor": "rojo",

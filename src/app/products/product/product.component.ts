@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from '../services/products.service';
-import { Backdrop, Decoration, Prop } from '../interfaces/productInterface';
+import { Backdrop, Decoration, Product, Prop } from '../interfaces/productInterface';
 
 @Component({
   selector: 'app-product',
@@ -35,6 +35,7 @@ export class ProductComponent{
       (product: Prop | Decoration | Backdrop) => {
         this.product = product;
         this.selectedImage = product.images[0];
+        this.selectedColor = (product as Prop).colors[0];
       },
       (error) => {
         console.error(error); // Maneja el error de producto no encontrado
@@ -61,4 +62,8 @@ export class ProductComponent{
     // Reemplaza 'US$' con '' y coloca '$' al principio
     return '$' + formattedPrice.replace('US$', '');
   }
+  
+  isProp(product: Product): product is Prop {
+    return (product as Prop).colors !== undefined;
+}
 }
