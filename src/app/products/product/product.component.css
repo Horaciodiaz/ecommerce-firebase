@@ -5,6 +5,7 @@
   padding: 20px;
   animation: intro .5s ease 0s 1 normal forwards;
   height: 80vh;
+  min-height: 80vh;
 }
 
 @keyframes intro {
@@ -19,6 +20,11 @@
   }
 }
 
+.cargando{
+  height: 80vh;
+  display: flex;
+  align-items: center;
+}
 
 .main-image {
   width: 650px;

@@ -1,52 +1,38 @@
+<section class="shoppingCart">
+    <h2>Carrito de Compras</h2>
 
-<h2>Carrito de Compras</h2>
+    <table *ngIf="productos.length > 0; else vacio">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre del Producto</th>
+                <th>Precio</th>
+                <!-- <th>Color</th>
+                <th>Tamaño</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of productos; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{product.nombre}}</td>
+                <td>{{formatPrice(product.precio)}}</td>
+                <!-- <td>{{product.color}}</td> -->
+                <!-- <td style="text-align: center;">{{product.size || '-'}}</td> -->
+                <td><button (click)="removeProduct(i)" class="delete"><i class="fa-solid fa-trash"></i></button></td>
+            </tr>
 
-<table *ngIf="false; else vacio">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Nombre del Producto</th>
-            <th>Precio unitario</th>
-            <th>Cantidad</th>
-            <th colspan="2">Precio</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1</td>
-            <td>Hamaca</td>
-            <td>{{"32000"}}</td>
-            <td><button>-</button> 1 <button>+</button></td>
-            <td>{{"32000"}}</td>
-            <td><button class="delete">eliminar</button></td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Autito vintage</td>
-            <td>{{"25000"}}</td>
-            <td><button>-</button> 2 <button>+</button></td>
-            <td>{{"50000"}}</td>
-            <td><button class="delete">eliminar</button></td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>aro new born</td>
-            <td>{{"18000"}}</td>
-            <td><button>-</button> 1 <button>+</button></td>
-            <td>{{"18000"}}</td>
-            <td><button class="delete">eliminar</button></td>
-        </tr>
-    </tbody>
-    <tfoot>
-        <tr>
-            <td>Total</td>
-            <td colspan="4">{{ "100000"}}</td>
-        </tr>
-    </tfoot>
-</table>
-<ng-template #vacio>
-    <div class="vacio">
-        <p>Tu carrito esta vacio</p>
-        <button>Volver a la tienda</button>
-    </div>
-</ng-template>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Total</td>
+                <td colspan="5">{{ formatPrice(total) }}</td>
+            </tr>
+        </tfoot>
+    </table>
+    <ng-template #vacio>
+        <div class="vacio">
+            <p>Tu carrito esta vacio!</p>
+            <button routerLink="/productos">Volver a la tienda</button>
+        </div>
+    </ng-template>
+</section>

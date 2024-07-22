@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from '../services/products.service';
 import { Backdrop, Decoration, Product, Prop } from '../interfaces/productInterface';
+import { ShoppingCartService } from 'src/app/clients/shopping-cart/shopping-cart.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product',
@@ -10,35 +12,41 @@ import { Backdrop, Decoration, Product, Prop } from '../interfaces/productInterf
 })
 export class ProductComponent{
 
-  product!:  Prop | Backdrop | Decoration;
+  // product!:  Prop | Backdrop | Decoration;
+  product: any;
 
   selectedImage: string = '';
   selectedColor: string = '';
   selectedSize: string = '';
   productId: string = '';
-  
-  constructor(public router: Router, private productService: ProductsService, private route: ActivatedRoute){
+  loading: boolean = true;
+
+  constructor(public router: Router, private productService: ProductsService, private route: ActivatedRoute, private shoppingCartService: ShoppingCartService){
   }
 
   ngOnInit(): void {
-    this.loadProductDetails();
     this.route.params.subscribe(params => {
       this.productId = params['id'];
       if (this.productId) {
-        this.loadProductDetails();
+        this.loadProductDetails(params['id']);
       }
     });
   }
 
-  loadProductDetails(): void {
-    this.productService.getProduct(this.productId).subscribe(
-      (product: Prop | Decoration | Backdrop) => {
+  loadProductDetails(id: string): void {
+    let category = this.router.url.slice(11).split('/')[0];
+    let product = this.productService.getProduct(category, id);
+    product.subscribe(
+      (product: any) => {
         this.product = product;
-        this.selectedImage = product.images[0];
-        this.selectedColor = (product as Prop).colors[0];
+        if (product && product.imagenes && product.imagenes.length > 0) {
+          this.selectedImage = product.imagenes[0];
+        }
+        this.loading = false;
       },
       (error) => {
-        console.error(error); // Maneja el error de producto no encontrado
+        console.error('Error al cargar el producto:', error);
+        this.loading = false;
       }
     );
   }
@@ -59,11 +67,26 @@ export class ProductComponent{
       maximumFractionDigits: 2,
     }).format(price);
 
-    // Reemplaza 'US$' con '' y coloca '$' al principio
     return '$' + formattedPrice.replace('US$', '');
   }
-  
+
   isProp(product: Product): product is Prop {
     return (product as Prop).colors !== undefined;
 }
+
+  addToCart(product: any){
+    let item = {
+      ...product,
+      color: this.selectedColor,
+      size: this.selectedSize
+    }
+    this.shoppingCartService.addProduct(item);
+    Swal.fire({
+      position: "bottom",
+      title: "Producto añadido al carrito",
+      showConfirmButton: false,
+      timer: 1500,
+      backdrop: false
+    });
+  }
 }

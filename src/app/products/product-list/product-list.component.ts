@@ -10,9 +10,10 @@ import { switchMap } from 'rxjs';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
-  products: Product[] = [];
+  products: any[] = [];
   category: string = 'props';
   subcategory: string = '';
+  loading: boolean = true;
 
   constructor(private router: Router ,private productService: ProductsService, private route: ActivatedRoute){}
 
@@ -34,55 +35,34 @@ export class ProductListComponent {
   }
 
   loadProductsByCategory(category: string) {
-    switch (category) {
-      case 'props':
-        this.productService.getProps().subscribe(data => {
-          this.products = data;
-        });
-        break;
-      
-      case 'fondos':
-        this.productService.getBackdrops().subscribe(data => {
-          this.products = data;
-        });
-        break;
-
-      default:
-        this.productService.getDecos().subscribe(data => {
-          this.products = data;
-        });
-        break;
-    }
+    this.productService.getProducts(category).subscribe(
+      data => {
+        this.products = data;
+        this.loading = false;
+        console.log(data)
+      },
+      error => {
+        console.error('Error al obtener productos:', error);
+        this.loading = true;
+      }
+    );
   }
 
   loadProductsBySubcategory(category: string, subcategory: string) {
-    switch (category) {
-      case 'props':
-        this.productService.getPropsSubCategory(subcategory).subscribe(data => {
-          this.products = data;
-          console.log("props", data);
-        });
-        break;
-      
-      case 'fondos':
-        this.productService.getBackdropsSubCategory(subcategory).subscribe(data => {
-          this.products = data;
-          console.log("fondos", data);
-        });
-        break;
-
-      default:
-        this.productService.getDecosSubCategory(subcategory).subscribe(data => {
-          this.products = data;
-          console.log("decos", data);
-        });
-        break;
-    }
+    this.productService.getProductsWithCategory(category, subcategory).subscribe(
+      data => {
+        this.products = data;
+        this.loading = false;
+      },
+      error => {
+        console.error('Error al obtener productos:', error);
+        this.loading = false;
+      }
+    );
   }
-  
+
   sendToProduct(product: Product){
-    this.router.navigate(['/productos', 
-      this.category, product.id]);
+    this.router.url.includes('admin') ? this.router.navigate(['admin/productos', this.category, product.id]) : this.router.navigate(['/productos', this.category, product.id])
   }
 
 }

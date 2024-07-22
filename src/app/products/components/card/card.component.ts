@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent {
-  @Input() product!: Product;
+  @Input() product!: any;
   @Input() category: string = '';
 
   constructor(private router: Router){

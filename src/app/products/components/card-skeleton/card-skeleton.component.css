@@ -1,0 +1,82 @@
+.card {
+  height: 365px;
+  width: 250px;
+  color: #383838;
+  cursor: pointer;
+  padding-bottom: 5px;
+  transition: color 0.5s ease;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+figure {
+  overflow: hidden;
+  width: 100%;
+  height: 78.5%;
+  margin: 0;
+  border-radius: 10px 10px 0 0;
+  position: relative;
+}
+
+.skeleton {
+  background: #f0f0f0;
+  background-image: linear-gradient(90deg, #f0f0f0, #e0e0e0, #f0f0f0);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 5px;
+}
+
+.skeleton-stock {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 60px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+.skeleton-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 10px 0 0;
+}
+
+.text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.skeleton-text {
+  height: 20px;
+  margin: 8px;
+}
+
+.skeleton-title {
+  width: 60%;
+  height: 20px;
+  margin: 10px 8px;
+}
+
+.skeleton-price {
+  width: 40%;
+  height: 20px;
+  margin: 10px 8px;
+}
+
+.skeleton-button {
+  width: 80%;
+  height: 30px;
+  margin: 10px 8px;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}

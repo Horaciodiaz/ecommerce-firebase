@@ -13,6 +13,7 @@ import { TestimoniosComponent } from './components/testimonios/testimonios.compo
 import { QuickContactComponent } from './components/quick-contact/quick-contact.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { CategoriesComponent } from './components/categories/categories.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 
@@ -33,6 +34,7 @@ import { CategoriesComponent } from './components/categories/categories.componen
     ClientsRoutingModule,
     RouterModule,
     SharedModule,
+    SweetAlert2Module
   ]
 })
 export class ClientsModule { }

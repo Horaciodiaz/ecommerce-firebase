@@ -1,15 +1,15 @@
 <section id="testimonials">
     <div class="testimonials">
         <h2 class="title">Testimonios</h2>
-        <div class="testimonial">
+        <div class="testimonial" *ngFor="let cita of testimonios">
             <i class="fa-solid fa-quote-left"></i>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, nulla. Inventore exercitationem corrupti soluta, est iure veritatis dolores dolorem voluptatum explicabo facilis nisi fugiat enim!</p>
+            <p>{{cita.cita}}</p>
             <div class="cita">
-                <h4 class="name">Adrian Weiss</h4>
-                <img src="../../../../assets/citas/adrian.jpg" alt="">
+                <h4 class="name">{{cita.nombre}}</h4>
+                <img [src]="cita.imagen" [alt]="cita.nombre">
             </div>
         </div>
-        <div class="testimonial">
+        <!-- <div class="testimonial">
             <i class="fa-solid fa-quote-left"></i>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, nulla. Inventore exercitationem corrupti soluta, est iure veritatis dolores dolorem voluptatum explicabo facilis nisi fugiat enim!</p>
             <div class="cita">
@@ -32,6 +32,6 @@
                 <h4 class="name">Esteban</h4>
                 <img src="../../../../assets/citas/esteban.jpg" alt="">
             </div>
-        </div>
+        </div> -->
     </div>
 </section>

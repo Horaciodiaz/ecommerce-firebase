@@ -6,16 +6,18 @@
     width: 75%;
     margin: 0 auto;
   }
-  
+
   .title {
     grid-column: 1 / -1; /* El título ocupa todas las columnas */
     margin: 10px;
     font-size: 40px;
     text-align: center;
   }
-  
+
   .testimonial{
-    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     /* border: 2px solid #ffa3f7; */
     text-align: justify;
     padding: 10px 25px;

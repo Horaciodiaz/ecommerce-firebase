@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-home',
@@ -38,4 +39,14 @@ export class HomeComponent {
       prioridad: "primero"
     }
   ];
+
+  constructor( private firestore: AngularFirestore){}
+
+  ngOnInit(){
+    this.firestore.collection('carrusel').stateChanges().subscribe(
+      fotos => {
+        console.log(fotos.map( x => x.payload.doc.data() ))
+      }
+    );
+  }
 }

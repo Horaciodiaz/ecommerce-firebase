@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
+import { ImagesService } from 'src/app/services/images.service';
 
 @Component({
   selector: 'app-carousel',
@@ -18,65 +19,18 @@ import { trigger, style, animate, transition } from '@angular/animations';
     ])
   ]
 })
-export class CarouselComponent implements OnInit, OnDestroy {
+export class CarouselComponent {
 
-  images = [
-    {
-      link: '../../assets/aro1.jpg',
-      alt: "Aro new born",
-      prioridad: "primero",
-      text: 'Aro New Born',
-      buttonText: 'Conocer más',
-      position: 'left'
-    },
-    {
-      link: '../../assets/aro2.jpg',
-      alt: "Aro new born",
-      prioridad: "segundo",
-      text: 'Aro New Born',
-      buttonText: 'Comprar ahora',
-      position: 'right'
-    },
-    {
-      link: '../../assets/aro3.jpg',
-      alt: "Aro new born",
-      prioridad: "tercero",
-      text: 'Aro New Born',
-      buttonText: 'Consultenos',
-      position: 'right'
-    },
-    {
-      link: '../../assets/hamaca1.jpg',
-      alt: "mi primera hamaca",
-      prioridad: "segundo",
-      text: 'Hamaca New Born',
-      buttonText: 'Conozcala',
-      position: 'left'
-    },
-    {
-      link: '../../assets/hamaca2.jpg',
-      alt: "mi primera hamaca",
-      prioridad: "cuarto",
-      text: 'Hamaca New Born',
-      buttonText: 'no se xd',
-      position: 'left'
-    },
-    {
-      link: '../../assets/hamaca3.jpg',
-      alt: "mi primera hamaca",
-      prioridad: "primero",
-      text: 'Hamaca New Born',
-      buttonText: 'Learn More 1',
-      position: 'right'
-    }
-  ];
+  //TODO hacer que las imagenes vengan de un servicio
+  images: any = [];
   currentIndex = 0;
   previousIndex: number | null = null;
   interval: any;
 
-  constructor() {}
+  constructor( private imageService: ImagesService) {}
 
   ngOnInit(): void {
+    this.images = this.imageService.images;
     this.startAutoSlide();
   }
 

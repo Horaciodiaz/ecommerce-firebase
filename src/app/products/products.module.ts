@@ -9,6 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FiltersComponent } from './components/filters/filters.component';
 import { ProductsService } from './services/products.service';
 import { ProductsComponent } from './products.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { CardSkeletonComponent } from './components/card-skeleton/card-skeleton.component';
+import { ProductSkeletonComponent } from './components/product-skeleton/product-skeleton.component';
 
 
 
@@ -19,12 +22,15 @@ import { ProductsComponent } from './products.component';
     CardComponent,
     FiltersComponent,
     ProductsComponent,
+    CardSkeletonComponent,
+    ProductSkeletonComponent,
   ],
   imports: [
     CommonModule,
-    FormsModule,
+    // FormsModule,
     ProductsRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    SweetAlert2Module
   ]
 })
 export class ProductsModule { }

@@ -1,0 +1,50 @@
+<h2>Productos - {{ category | titlecase }}</h2>
+<button (click)="create = true">Agregar {{category | titlecase}}</button>
+<table *ngIf="!loading">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Foto</th>
+      <th>Precio</th>
+      <th *ngIf="products[0]['inStock'] != null">En Stock</th>
+      <!-- <th>Colores</th> -->
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="!loading; else: Cargando">
+    <tr *ngFor="let product of products; let i = index" class="Animation">
+      <td>{{ i+1 }}</td>
+      <td>{{ product.nombre }}</td>
+      <td>
+        <img [src]="product.imagenes[0]" [alt]="product.nombre " width="50" height="50">
+      </td>
+      <td>{{ formatPrice(product.precio) }}</td>
+      <td *ngIf="products[0]['inStock'] != null">{{ product['inStock'] ? 'Sí' : 'No' }}</td>
+      <td>
+        <!-- <button (click)="sendToProduct(product)">Ver</button> -->
+        <button style="background-color: #0075d5;" (click)="edit = true; id = product.id; productToEdit = product"><i class="fa-solid fa-pen-to-square"></i>Editar</button>
+        <button style="background-color: red;" (click)="deleteProduct(product.id)"><i class="fa-solid fa-trash"></i>Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+    <ng-template #Cargando>
+      <tbody class="skeleton Animation">
+        <tr *ngFor="let item of [1,2,3,4,5,6,7,8]">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+            <button></button>
+            <button></button>
+          </td>
+        </tr>
+      </tbody>
+    </ng-template>
+</table>
+
+<app-form [create]="true" [edit]="false" *ngIf="create" (cerrar)="create = false" (datos)="product = $event; addItem()"></app-form>
+<app-form [product]="productToEdit" [create]="false" [edit]="true" *ngIf="edit" (cerrar)="edit = false" (datos)="product = $event; editProduct()"></app-form>
+
+

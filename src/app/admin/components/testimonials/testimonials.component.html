@@ -1,0 +1,56 @@
+<h2>Testimonios</h2>
+<button (click)="create = true">Agregar Testimonio</button>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Cita</th>
+      <th>imagen</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="testimonios.length > 0; else Cargando">
+    <tr *ngFor="let testimonio of testimonios; let i = index" class="Animation">
+      <td>{{ i+1 }}</td>
+      <td>{{ testimonio.nombre }}</td>
+      <td id="cita-skeleton">{{ testimonio.cita }}</td>
+      <td><img width="50px" height="50px" [src]="testimonio.imagen" [alt]="testimonio.nombre"></td>
+      <td>
+        <button (click)="edit = true; id = testimonio.id; setForm(testimonio)">Editar</button>
+        <button (click)="deleteTestimonio(testimonio.id)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+  <ng-template #Cargando>
+    <tbody class="skeleton Animation">
+      <tr *ngFor="let item of [1,2,3,4,5,6,7,8]; let i = index">
+        <td></td>
+        <td></td>
+        <td id="cita-skeleton"></td>
+        <td></td>
+        <td>
+          <button></button>
+          <button></button>
+        </td>
+      </tr>
+    </tbody>
+  </ng-template>
+</table>
+
+<form #form="ngForm" (ngSubmit)="sendForm(form)" *ngIf="create || edit">
+  <div>
+    <label for="nombre">Nombre:</label>
+    <input id="nombre" name="nombre" ngModel required>
+  </div>
+  <div>
+    <label for="imagen">Imágen:</label>
+    <input id="imagen" name="imagen" ngModel required>
+  </div>
+  <div>
+    <label for="cita">Cita:</label>
+    <input id="cita" name="cita" ngModel required>
+  </div>
+  <button type="submit">Agregar Testimonio</button>
+  <button (click)="form.reset(); edit= false; create=false">Cancelar</button>
+</form>

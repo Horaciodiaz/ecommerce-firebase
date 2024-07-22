@@ -1,0 +1,120 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.form-container {
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  box-sizing: border-box;
+  pointer-events: all;
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.product-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: #333;
+}
+
+.checkbox-group input {
+  margin-right: 8px;
+  width: 20px !important;
+  height: 20px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-group .submit-button,
+.button-group .cancel-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.button-group .submit-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.button-group .submit-button:hover {
+  background-color: #218838;
+}
+
+.button-group .submit-button:active {
+  background-color: #1e7e34;
+}
+
+.button-group .cancel-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.button-group .cancel-button:hover {
+  background-color: #c82333;
+}
+
+.button-group .cancel-button:active {
+  background-color: #bd2130;
+}

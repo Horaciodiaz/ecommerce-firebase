@@ -1,3 +1,9 @@
-<div class="list">
-    <app-card class="cardAnimation" *ngFor="let product of products" [product]="product" (click)="sendToProduct(product)"></app-card>
+<div class="list" *ngIf="loading">
+  <app-card-skeleton class="cardAnimation" *ngFor="let i of [1,2,3,4,5,6,7,8,9]"></app-card-skeleton>
+</div>
+<div class="list" *ngIf="!loading && products.length > 0">
+  <app-card class="cardAnimation" *ngFor="let product of products" [product]="product" (click)="sendToProduct(product)"></app-card>
+</div>
+<div *ngIf="!loading && products.length === 0">
+  No hay productos disponibles.
 </div>
