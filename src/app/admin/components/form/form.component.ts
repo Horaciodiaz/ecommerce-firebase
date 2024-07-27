@@ -8,18 +8,35 @@ import { FileUploadService } from 'src/app/services/file-upload.service';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
-  @Output() datos = new EventEmitter<NgForm>();
+  @Output() datos = new EventEmitter<{ form: NgForm, files: File[] }>();
   @Output() cerrar = new EventEmitter<void>();
   @Input() create!: boolean;
   @Input() edit!: boolean;
   @Input() product: any;
   @ViewChild('form') form!: NgForm;
+  selectedImages: string[] = [];
   selectedFiles: File[] = [];
 
   constructor(private fileUploadService: FileUploadService){}
 
-  onFileSelected(event: any) {
-    this.selectedFiles = Array.from(event.target.files);
+  // onFileSelected(event: any) {
+  //   this.selectedFiles = Array.from(event.target.files);
+  //   console.log(this.selectedFiles.map(file => file.name));
+  // }
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files) {
+      this.selectedFiles = Array.from(input.files);
+      this.selectedImages = [];
+      Array.from(input.files).forEach(file => {
+        const reader = new FileReader();
+        reader.onload = (e: any) => {
+          this.selectedImages.push(e.target.result);
+        };
+        reader.readAsDataURL(file);
+      });
+    }
   }
 
   ngAfterViewInit() {
@@ -35,13 +52,15 @@ export class FormComponent {
             inStock: this.product.inStock || false,
             tamaño: this.product.tamaños || ''
           });
+          this.selectedImages = this.product.imagenes || [];
         }
       });
     }
   }
 
   SendItem(form: NgForm){
-    this.datos.emit(form);
+    console.log("HOLA")
+    this.datos.emit({ form, files: this.selectedFiles });
   }
   cerrarForm(){
     this.cerrar.emit();

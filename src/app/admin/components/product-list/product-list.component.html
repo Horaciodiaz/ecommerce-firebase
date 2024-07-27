@@ -24,7 +24,7 @@
       <td>
         <!-- <button (click)="sendToProduct(product)">Ver</button> -->
         <button style="background-color: #0075d5;" (click)="edit = true; id = product.id; productToEdit = product"><i class="fa-solid fa-pen-to-square"></i>Editar</button>
-        <button style="background-color: red;" (click)="deleteProduct(product.id)"><i class="fa-solid fa-trash"></i>Eliminar</button>
+        <button style="background-color: red;" (click)="deleteProduct(product)"><i class="fa-solid fa-trash"></i>Eliminar</button>
       </td>
     </tr>
   </tbody>
@@ -44,7 +44,10 @@
     </ng-template>
 </table>
 
-<app-form [create]="true" [edit]="false" *ngIf="create" (cerrar)="create = false" (datos)="product = $event; addItem()"></app-form>
+<!-- <app-form [create]="true" [edit]="false" *ngIf="create" (cerrar)="create = false" (datos)="product = $event; addItem()"></app-form>
 <app-form [product]="productToEdit" [create]="false" [edit]="true" *ngIf="edit" (cerrar)="edit = false" (datos)="product = $event; editProduct()"></app-form>
+ -->
 
 
+ <app-form [create]="true" [edit]="false" *ngIf="create" (cerrar)="create = false" (datos)="onFormSubmit($event)"></app-form>
+ <app-form [product]="productToEdit" [create]="false" [edit]="true" *ngIf="edit" (cerrar)="edit = false" (datos)="onFormSubmit($event)"></app-form>
