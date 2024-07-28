@@ -4,6 +4,7 @@ import { ProductsService } from '../services/products.service';
 import { Backdrop, Decoration, Product, Prop } from '../interfaces/productInterface';
 import { ShoppingCartService } from 'src/app/clients/shopping-cart/shopping-cart.service';
 import Swal from 'sweetalert2';
+import { FileUploadService } from 'src/app/services/file-upload.service';
 
 @Component({
   selector: 'app-product',
@@ -21,7 +22,7 @@ export class ProductComponent{
   productId: string = '';
   loading: boolean = true;
 
-  constructor(public router: Router, private productService: ProductsService, private route: ActivatedRoute, private shoppingCartService: ShoppingCartService){
+  constructor(public router: Router, private productService: ProductsService, private route: ActivatedRoute, private shoppingCartService: ShoppingCartService, private fileUploadService: FileUploadService){
   }
 
   ngOnInit(): void {
@@ -35,14 +36,19 @@ export class ProductComponent{
 
   loadProductDetails(id: string): void {
     let category = this.router.url.slice(11).split('/')[0];
-    let product = this.productService.getProduct(category, id);
-    product.subscribe(
+    this.productService.getProduct(category, id).subscribe(
       (product: any) => {
         this.product = product;
-        if (product && product.imagenes && product.imagenes.length > 0) {
-          this.selectedImage = product.imagenes[0];
-        }
-        this.loading = false;
+        const imagePromises = this.product.imagenes.map((imagen: string) => 
+          this.fileUploadService.getImages(imagen, category, product.nombre)
+        );
+        return Promise.all(imagePromises)
+          .then(images => {
+            this.product.imagenes = images;
+            this.selectedImage = images[0];
+            this.loading = false;
+          })
+          .catch(error => console.error('Error al obtener imágenes:', error));
       },
       (error) => {
         console.error('Error al cargar el producto:', error);
@@ -50,6 +56,7 @@ export class ProductComponent{
       }
     );
   }
+
 
   selectImage(image: string): void {
     this.selectedImage = image;

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import  { Storage, ref, uploadBytes, deleteObject, getDownloadURL  } from '@angular/fire/storage'
+import  { Storage, ref, uploadBytes, deleteObject, getDownloadURL, updateMetadata  } from '@angular/fire/storage'
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,6 @@ export class FileUploadService {
       console.error('files is undefined or not an array');
       return;
     }
-    console.log("ESTAOASDASD")
     files.map(file => {
       console.log(file);
       const imgRef = ref(this.storage, `images/${folder}/${product}/${file.name}`);
@@ -22,15 +21,20 @@ export class FileUploadService {
       .catch(error => console.log(error));
     });
   }
-
-  deleteImage(imagenes: string[], folder: string, product: string){
-    imagenes.map(imagen => {
-      const imgRef = ref(this.storage,  `images/${folder}/${product}/${imagen}`);
-      deleteObject(imgRef)
-        .then(res => console.log(res))
-        .catch(error => console.log(error));
-    })
+  deleteImage(imagenes: string[], folder: string, product: string) {
+    const deletePromises = imagenes.map(imagen => {
+      const imgRef = ref(this.storage, `images/${folder}/${product}/${imagen}`);
+      return deleteObject(imgRef)
+        .then(() => console.log(`Deleted: ${imagen}`))
+        .catch(error => {
+          console.error(`Error deleting ${imagen}:`, error);
+          throw error; // Propagar el error para manejarlo después
+        });
+    });
+  
+    return Promise.all(deletePromises);
   }
+  
 
 getImages(imagen: string ,folder: string, product: string){
   const imgRef = ref(this.storage, `images/${folder}/${product}/${imagen}`);

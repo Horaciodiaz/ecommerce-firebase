@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
@@ -23,7 +23,7 @@ export class ProductListComponent {
   product: any;
   productToEdit: any;
 
-  constructor(private router: Router, private productService: ProductsService, private route: ActivatedRoute, private fileUploadService: FileUploadService) {}
+  constructor(private cdr: ChangeDetectorRef,private router: Router, private productService: ProductsService, private route: ActivatedRoute, private fileUploadService: FileUploadService) {}
 
   ngOnInit(): void {
     this.loading = true;
@@ -43,110 +43,152 @@ export class ProductListComponent {
     });
   }
 
+  refreshComponent() {
+    this.cdr.detectChanges();
+  }
+
   loadProductsByCategory(category: string) {
+    this.loading = true;
     this.productService.getProducts(category).subscribe(
       data => {
         this.products = data;
-        this.products.map(
-          product => {
-            this.product.imagenes = this.fileUploadService.getImages(product.imagenes, this.category, product.nombre);
-          }
-        )
-        this.loading = false;
+        const allImagePromises = this.products.map(product => {
+          const imagePromises = product.imagenes.map((imagen: string) => 
+            this.fileUploadService.getImages(imagen, this.category, product.nombre)
+          );
+  
+          return Promise.all(imagePromises)
+            .then(images => {
+              product.imagenes = images;
+            })
+            .catch(error => console.error('Error al obtener imágenes:', error));
+        });
+  
+        Promise.all(allImagePromises)
+          .then(() => {
+            this.loading = false;
+          })
+          .catch(error => {
+            console.error('Error al obtener todas las imágenes:', error);
+            this.loading = false; // Puedes decidir si quieres mantener el loading en true en caso de error
+          });
       },
       error => {
         console.error('Error al obtener productos:', error);
         this.loading = true;
-      },
-      () => {
-
       }
     );
   }
+  
+  
 
   loadProductsBySubcategory(category: string, subcategory: string) {
+    this.loading = true;
     this.productService.getProductsWithCategory(category, subcategory).subscribe(
       data => {
         this.products = data;
-        this.products.map(
-          product => {
-            console.log(product.imagenes)
-            this.product.imagenes.map( (imagen: string) => {
-              imagen = this.fileUploadService.getImages(imagen, this.category, product.nombre).then( value => value)
+        const allImagePromises = this.products.map(product => {
+          const imagePromises = product.imagenes.map((imagen: string) => 
+            this.fileUploadService.getImages(imagen, this.category, product.nombre)
+          );
+  
+          return Promise.all(imagePromises)
+            .then(images => {
+              product.imagenes = images;
             })
-          }
-        )
+            .catch(error => console.error('Error al obtener imágenes:', error));
+        });
+  
+        Promise.all(allImagePromises)
+          .then(() => {
+            this.loading = false;
+          })
+          .catch(error => {
+            console.error('Error al obtener todas las imágenes:', error);
+            this.loading = false; // Puedes decidir si quieres mantener el loading en true en caso de error
+          });
       },
       error => {
         console.error('Error al obtener productos:', error);
-        this.loading = false;
+        this.loading = true;
       }
     );
   }
 
-  onFormSubmit({ form, files }: { form: NgForm, files: File[] }) {
-    console.log("hola", form.value, files )
-    // this.product = { ...form.value, files };
+  onFormSubmit({ form, files, imagesToDelete }: { form: NgForm, files: File[], imagesToDelete: string[] }) {
     if (this.create) {
       this.addItem({ ...form.value, files });
     } else if (this.edit) {
-      this.editProduct({ ...form.value, files });
+      this.editProduct({ ...form.value, files, imagesToDelete });
     }
   }
-//TODO MODIFICAR EDIT PARA QUE REVISE SI LAS IMAGENES YA EXISTEN Y CAMBIARLAS O AGREGAR NUEVAS.
+  
+  getFileNameFromUrl(url: string): string {
+    const decodedUrl = decodeURIComponent(url);
+    const parts = decodedUrl.split('/');
+    const fileNameWithToken = parts.pop() || '';
+    const fileName = fileNameWithToken.split('?')[0];
+    return fileName;
+  }
+
   editProduct(product: any) {
-    console.log("EDIT PRODUCT",product)
-
-    product.value.imagenes = product.files.map(
-      (file : File) => file.name
-    )
-
-    this.productService.updateItem(this.category, this.id, product.value).subscribe(
+  
+    // Actualizar las imágenes del producto
+    product.imagenes = [
+      ...product.imagenes.filter((img: string) => !product.imagesToDelete.includes(img)),
+      ...product.files.map((file: File) => file.name)
+    ];
+  
+    const { nombre, tapizados, inStock, precio, categoria, imagenes } = product;
+  
+    this.productService.updateItem(this.category, this.id, { nombre, tapizados, inStock, precio, categoria, imagenes }).subscribe(
       () => {
         console.log('Item updated successfully');
-        this.fileUploadService.uploadImage(product.files, this.category, product.value.nombre);
-        this.product.resetForm(); // Limpiar el formulario después de agregar el elemento
+        this.fileUploadService.uploadImage(product.files, this.category, nombre);
+        this.fileUploadService.deleteImage(product.imagesToDelete, this.category, nombre).then(
+          () => {
+            console.log('Images deleted successfully');
+          },
+          error => {
+            console.error('Error deleting images: ', error);
+          }
+        );
+        this.refreshComponent();
       },
       error => {
         console.error('Error updating item: ', error);
       }
     );
-
-    this.loadProductsByCategory(this.category);
+  
     this.edit = false;
-
   }
 
+
   addItem(product: any) {
-    const { nombre, tapizados, inStock, precio, categoria} = product;
+    const { nombre, tapizados, inStock, precio, categoria } = product;
     const Item = {
       nombre, tapizados, inStock, precio, categoria,
-      imagenes: product.files.map(
-        (file : File) => file.name as string
-      )
-    }
-
-
+      imagenes: product.files.map((file: File) => file.name as string)
+    };
+  
     this.productService.addItem(this.category, Item).subscribe(
       () => {
         console.log('Item added successfully');
-        this.fileUploadService.uploadImage( product.files, this.category, Item.nombre);
-        // product.resetForm(); // Limpiar el formulario después de agregar el elemento
+        this.fileUploadService.uploadImage(product.files, this.category, Item.nombre);
+        this.refreshComponent();
       },
       error => {
         console.error('Error adding item: ', error);
       }
     );
-    this.loadProductsByCategory(this.category);
     this.create = false;
   }
+
   deleteProduct(product: any) {
     this.productService.deleteItem(this.category,product.id).subscribe(
       () => {
         console.log('Document successfully deleted');
         this.fileUploadService.deleteImage(product.imagenes, this.category, product.name);
-        // Aquí puedes hacer otras cosas como actualizar la lista de documentos
-        this.loadProductsByCategory(this.category);
       },
       error => {
         console.error('Error deleting document: ', error);

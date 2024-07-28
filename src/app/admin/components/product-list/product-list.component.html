@@ -12,7 +12,7 @@
       <th>Acciones</th>
     </tr>
   </thead>
-  <tbody *ngIf="!loading; else: Cargando">
+  <tbody *ngIf="!loading && products.length  > 0; else: Cargando">
     <tr *ngFor="let product of products; let i = index" class="Animation">
       <td>{{ i+1 }}</td>
       <td>{{ product.nombre }}</td>
@@ -44,10 +44,6 @@
     </ng-template>
 </table>
 
-<!-- <app-form [create]="true" [edit]="false" *ngIf="create" (cerrar)="create = false" (datos)="product = $event; addItem()"></app-form>
-<app-form [product]="productToEdit" [create]="false" [edit]="true" *ngIf="edit" (cerrar)="edit = false" (datos)="product = $event; editProduct()"></app-form>
- -->
-
 
  <app-form [create]="true" [edit]="false" *ngIf="create" (cerrar)="create = false" (datos)="onFormSubmit($event)"></app-form>
- <app-form [product]="productToEdit" [create]="false" [edit]="true" *ngIf="edit" (cerrar)="edit = false" (datos)="onFormSubmit($event)"></app-form>
+<app-form [product]="productToEdit" [create]="false" [edit]="true" *ngIf="edit" (cerrar)="edit = false" (datos)="onFormSubmit($event)"></app-form>
