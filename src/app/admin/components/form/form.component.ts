@@ -86,9 +86,8 @@ export class FormComponent {
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input.files) {
-      this.selectedFiles = Array.from(input.files);
-      this.selectedImages = [];
       Array.from(input.files).forEach(file => {
+        this.selectedFiles.push(file);
         const reader = new FileReader();
         reader.onload = (e: any) => {
           this.selectedImages.push(e.target.result);
@@ -97,23 +96,31 @@ export class FormComponent {
       });
     }
   }
-
+  
   ngAfterViewInit() {
     if (this.edit) {
       setTimeout(() => {
         if (this.form) {
-          this.form.setValue({
+          this.form.control.patchValue({
             nombre: this.product.nombre || '',
             categoria: this.product.categoria || '',
             precio: this.product.precio || '',
-            imagenes: this.product.imagenes || '',
             tapizados: this.product.tapizados || '',
             inStock: this.product.inStock || false,
             tamaño: this.product.tamaños || ''
           });
+
+          // Mark the form as dirty to ensure values are recognized
+          Object.keys(this.form.controls).forEach(field => {
+            const control = this.form.control.get(field);
+            if (control) {
+              control.markAsDirty();
+            }
+          });
         }
       });
-      this.selectedImages = this.product.imagenes || [];
+      // Initialize selectedImages with the existing product images (urls)
+      this.selectedImages = [...(this.product.imagenes || [])];
     }
   }
 
@@ -139,6 +146,9 @@ export class FormComponent {
     form.reset();
     this.edit = false;
     this.create = false;
+    this.selectedFiles = [];
+    this.selectedImages = [];
+    this.imagesToDelete = [];
   }
 
   cerrarForm(){

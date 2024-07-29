@@ -21,18 +21,20 @@ export class FileUploadService {
       .catch(error => console.log(error));
     });
   }
-  deleteImage(imagenes: string[], folder: string, product: string) {
+  deleteImage(imagenes: string[], folder: string, product: string): Promise<void> {
     const deletePromises = imagenes.map(imagen => {
       const imgRef = ref(this.storage, `images/${folder}/${product}/${imagen}`);
       return deleteObject(imgRef)
-        .then(() => console.log(`Deleted: ${imagen}`))
+        .then(() => {
+          console.log(`Deleted: ${imagen}`);
+        })
         .catch(error => {
           console.error(`Error deleting ${imagen}:`, error);
           throw error; // Propagar el error para manejarlo después
         });
     });
-  
-    return Promise.all(deletePromises);
+
+    return Promise.all(deletePromises).then(() => {});
   }
   
 

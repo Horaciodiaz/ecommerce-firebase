@@ -118,3 +118,61 @@
 .button-group .cancel-button:active {
   background-color: #bd2130;
 }
+
+.images-group{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.images-group .images-item{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.images-group .images-item button{
+  position: absolute;
+    border: none;
+    cursor: pointer;
+    background-color: #33333382;
+    border-radius: 0 50% 50% 0;
+    padding: 3px 6px;
+}
+.images-group .images-item img{
+  width: 100px;
+  height: 100px;
+  border-radius: 0 10px 10px;
+}
+
+.file-select {
+  position: relative;
+  display: inline-block;
+}
+
+.file-select::before {
+  background-color: #5678EF;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  content: 'Seleccionar'; /* testo por defecto */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.file-select input[type="file"] {
+  opacity: 0;
+  width: 200px;
+  height: 32px;
+  display: inline-block;
+}
+
+#src-file1::before {
+  content: 'Seleccionar Archivo 1';
+}

@@ -123,13 +123,7 @@ export class ProductListComponent {
     }
   }
   
-  getFileNameFromUrl(url: string): string {
-    const decodedUrl = decodeURIComponent(url);
-    const parts = decodedUrl.split('/');
-    const fileNameWithToken = parts.pop() || '';
-    const fileName = fileNameWithToken.split('?')[0];
-    return fileName;
-  }
+
 
   editProduct(product: any) {
   
@@ -144,15 +138,13 @@ export class ProductListComponent {
     this.productService.updateItem(this.category, this.id, { nombre, tapizados, inStock, precio, categoria, imagenes }).subscribe(
       () => {
         console.log('Item updated successfully');
-        this.fileUploadService.uploadImage(product.files, this.category, nombre);
-        this.fileUploadService.deleteImage(product.imagesToDelete, this.category, nombre).then(
-          () => {
-            console.log('Images deleted successfully');
-          },
-          error => {
+        if (product.files.length > 0) this.fileUploadService.uploadImage(product.files, this.category, nombre);
+        if (product.imagesToDelete.length > 0) 
+          this.fileUploadService.deleteImage(product.imagesToDelete, this.category, product.nombre)
+          .then(() => console.log('All images deleted successfully'))
+          .catch(error => {
             console.error('Error deleting images: ', error);
-          }
-        );
+          });
         this.refreshComponent();
       },
       error => {
@@ -185,15 +177,30 @@ export class ProductListComponent {
   }
 
   deleteProduct(product: any) {
-    this.productService.deleteItem(this.category,product.id).subscribe(
+    this.productService.deleteItem(this.category, product.id).subscribe(
       () => {
-        console.log('Document successfully deleted');
-        this.fileUploadService.deleteImage(product.imagenes, this.category, product.name);
+        console.log('Document successfully deleted', product);
+        const images = product.imagenes.map(
+          (imagen : string) => this.getFileNameFromUrl(imagen)
+        )
+        this.fileUploadService.deleteImage(images, this.category, product.nombre)
+          .then(() => console.log('All images deleted successfully'))
+          .catch(error => {
+            console.error('Error deleting images: ', error);
+          });
       },
       error => {
         console.error('Error deleting document: ', error);
       }
     );
+  }
+  
+  getFileNameFromUrl(url: string): string {
+    const decodedUrl = decodeURIComponent(url);
+    const parts = decodedUrl.split('/');
+    const fileNameWithToken = parts.pop() || '';
+    const fileName = fileNameWithToken.split('?')[0];
+    return fileName;
   }
 
   formatPrice(price: number): string {
