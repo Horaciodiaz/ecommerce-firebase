@@ -105,9 +105,8 @@ export class FormComponent {
             nombre: this.product.nombre || '',
             categoria: this.product.categoria || '',
             precio: this.product.precio || '',
-            tapizados: this.product.tapizados || '',
+            tapizados: this.product.tapizados ? this.product.tapizados.join(',') : '',
             inStock: this.product.inStock || false,
-            tamaño: this.product.tamaños || ''
           });
 
           // Mark the form as dirty to ensure values are recognized
@@ -141,6 +140,8 @@ export class FormComponent {
   SendItem(form: NgForm){
     let images: string[] = [];
     this.edit ? this.product.imagenes.map((imagen: string) => images.push(this.getFileNameFromUrl(imagen))) : [];
+    const tapizados = form.value.tapizados.split(',').map((item: string) => item.trim());
+    form.value.tapizados = tapizados;
     form.value.imagenes = [...images];
     this.datos.emit({ form, files: this.selectedFiles, imagesToDelete: this.imagesToDelete });
     form.reset();

@@ -19,6 +19,7 @@ export class ProductListComponent {
   create: boolean = false;
   edit: boolean = false;
   id: string = '';
+  tapizados: boolean = false;
 
   product: any;
   productToEdit: any;
@@ -43,16 +44,13 @@ export class ProductListComponent {
     });
   }
 
-  refreshComponent() {
-    this.cdr.detectChanges();
-  }
-
   loadProductsByCategory(category: string) {
     this.loading = true;
     this.productService.getProducts(category).subscribe(
       data => {
         this.products = data;
         const allImagePromises = this.products.map(product => {
+          if(product.tapizados.length > 0) this.tapizados = true;
           const imagePromises = product.imagenes.map((imagen: string) => 
             this.fileUploadService.getImages(imagen, this.category, product.nombre)
           );
@@ -145,7 +143,6 @@ export class ProductListComponent {
           .catch(error => {
             console.error('Error deleting images: ', error);
           });
-        this.refreshComponent();
       },
       error => {
         console.error('Error updating item: ', error);
@@ -167,7 +164,6 @@ export class ProductListComponent {
       () => {
         console.log('Item added successfully');
         this.fileUploadService.uploadImage(product.files, this.category, Item.nombre);
-        this.refreshComponent();
       },
       error => {
         console.error('Error adding item: ', error);

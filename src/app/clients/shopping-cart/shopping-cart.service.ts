@@ -20,7 +20,8 @@ export class ShoppingCartService {
       title: "Producto Eliminado",
       showConfirmButton: false,
       timer: 1500,
-      backdrop: false
+      backdrop: false,
+      timerProgressBar: true
     });
   }
   
