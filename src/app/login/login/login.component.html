@@ -1,15 +1,16 @@
-<form class="form">
-    <p class="title">Iniciar Sesión </p>
-            
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form">
+    <p class="title">Iniciar Sesión</p>
+    
     <label>
-        <input required="" placeholder="" type="email" class="input">
+        <input formControlName="email" placeholder="" type="email" class="input">
         <span>Email</span>
     </label> 
         
     <label>
-        <input required="" placeholder="" type="password" class="input">
+        <input formControlName="password" placeholder="" type="password" class="input">
         <span>Contraseña</span>
     </label>
-    <button class="submit">Submit</button>
-    <p class="signin">No tienes cuenta ? <a routerLink="/login/register">Registrate</a> </p>
+
+    <button type="submit" class="submit">Submit</button>
+    <p class="signin">¿No tienes cuenta? <a routerLink="/login/register">Regístrate</a></p>
 </form>

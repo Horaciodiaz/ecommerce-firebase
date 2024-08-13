@@ -5,12 +5,16 @@
         <li routerLink="productos/props" class="navbar-list-item">Props</li>
         <li routerLink="productos/fondos" class="navbar-list-item">Fondos</li>
         <li routerLink="productos/decos" class="navbar-list-item decoraciones"></li>
-        <li routerLink="contacto" class="navbar-list-item">Contacto</li>
+        <!-- <li routerLink="contacto" class="navbar-list-item">Contacto</li> -->
     </ul>
     <ul class="header-list">
-        <li class="header-list-item"><i class="fa-solid fa-magnifying-glass"></i></li>
+        <!-- <li class="header-list-item"><i class="fa-solid fa-magnifying-glass"></i></li> -->
         <li routerLink="mi-carrito" class="header-list-item"><i class="fa-solid fa-cart-shopping"></i></li>
         <li class="header-list-item"><i class="fa-brands fa-whatsapp"></i></li>
-        <li routerLink="/login" class="header-list-item"><i class="fa-solid fa-user"></i></li>
+        <li *ngIf="!isLoggedIn; else logged" routerLink="/login" class="header-list-item"><i class="fa-solid fa-right-to-bracket"></i></li>
+        <ng-template #logged>
+            <li routerLink="/mis-pedidos" class="header-list-item"><i class="fa-solid fa-user"></i></li>
+            <li (click)="logOut()" class="header-list-item"><i class="fa-solid fa-right-from-bracket"></i></li>
+        </ng-template>
     </ul>
 </nav>

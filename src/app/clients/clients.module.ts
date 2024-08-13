@@ -14,6 +14,9 @@ import { QuickContactComponent } from './components/quick-contact/quick-contact.
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { OrderCheckOutComponent } from './components/order-check-out/order-check-out.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 
 
 
@@ -27,14 +30,17 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     TestimoniosComponent,
     QuickContactComponent,
     CarouselComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    OrderCheckOutComponent,
+    MyOrdersComponent
   ],
   imports: [
     CommonModule,
     ClientsRoutingModule,
     RouterModule,
     SharedModule,
-    SweetAlert2Module
+    SweetAlert2Module,
+    ReactiveFormsModule 
   ]
 })
 export class ClientsModule { }

@@ -31,7 +31,6 @@ export class TestimonialsComponent {
         this.form.setValue({
           nombre: testimonio.nombre,
           cita: testimonio.cita,
-          imagen: testimonio.imagen,
         });
       }
     });
@@ -68,7 +67,7 @@ export class TestimonialsComponent {
       };
       this.testimonalService.updateItem(this.id, newItem).subscribe(
         () => {
-          console.log('Item agregado successfully');
+          // console.log('Item agregado successfully');
           form.resetForm();
           this.edit = false;
         },

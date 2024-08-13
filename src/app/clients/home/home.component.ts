@@ -42,11 +42,11 @@ export class HomeComponent {
 
   constructor( private firestore: AngularFirestore){}
 
-  ngOnInit(){
-    this.firestore.collection('carrusel').stateChanges().subscribe(
-      fotos => {
-        console.log(fotos.map( x => x.payload.doc.data() ))
-      }
-    );
-  }
+  // ngOnInit(){
+  //   this.firestore.collection('carrusel').stateChanges().subscribe(
+  //     fotos => {
+  //       console.log(fotos.map( x => x.payload.doc.data() ))
+  //     }
+  //   );
+  // }
 }

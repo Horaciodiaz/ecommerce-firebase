@@ -1,0 +1,109 @@
+.admin-carousel {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.admin-carousel h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.admin-carousel form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.admin-carousel input[type="file"] {
+  padding: 10px;
+  border: 2px dashed #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.admin-carousel input[type="text"],
+.admin-carousel select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.admin-carousel button[type="submit"] {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-carousel button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.admin-carousel .images-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.admin-carousel .images-container img {
+  max-width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.admin-carousel .images-container img:hover {
+  transform: scale(1.05);
+}
+
+.admin-carousel .images-container p {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Estilo para el botón de editar (celeste) */
+.admin-carousel .images-container button.edit-button {
+  padding: 8px 15px;
+  margin-top: 10px;
+  background-color: #2196F3;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+}
+
+.admin-carousel .images-container button.edit-button:hover {
+  background-color: #1976D2;
+}
+
+/* Estilo para el botón de eliminar (rojo) */
+.admin-carousel .images-container button.delete-button {
+  padding: 8px 15px;
+  margin-top: 10px;
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-carousel .images-container button.delete-button:hover {
+  background-color: #d32f2f;
+}

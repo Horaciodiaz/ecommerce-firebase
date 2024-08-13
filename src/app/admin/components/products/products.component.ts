@@ -12,9 +12,7 @@ export class ProductsComponent {
   constructor(private productsService: ProductsService){}
 
   ngOnInit(){
-    // this.productsService.getProps().subscribe(data => {
-    //   this.products = data;
-    // });;
+
   }
 
   addProduct() {

@@ -8,32 +8,34 @@ import { ShoppingCartService } from './shopping-cart.service';
 })
 export class ShoppingCartComponent {
   productos: any[] = [];
-  private _total: number = 0;
+  makeOrder: boolean = false; // Inicializado en false
 
-  constructor(private shoppingCartService: ShoppingCartService){}
+  constructor(private shoppingCartService: ShoppingCartService) {}
 
-  ngOnInit(){
+  ngOnInit() {
     this.productos = this.shoppingCartService.productos;
   }
 
-  removeProduct(index: number){
+  removeProduct(index: number) {
     this.shoppingCartService.removeProduct(index);
   }
 
-  get total(): number{
-    let total = this.productos.map((product: any) => -product.precio *-1)
-    .reduce((accumulator: number, product: any) => accumulator + product);
-    return total;
+  get total(): number {
+    return this.productos
+      .map((product: any) => product.precio)
+      .reduce((accumulator: number, price: number) => accumulator + price, 0);
   }
 
   formatPrice(price: number): string {
-    const formattedPrice = new Intl.NumberFormat('es-ES', {
+    return new Intl.NumberFormat('es-ES', {
       style: 'currency',
       currency: 'USD',
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
-    }).format(price);
+    }).format(price).replace('US$', '$');
+  }
 
-    return '$' + formattedPrice.replace('US$', '');
+  proceedToCheckout() {
+    this.makeOrder = true; // Cambia a true cuando se decida proceder con el pedido
   }
 }

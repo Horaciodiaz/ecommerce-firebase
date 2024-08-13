@@ -1,21 +1,111 @@
-<h2>Pedidos</h2>
-<!-- <button (click)="addProduct()">Agregar Producto</button> -->
+<h2>Gestión de Pedidos</h2>
+
+<!-- Filtros y Ordenamiento -->
+<div class="filters">
+  <label for="status-filter">Filtrar por estado:</label>
+  <select id="status-filter" (change)="onFilterStatusChange($event)">
+    <option value="">Todos</option>
+    <option value="pending">Pendiente</option>
+    <option value="processing">En Proceso</option>
+    <option value="shipped">Enviado</option>
+    <option value="delivered">Entregado</option>
+  </select>
+  
+
+  <label for="sort-field">Ordenar por:</label>
+  <select id="sort-field" (change)="onSortFieldChange($event)">
+    <option value="date">Fecha</option>
+    <option value="status">Estado</option>
+    <option value="user">Usuario</option>
+    <option value="">Sin orden específico</option> <!-- Opción para no ordenar -->
+  </select>
+  
+</div>
+
 <table>
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Nombre</th>
+      <th>#</th>
+      <th>Usuario</th>
+      <th>Cantidad</th>
+      <th>Fecha de Compra</th>
+      <th>Estado</th>
       <th>Acciones</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let product of products">
-      <td>{{ product.id }}</td>
-      <td>{{ product.name }}</td>
+    <tr *ngFor="let order of filteredOrders; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ order.userEmail }}</td>
+      <td>{{ order.products.length }}</td>
+      <td>{{ getDate(order) | date}}</td>
       <td>
-        <button (click)="editProduct(product)">Editar</button>
-        <button (click)="deleteProduct(product.id)">Eliminar</button>
+        <select [(ngModel)]="order.status" (change)="updateOrderStatus(order.orderId, order.status)">
+          <option value="pending">Pendiente</option>
+          <option value="processing">En Proceso</option>
+          <option value="shipped">Enviado</option>
+          <option value="delivered">Entregado</option>
+        </select>
+      </td>
+      <td>
+        <button (click)="viewOrderDetails(order)">Ver Detalles</button>
       </td>
     </tr>
   </tbody>
 </table>
+
+<ng-template #loading>
+  <p>Cargando pedidos...</p>
+</ng-template>
+
+<div *ngIf="selectedOrder" class="ticket-overlay">
+  <div class="ticket-container">
+    <button class="close-button" (click)="closeTicket()"><i class="fa-solid fa-xmark"></i></button>
+    <div class="ticket-header">
+      <h3>Detalles del Pedido</h3>
+    </div>
+    <div class="ticket-details">
+      <p><strong>ID Pedido:</strong> {{ selectedOrder.orderId }}</p>
+      <div class="ticket-user">
+        <h4>Usuario</h4>
+        <p><strong>Nombre:</strong> {{ selectedOrder.userName }}</p>
+        <p><strong>Email:</strong> {{ selectedOrder.userEmail }}</p>
+        <p><strong>Teléfono:</strong> {{ selectedOrder.shippingDetails.phoneNumber }}</p>
+      </div>
+      <p><strong>Fecha de Creación:</strong> {{ getDate(selectedOrder) | date }}</p>
+      <p><strong>Estado del Pedido:</strong> 
+        <select [(ngModel)]="selectedOrder.status" (change)="updateOrderStatus(selectedOrder.orderId, selectedOrder.status)">
+          <option value="pending">Pendiente</option>
+          <option value="processing">En Proceso</option>
+          <option value="shipped">Enviado</option>
+          <option value="delivered">Entregado</option>
+        </select>
+      </p>
+    </div>
+    
+    <div class="ticket-products">
+      <h4>Productos</h4>
+      <ul>
+        <li *ngFor="let product of selectedOrder.products">
+          {{ product.nombre }} - Precio: {{ formatPrice(product.precio) }}
+          <img width="75px" height="75px" [src]="product.imagenes[0]" [alt]="product.nombre">
+        </li>
+      </ul>
+    </div>
+    
+    <div class="ticket-details">
+      <h4>Datos de Envío</h4>
+      <p>{{ selectedOrder.shippingDetails.address }}, {{ selectedOrder.shippingDetails.city }}, {{ selectedOrder.shippingDetails.country }}</p>
+      <h4>Datos de Pago</h4>
+      <p><strong>Método:</strong> {{ selectedOrder.paymentDetails.method }}</p>
+      <p>
+        <strong>Status:</strong> {{ selectedOrder.paymentDetails.status }} 
+        <select [(ngModel)]="selectedOrder.paymentDetails.status" (change)="updatePaymentStatus(selectedOrder.orderId, selectedOrder.paymentDetails.status)">
+          <option value="pending">Pendiente</option>
+          <option value="paid">Pagado</option>
+        </select>
+      </p>
+    </div>
+  </div>
+</div>
+

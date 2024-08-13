@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import  { Storage, ref, uploadBytes, deleteObject, getDownloadURL, updateMetadata  } from '@angular/fire/storage'
+import { from, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class FileUploadService {
       console.log(file);
       const imgRef = ref(this.storage, `images/${folder}/${product}/${file.name}`);
       uploadBytes(imgRef, file)
-      .then(res => console.log(res))
+      .then(res => console.log("uploadImage: ",res))
       .catch(error => console.log(error));
     });
   }
@@ -36,12 +37,9 @@ export class FileUploadService {
 
     return Promise.all(deletePromises).then(() => {});
   }
-  
 
-getImages(imagen: string ,folder: string, product: string){
-  const imgRef = ref(this.storage, `images/${folder}/${product}/${imagen}`);
-  return getDownloadURL(imgRef)
-    .then( res => res )
-    .catch( error => console.log(error) );
+  getImages(imagen: string, folder: string, product: string): Promise<string> {
+    const imgRef = ref(this.storage, `images/${folder}/${product}/${imagen}`);
+    return getDownloadURL(imgRef);
   }
 }

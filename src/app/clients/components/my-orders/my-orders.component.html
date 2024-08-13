@@ -1,0 +1,30 @@
+<div class="order-history">
+    <h2>Historial de Pedidos</h2>
+    
+    <table *ngIf="orders.length > 0; else withOut">
+      <thead>
+        <tr>
+          <th>ID Pedido</th>
+          <th>Fecha</th>
+          <th>Estado</th>
+          <th>Total</th>
+          <th>Detalles</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>{{ order.orderId }}</td>
+          <td>{{ getDate(order)| date: 'dd/MM/yyyy' }}</td>
+          <td>{{ order.status }}</td>
+          <td>${{ getOrderTotal(order) | number: '1.2-2' }}</td>
+          <td>
+            <button (click)="viewDetails(order.orderId)">Ver Detalles</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <ng-template #withOut>
+      <p style="margin-top: 50px;">Aun no ha realizado ningun pedido!!!</p>
+    </ng-template>
+  </div>
+  <app-order-details *ngIf="selectedOrder" [selectedOrder]="selectedOrder"></app-order-details>

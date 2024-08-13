@@ -30,7 +30,7 @@ export class CarouselComponent {
   constructor( private imageService: ImagesService) {}
 
   ngOnInit(): void {
-    this.images = this.imageService.images;
+    this.loadImages();
     this.startAutoSlide();
   }
 
@@ -71,5 +71,12 @@ export class CarouselComponent {
   resetAutoSlide(): void {
     this.stopAutoSlide();
     this.startAutoSlide();
+  }
+
+  // Cargar todas las imágenes desde Firestore
+  loadImages(): void {
+    this.imageService.getAllPromotionalImages().then(images => {
+      this.images = images;
+    });
   }
 }

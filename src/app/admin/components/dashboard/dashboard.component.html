@@ -1,4 +1,9 @@
 <div class="dashboard-container">
-    <router-outlet></router-outlet>
+  <div class="header">
+    <p class="title">Panel Administración</p>
+    <li (click)="logOut()" class="header-list-item">
+      Cerrar Sesión<i class="fa-solid fa-right-from-bracket"></i>
+    </li>
   </div>
-  
+  <router-outlet style="margin-left: 15px;"></router-outlet>
+</div>

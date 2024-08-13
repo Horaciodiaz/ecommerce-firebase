@@ -1,22 +1,26 @@
-<h2>Imagenes Promocionales</h2>
-<!-- <button (click)="addProduct()">Agregar Producto</button> -->
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Nombre</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let image of images; let i = index">
-      <td>{{ i+1 }}</td>
-      <td><img width="50px" height="50px" [src]="image.link" alt="image.alt"></td>
-      <td>{{ image.alt }}</td>
-      <td>
-        <button (click)="changeImage(image)">Editar</button>
-        <button (click)="deleteImage(i)">Eliminar</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="admin-carousel">
+  <h2>Administrar Imágenes del Carrusel</h2>
+  
+  <!-- Formulario para cargar una nueva imagen -->
+  <form (ngSubmit)="onSubmit()" #imageForm="ngForm">
+    <input type="file" (change)="onFileSelected($event)" required>
+    <input type="text" placeholder="Título" [(ngModel)]="newImage.title" name="title" required>
+    <input type="text" placeholder="Subtítulo" [(ngModel)]="newImage.subtitle" name="subtitle" required>
+    <select [(ngModel)]="newImage.category" name="category" required>
+      <option value="props">Props</option>
+      <option value="decos">Decos</option>
+      <option value="fondos">Fondos</option>
+    </select>
+    <button type="submit">Subir Imagen</button>
+  </form>
+
+  <!-- Lista de imágenes cargadas -->
+  <div class="images-container">
+    <div *ngFor="let image of images" class="image-item">
+      <img [src]="image.ImageUrl" alt="{{ image.title }}">
+      <p>{{ image.title }} - {{ image.subtitle }} - {{ image.category }}</p>
+      <button class="edit-button" (click)="editImage(image)">Editar</button>
+      <button class="delete-button" (click)="deleteImage(image)">Eliminar</button>
+    </div>
+  </div>
+</div>

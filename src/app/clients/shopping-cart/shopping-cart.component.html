@@ -1,38 +1,49 @@
 <section class="shoppingCart">
     <h2>Carrito de Compras</h2>
-
+  
     <table *ngIf="productos.length > 0; else vacio">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Nombre del Producto</th>
-                <th>Precio</th>
-                <!-- <th>Color</th>
-                <th>Tamaño</th> -->
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let product of productos; let i = index">
-                <td>{{i+1}}</td>
-                <td>{{product.nombre}}</td>
-                <td>{{formatPrice(product.precio)}}</td>
-                <!-- <td>{{product.size}}</td> -->
-                <!-- <td style="text-align: center;">{{product.size || '-'}}</td> -->
-                <td><button (click)="removeProduct(i)" class="delete"><i class="fa-solid fa-trash"></i></button></td>
-            </tr>
-
-        </tbody>
-        <tfoot>
-            <tr>
-                <td>Total</td>
-                <td colspan="5">{{ formatPrice(total) }}</td>
-            </tr>
-        </tfoot>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nombre del Producto</th>
+          <th>Precio</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of productos; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ product.nombre }}</td>
+          <td>{{ formatPrice(product.precio) }}</td>
+          <td>
+            <button (click)="removeProduct(i)" class="delete">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>Total</td>
+          <td colspan="5">{{ formatPrice(total) }}</td>
+        </tr>
+      </tfoot>
     </table>
+    
     <ng-template #vacio>
-        <div class="vacio">
-            <p>Tu carrito esta vacio!</p>
-            <button routerLink="/productos">Volver a la tienda</button>
-        </div>
+      <div class="vacio">
+        <p>¡Tu carrito está vacío!</p>
+        <button routerLink="/productos">Volver a la tienda</button>
+      </div>
     </ng-template>
-</section>
+    
+    <div *ngIf="makeOrder">
+      <app-order-check-out [cartProducts]="productos" [total]="total"></app-order-check-out>
+    </div>
+    
+    <!-- Botón para proceder al checkout -->
+    <button *ngIf="productos.length > 0" (click)="proceedToCheckout()">
+      Proceder al Pedido
+    </button>
+  </section>
+  

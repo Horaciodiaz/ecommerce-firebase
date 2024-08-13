@@ -1,76 +1,79 @@
 import { Injectable } from '@angular/core';
-import { Observable, forkJoin, of } from 'rxjs';
+import { Observable, forkJoin, from, of } from 'rxjs';
 import { map, tap, switchMap } from 'rxjs/operators';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-
+interface Category {
+  subcategorias: any[];
+}
 @Injectable({
   providedIn: 'root'
 })
 export class FilterService {
   private categories = ['props', 'decos', 'fondos']; // Orden de categorías deseado
+  private localStorageKey = 'categoriesData';
 
   constructor(private firestore: AngularFirestore) {}
 
-  getAllCategories(): Observable<{ [key: string]: string[] }> {
-    const storedCategories = localStorage.getItem('allCategories');
-    const storedCategoriesObj = storedCategories ? JSON.parse(storedCategories) : null;
-
-    return this.fetchCategoriesFromFirestore().pipe(
-      switchMap(fetchedCategories => {
-        if (!storedCategoriesObj || this.hasCategoryChanges(storedCategoriesObj, fetchedCategories)) {
-          localStorage.setItem('allCategories', JSON.stringify(fetchedCategories));
-          return of(fetchedCategories);
+  getAllCategories(): Observable<any> {
+    return from(this.getStoredCategories()).pipe(
+      switchMap(storedCategories => {
+        if (storedCategories) {
+          return this.checkForUpdates(storedCategories).pipe(
+            switchMap(updatedCategories => {
+              if (updatedCategories) {
+                this.storeCategories(updatedCategories);
+                return from([updatedCategories]);
+              } else {
+                return from([storedCategories]);
+              }
+            })
+          );
         } else {
-          return of(storedCategoriesObj);
+          return this.fetchCategoriesFromFirestore().pipe(
+            map(fetchedCategories => {
+              this.storeCategories(fetchedCategories);
+              return fetchedCategories;
+            })
+          );
         }
       })
     );
   }
 
-  private fetchCategoriesFromFirestore(): Observable<{ [key: string]: string[] }> {
-    const categoryObservables = this.categories.map(category =>
-      this.firestore.collection(category).get().pipe(
+  private fetchCategoriesFromFirestore(): Observable<any> {
+    const categoryObservables: Observable<any>[] = this.categories.map(category => 
+      this.firestore.collection('categorias').doc(category).get().pipe(
         map(snapshot => {
-          const subcategories = new Set<string>();
-          snapshot.docs.forEach(doc => {
-            const data = doc.data();
-            const dataObj = data as { [key: string]: any };
-            if (dataObj && dataObj['categoria']) {
-              subcategories.add(dataObj['categoria']);
-            }
-          });
-          return { [category]: Array.from(subcategories) };
+          const data = snapshot.data() as Category;
+          return { [category]: data ? data.subcategorias : [] };
         })
       )
     );
 
     return forkJoin(categoryObservables).pipe(
-      map(results => {
-        const combinedCategories = results.reduce((acc, curr) => ({ ...acc, ...curr }), {});
-        return this.categories.reduce((orderedAcc, category) => {
-          if (combinedCategories[category]) {
-            orderedAcc[category] = combinedCategories[category];
-          }
-          return orderedAcc;
-        }, {} as { [key: string]: string[] });
+      map(results => results.reduce((acc, curr) => ({ ...acc, ...curr }), {}))
+    );
+  }
+
+  private storeCategories(categories: any): void {
+    localStorage.setItem(this.localStorageKey, JSON.stringify(categories));
+  }
+
+  private getStoredCategories(): Promise<any> {
+    const storedCategories = localStorage.getItem(this.localStorageKey);
+    return Promise.resolve(storedCategories ? JSON.parse(storedCategories) : null);
+  }
+
+  private checkForUpdates(storedCategories: any): Observable<any> {
+    return this.fetchCategoriesFromFirestore().pipe(
+      map(fetchedCategories => {
+        if (JSON.stringify(fetchedCategories) !== JSON.stringify(storedCategories)) {
+          return fetchedCategories;
+        } else {
+          return null;
+        }
       })
     );
   }
 
-  private hasCategoryChanges(
-    storedCategories: { [key: string]: string[] },
-    fetchedCategories: { [key: string]: string[] }
-  ): boolean {
-    for (const category of this.categories) {
-      if (
-        !storedCategories[category] ||
-        !fetchedCategories[category] ||
-        storedCategories[category].length !== fetchedCategories[category].length ||
-        !storedCategories[category].every(subcategory => fetchedCategories[category].includes(subcategory))
-      ) {
-        return true;
-      }
-    }
-    return false;
-  }
 }

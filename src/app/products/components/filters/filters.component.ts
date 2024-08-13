@@ -38,6 +38,7 @@ export class FiltersComponent {
         }
       }
     );
+
   }
 
   filterBySubCategory(subcategory: string) {

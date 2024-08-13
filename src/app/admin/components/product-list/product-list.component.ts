@@ -49,27 +49,7 @@ export class ProductListComponent {
     this.productService.getProducts(category).subscribe(
       data => {
         this.products = data;
-        const allImagePromises = this.products.map(product => {
-          if(product.tapizados.length > 0) this.tapizados = true;
-          const imagePromises = product.imagenes.map((imagen: string) => 
-            this.fileUploadService.getImages(imagen, this.category, product.nombre)
-          );
-  
-          return Promise.all(imagePromises)
-            .then(images => {
-              product.imagenes = images;
-            })
-            .catch(error => console.error('Error al obtener imágenes:', error));
-        });
-  
-        Promise.all(allImagePromises)
-          .then(() => {
-            this.loading = false;
-          })
-          .catch(error => {
-            console.error('Error al obtener todas las imágenes:', error);
-            this.loading = false; // Puedes decidir si quieres mantener el loading en true en caso de error
-          });
+        this.loading = false;
       },
       error => {
         console.error('Error al obtener productos:', error);
@@ -85,26 +65,7 @@ export class ProductListComponent {
     this.productService.getProductsWithCategory(category, subcategory).subscribe(
       data => {
         this.products = data;
-        const allImagePromises = this.products.map(product => {
-          const imagePromises = product.imagenes.map((imagen: string) => 
-            this.fileUploadService.getImages(imagen, this.category, product.nombre)
-          );
-  
-          return Promise.all(imagePromises)
-            .then(images => {
-              product.imagenes = images;
-            })
-            .catch(error => console.error('Error al obtener imágenes:', error));
-        });
-  
-        Promise.all(allImagePromises)
-          .then(() => {
-            this.loading = false;
-          })
-          .catch(error => {
-            console.error('Error al obtener todas las imágenes:', error);
-            this.loading = false; // Puedes decidir si quieres mantener el loading en true en caso de error
-          });
+        this.loading = false;
       },
       error => {
         console.error('Error al obtener productos:', error);
@@ -135,7 +96,6 @@ export class ProductListComponent {
   
     this.productService.updateItem(this.category, this.id, { nombre, tapizados, inStock, precio, categoria, imagenes }).subscribe(
       () => {
-        console.log('Item updated successfully');
         if (product.files.length > 0) this.fileUploadService.uploadImage(product.files, this.category, nombre);
         if (product.imagesToDelete.length > 0) 
           this.fileUploadService.deleteImage(product.imagesToDelete, this.category, product.nombre)

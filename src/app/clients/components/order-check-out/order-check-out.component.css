@@ -1,0 +1,37 @@
+.order-checkout {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .order-checkout h2, .order-checkout h3 {
+    text-align: center;
+  }
+  
+  .order-checkout form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .order-checkout label {
+    margin-bottom: 15px;
+  }
+  
+  .order-checkout input, .order-checkout select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+  }
+  
+  .order-checkout button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .order-checkout button[disabled] {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  

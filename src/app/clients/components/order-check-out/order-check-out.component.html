@@ -1,0 +1,47 @@
+<div class="order-checkout">
+    <h2>Checkout</h2>
+  
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+      <h3>Detalles de Envío</h3>
+      <label>
+        Dirección:
+        <input formControlName="address" type="text" required>
+      </label>
+      <label>
+        Ciudad:
+        <input formControlName="city" type="text" required>
+      </label>
+      <label>
+        Código Postal:
+        <input formControlName="postalCode" type="text" required>
+      </label>
+      <label>
+        Provincia:
+        <input formControlName="country" type="text" required>
+      </label>
+      <label>
+        Teléfono:
+        <input formControlName="phoneNumber" type="text" required>
+      </label>
+  
+      <h3>Detalles de Pago</h3>
+      <label>
+        Método de Pago:
+        <select formControlName="paymentMethod" required>
+          <option value="credit_card">Tarjeta</option>
+          <option value="transfer">Transferencia</option>
+        </select>
+      </label>
+  
+      <h3>Productos</h3>
+      <ul>
+        <li *ngFor="let product of cartProducts">
+          {{ product.nombre }} x ${{ product.precio }}
+        </li>
+        <li>Total: ${{total}}</li>
+      </ul>
+  
+      <button type="submit" [disabled]="!checkoutForm.valid">Realizar Pedido</button>
+    </form>
+  </div>
+  
