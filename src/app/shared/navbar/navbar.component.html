@@ -14,7 +14,7 @@
         <li *ngIf="!isLoggedIn; else logged" routerLink="/login" class="header-list-item"><i class="fa-solid fa-right-to-bracket"></i></li>
         <ng-template #logged>
             <li routerLink="/mis-pedidos" class="header-list-item"><i class="fa-solid fa-user"></i></li>
-            <li (click)="logOut()" class="header-list-item"><i class="fa-solid fa-right-from-bracket"></i></li>
+            <li (click)="logOut()" routerLink="/" class="header-list-item"><i class="fa-solid fa-right-from-bracket"></i></li>
         </ng-template>
     </ul>
 </nav>

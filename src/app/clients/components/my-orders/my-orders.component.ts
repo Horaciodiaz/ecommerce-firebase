@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 export class MyOrdersComponent {
   orders: Order[] = [];
   selectedOrder: Order | null = null;
+  loading = true;
 
   constructor(private orderService: OrderService, private auth: Auth, private userService: UserService) { }
 
@@ -18,6 +19,7 @@ export class MyOrdersComponent {
     this.loadOrders();
   }
   async loadOrders(): Promise<void> {
+    this.loading = true;
     const userId = this.auth.currentUser?.uid;
     
     if (userId) {
@@ -41,6 +43,7 @@ export class MyOrdersComponent {
               console.error(`Error loading order with ID ${orderId}:`, orderError);
             }
           }
+          this.loading = false;
         } else {
           console.warn('No orders found for user');
         }
@@ -69,7 +72,6 @@ export class MyOrdersComponent {
   }
 
   getDate(order: any): string {
-    console.log(order)
     return order.createdAt.toDate(); // Ajusta el formato de la fecha según sea necesario
   }
 }

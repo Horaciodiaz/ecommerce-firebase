@@ -1,4 +1,4 @@
-<div class="order-checkout">
+<!-- <div class="order-checkout">
     <h2>Checkout</h2>
   
     <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
@@ -42,6 +42,78 @@
       </ul>
   
       <button type="submit" [disabled]="!checkoutForm.valid">Realizar Pedido</button>
+    </form>
+  </div>
+   -->
+   <div class="order-checkout">
+    <h2>Checkout</h2>
+    
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+      
+      <!-- Paso 1: Detalles de Contacto -->
+      <div *ngIf="step === 1" formGroupName="contactDetails">
+        <h3>Datos de Contacto</h3>
+        <label>Nombre:
+          <input formControlName="firstName" type="text">
+        </label>
+        <label>Apellido:
+          <input formControlName="lastName" type="text">
+        </label>
+        <label>Email:
+          <input formControlName="email" type="email">
+        </label>
+        <label>DNI:
+          <input formControlName="dni" type="text">
+        </label>
+        <label>Teléfono:
+          <input formControlName="phoneNumber" type="text">
+        </label>
+      </div>
+  
+      <!-- Paso 2: Detalles de Envío -->
+      <div *ngIf="step === 2" formGroupName="shippingDetails">
+        <h3>Datos de Envío</h3>
+        <label>Calle:
+          <input formControlName="address" type="text">
+        </label>
+        <label>Número:
+          <input formControlName="streetNumber" type="text">
+        </label>
+        <label>Piso:
+          <input formControlName="floor" type="text">
+        </label>
+        <label>Departamento:
+          <input formControlName="apartment" type="text">
+        </label>
+        <label>Ciudad:
+          <input formControlName="city" type="text">
+        </label>
+        <label>Provincia:
+          <input formControlName="province" type="text">
+        </label>
+        <label>Código Postal:
+          <input formControlName="postalCode" type="text">
+        </label>
+      </div>
+  
+      <!-- Paso 3: Detalles de Pago -->
+      <div *ngIf="step === 3" formGroupName="paymentDetails">
+        <h3>Detalles de Pago</h3>
+        <label>Método de Pago:
+          <select formControlName="paymentMethod">
+            <option value="credit_card">Tarjeta</option>
+            <option value="transfer">Transferencia</option>
+          </select>
+        </label>
+      </div>
+  
+      <!-- Navegación entre pasos -->
+      <div class="navigation-buttons">
+        <button type="button" (click)="previousStep()" *ngIf="step > 1">Anterior</button>
+        <button type="button" (click)="nextStep()" *ngIf="step < 3">Siguiente</button>
+        <button type="submit" *ngIf="step === 3">Realizar Pedido</button>
+      </div>
+  
     </form>
   </div>
   

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ShoppingCartService } from './shopping-cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -10,7 +11,7 @@ export class ShoppingCartComponent {
   productos: any[] = [];
   makeOrder: boolean = false; // Inicializado en false
 
-  constructor(private shoppingCartService: ShoppingCartService) {}
+  constructor(private shoppingCartService: ShoppingCartService, private router: Router) {}
 
   ngOnInit() {
     this.productos = this.shoppingCartService.productos;
@@ -36,6 +37,7 @@ export class ShoppingCartComponent {
   }
 
   proceedToCheckout() {
+    this.router.navigate(['/confirmar-pedido']);
     this.makeOrder = true; // Cambia a true cuando se decida proceder con el pedido
   }
 }

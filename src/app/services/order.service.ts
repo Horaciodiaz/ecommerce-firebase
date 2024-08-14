@@ -33,13 +33,16 @@ export interface OrderProduct {
     userId: string; // ID del usuario que realiza el pedido
     userName: string;
     userEmail: string;
+    userDni: string; // Nuevo campo para DNI del usuario
+    userPhoneNumber: string; // Nuevo campo para teléfono del usuario
     products: any[];
     shippingDetails: ShippingDetails;
     paymentDetails: PaymentDetails;
-    status: 'pending' | 'processing' | 'shipped' | 'delivered';
+    status: 'pending' | 'processing' | 'shipped' | 'delivered' | 'canceled';
     createdAt: Date;
     updatedAt: Date;
-  }  
+  }
+  
 
 @Injectable({
     providedIn: 'root'

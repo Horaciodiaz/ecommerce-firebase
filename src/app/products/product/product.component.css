@@ -89,7 +89,9 @@
 
 .buttons{
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
 }
 .btn{
   color: #fff;
@@ -109,11 +111,17 @@
 }
 
 .add-to-favorite-btn{
-  background-color: #ff7df8;
+  background-color: #7f7f7f;
+  text-decoration: none;
+  color: #fff;
+}
+
+.add-to-favorite-btn:visited{
+  color: #fff;
 }
 
 .add-to-favorite-btn:hover{
-  background-color: #b601ad;
+  background-color: #5b5b5b;
 }
 
 .stock{

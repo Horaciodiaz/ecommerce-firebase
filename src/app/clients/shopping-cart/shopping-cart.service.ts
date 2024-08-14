@@ -25,4 +25,7 @@ export class ShoppingCartService {
     });
   }
   
+  vaciarCarrito(){
+    this.productos = [];
+  }
 }

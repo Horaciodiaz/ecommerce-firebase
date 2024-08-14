@@ -1,5 +1,5 @@
 <section class="shoppingCart">
-    <h2>Carrito de Compras</h2>
+    <h2>Mi Carrito</h2>
   
     <table *ngIf="productos.length > 0; else vacio">
       <thead>
@@ -37,13 +37,13 @@
       </div>
     </ng-template>
     
-    <div *ngIf="makeOrder">
-      <app-order-check-out [cartProducts]="productos" [total]="total"></app-order-check-out>
-    </div>
+    <!-- <div *ngIf="makeOrder">
+      <app-order-check-out [total]="total"></app-order-check-out>
+    </div> -->
     
     <!-- Botón para proceder al checkout -->
     <button *ngIf="productos.length > 0" (click)="proceedToCheckout()">
-      Proceder al Pedido
+      Finalizar Pedido
     </button>
   </section>
   

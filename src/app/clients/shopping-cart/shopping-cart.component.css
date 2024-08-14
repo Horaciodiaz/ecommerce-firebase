@@ -1,6 +1,7 @@
 .shoppingCart{
-
-    /* height: 75vh; */
+    display: flex;
+    flex-direction: column;
+    min-height: 75svh;
 }
 
 table {
@@ -22,9 +23,15 @@ tfoot td{
 }
 
 button{
-    border: none;
-    border-radius: 10px;
+    background-color: #008c13;
+    border-radius: 5px;
     cursor: pointer;
+    box-shadow: 2px 2px #000;
+    align-self: flex-end;
+    font-size: 15px;
+    color: #fff;
+    font-weight: 600;
+    padding: 3px 6px;
 }
 
 .delete{

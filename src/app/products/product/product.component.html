@@ -19,7 +19,7 @@
             <ng-template #Pedido><p class="stock">A pedido <i class="fa-regular fa-clock"></i></p></ng-template>
             <div class="buttons">
                 <button (click)="addToCart(product)" class="btn add-to-cart-btn">Añadir al Carrito <i class="fa-solid fa-cart-plus"></i></button>
-                <button class="btn add-to-favorite-btn">Añadir a Favoritos <i class="fa-solid fa-heart"></i></button>
+                <a [href]="'https://api.whatsapp.com/send?phone=5493755274555&text=Hola%2C%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20' + product.nombre" class="btn add-to-favorite-btn" target="_blank">Consultas? <i class="fa-brands fa-whatsapp"></i></a>
             </div>
         </div>
     </div>
