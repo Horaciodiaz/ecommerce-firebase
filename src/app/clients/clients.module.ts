@@ -17,6 +17,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { OrderCheckOutComponent } from './components/order-check-out/order-check-out.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 
 
@@ -32,7 +33,8 @@ import { MyOrdersComponent } from './components/my-orders/my-orders.component';
     CarouselComponent,
     CategoriesComponent,
     OrderCheckOutComponent,
-    MyOrdersComponent
+    MyOrdersComponent,
+    PaymentComponent
   ],
   imports: [
     CommonModule,

@@ -98,6 +98,7 @@
     border: 1px solid rgba(105, 105, 105, 0.397);
     border-radius: 10px;
     box-sizing: border-box;
+    cursor: default;
 }
 
 .form label .input+span {
@@ -156,4 +157,30 @@
         transform: scale(1.8);
         opacity: 0;
     }
+}
+
+.password-container {
+  position: relative;
+}
+
+.password-container input {
+  padding-right: 40px; /* Espacio para el botón de mostrar/ocultar */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  color: #555;
+  font-size: 1.2em;
+}
+
+.toggle-password:focus {
+  outline: none;
 }

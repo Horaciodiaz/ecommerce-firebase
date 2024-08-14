@@ -11,6 +11,8 @@ import Swal from 'sweetalert2';
 })
 export class RegisterComponent {
   registerForm: FormGroup;
+  showPassword = false;
+  showConfirmPassword = false;
 
   constructor(private router: Router,private fb: FormBuilder, private userService: UserService) {
     this.registerForm = this.fb.group({
@@ -22,6 +24,13 @@ export class RegisterComponent {
     }, { validator: this.passwordMatchValidator });
   }
 
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+
+  toggleConfirmPasswordVisibility(){
+    this.showConfirmPassword = ! this.showConfirmPassword;
+  }
   // Validador para confirmar que las contraseñas coinciden
   passwordMatchValidator(formGroup: FormGroup) {
     return formGroup.get('password')?.value === formGroup.get('confirmPassword')?.value

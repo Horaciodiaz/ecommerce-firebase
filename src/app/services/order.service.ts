@@ -10,7 +10,7 @@ export interface OrderProduct {
     quantity: number;
     price: number;
   }
-  
+
   // Modelo para los datos de envío
   export interface ShippingDetails {
     address: string;
@@ -19,14 +19,14 @@ export interface OrderProduct {
     country: string;
     phoneNumber: string;
   }
-  
+
   // Modelo para los datos de pago
   export interface PaymentDetails {
     method: string;
     transactionId?: string; // Puede ser opcional si lo generas después
     status: 'pending' | 'completed' | 'failed';
   }
-  
+
   // Modelo para el pedido
   export interface Order {
     orderId: string;
@@ -41,8 +41,10 @@ export interface OrderProduct {
     status: 'pending' | 'processing' | 'shipped' | 'delivered' | 'canceled';
     createdAt: Date;
     updatedAt: Date;
+    total: number;
+    comprobante? : string
   }
-  
+
 
 @Injectable({
     providedIn: 'root'
@@ -53,7 +55,7 @@ export class OrderService {
     async createOrder(order: Order): Promise<void> {
       const orderCollection = collection(this.firestore, 'orders');
       const newOrderRef = doc(orderCollection);
-    
+
       const newOrder: Order = {
         ...order,
         orderId: newOrderRef.id,
@@ -61,7 +63,7 @@ export class OrderService {
         createdAt: new Date(),
         updatedAt: new Date(),
       };
-    
+
       try {
         await setDoc(newOrderRef, newOrder); // Usa setDoc para establecer el nuevo documento
         this.auth.currentUser?.uid ? this.userService.updateUserOrders(newOrder.orderId, this.auth.currentUser?.uid) : console.log("fallo el pedido ")
@@ -70,7 +72,7 @@ export class OrderService {
         throw new Error('Failed to create order');
       }
     }
-  
+
     // Obtener un pedido por ID
     async getOrderById(orderId: string): Promise<Order | null> {
       const orderDocRef = doc(this.firestore, `orders/${orderId}`);
@@ -88,14 +90,14 @@ export class OrderService {
         throw new Error('Failed to fetch order');
       }
     }
-    
-  
+
+
     // Actualizar el estado del pedido
     async updateOrderStatus(orderId: string, status: Order['status']): Promise<void> {
       try {
         // Crea la referencia al documento con la colección y el ID del documento
         const orderDocRef = doc(this.firestore, `orders/${orderId}`);
-        
+
         // Realiza la actualización del documento
         await updateDoc(orderDocRef, {
           status: status,
@@ -106,7 +108,7 @@ export class OrderService {
         throw new Error('Failed to update order status');
       }
     }
-  
+
     // Obtener todos los pedidos para admin
     async getAllOrders(): Promise<Order[]> {
       try {
@@ -126,7 +128,7 @@ export class OrderService {
       try {
         // Crea la referencia al documento con la colección y el ID del documento
         const orderDocRef = doc(this.firestore, `orders/${orderId}`);
-        
+
         // Realiza la actualización del documento
         await updateDoc(orderDocRef, {
           'paymentDetails.status': status,

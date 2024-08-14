@@ -1,32 +1,38 @@
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form">
-    <p class="title">Registro</p>
-    <p class="message">Registrate ahora para tener acceso total a nuestra tienda!</p>
-    
-    <label>
-        <input formControlName="firstName" placeholder="" type="text" class="input">
-        <span>Nombre</span>
-    </label>
+  <p class="title">Registro</p>
+  <p class="message">Registrate ahora para tener acceso total a nuestra tienda!</p>
 
-    <label>
-        <input formControlName="lastName" placeholder="" type="text" class="input">
-        <span>Apellido</span>
-    </label>
-            
-    <label>
-        <input formControlName="email" placeholder="" type="email" class="input">
-        <span>Email</span>
-    </label> 
-        
-    <label>
-        <input formControlName="password" placeholder="" type="password" class="input">
-        <span>Contraseña</span>
-    </label>
+  <label>
+    <input formControlName="firstName" placeholder="" type="text" class="input">
+    <span>Nombre</span>
+  </label>
 
-    <label>
-        <input formControlName="confirmPassword" placeholder="" type="password" class="input">
-        <span>Confirmar Contraseña</span>
-    </label>
+  <label>
+    <input formControlName="lastName" placeholder="" type="text" class="input">
+    <span>Apellido</span>
+  </label>
 
-    <button type="submit" class="submit">Registrarse</button>
-    <p class="signin">¿Ya tienes una cuenta? <a routerLink="/login">Iniciar Sesión</a></p>
+  <label>
+    <input formControlName="email" placeholder="" type="email" class="input">
+    <span>Email</span>
+  </label>
+
+  <label class="password-container">
+    <input formControlName="password" [type]="showPassword ? 'text' : 'password'" placeholder="" class="input">
+    <span>Contraseña</span>
+    <button type="button" class="toggle-password" (click)="togglePasswordVisibility()">
+      <i class="fa-solid" [class.fa-eye]="!showPassword" [class.fa-eye-slash]="showPassword"></i>
+    </button>
+  </label>
+  <label class="password-container">
+    <input formControlName="confirmPassword" [type]="showConfirmPassword ? 'text' : 'password'" placeholder="" class="input">
+    <span>Confirmar Contraseña</span>
+    <button type="button" class="toggle-password" (click)="toggleConfirmPasswordVisibility()">
+      <i class="fa-solid" [class.fa-eye]="!showConfirmPassword" [class.fa-eye-slash]="showConfirmPassword"></i>
+    </button>
+  </label>
+
+
+  <button type="submit" class="submit">Registrarse</button>
+  <p class="signin">¿Ya tienes una cuenta? <a routerLink="/login">Iniciar Sesión</a></p>
 </form>

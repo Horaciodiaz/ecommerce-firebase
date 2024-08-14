@@ -13,107 +13,12 @@ import Swal from 'sweetalert2';
   styleUrls: ['./order-check-out.component.css']
 })
 export class OrderCheckOutComponent {
-  // cartProducts: any[] = []; // Recibe los productos del carrito como entrada
-  // private _total!: number; // Recibe los productos del carrito como entrada
-  // checkoutForm: FormGroup;
-
-  // constructor(
-  //   private fb: FormBuilder,
-  //   private orderService: OrderService,
-  //   private auth: Auth,
-  //   private router: Router,
-  //   private userService: UserService,
-  //   private shoppingCart: ShoppingCartService
-  // ) {
-  //   this.checkoutForm = this.fb.group({
-  //     address: ['', [Validators.required]],
-  //     city: ['', [Validators.required]],
-  //     postalCode: ['', [Validators.required]],
-  //     country: ['', [Validators.required]],
-  //     phoneNumber: ['', [Validators.required]],
-  //     paymentMethod: ['', [Validators.required]]
-  //   });
-  // }
-
-  // ngOnInit(): void {
-  //   this.cartProducts = this.shoppingCart.productos
-  // }
-
-  // get total(): number {
-  //   return this.cartProducts
-  //     .map((product: any) => product.precio)
-  //     .reduce((accumulator: number, price: number) => accumulator + price, 0);
-  // }
-
-  // getFileNameFromUrl(url: string): string {
-  //   const decodedUrl = decodeURIComponent(url);
-  //   const parts = decodedUrl.split('/');
-  //   const fileNameWithToken = parts.pop() || '';
-  //   const fileName = fileNameWithToken.split('?')[0];
-  //   return fileName;
-  // }
-
-  // async onSubmit(): Promise<void> {
-  //   if (this.checkoutForm.valid) {
-  //     const shippingDetails: ShippingDetails = {
-  //       address: this.checkoutForm.get('address')?.value,
-  //       city: this.checkoutForm.get('city')?.value,
-  //       postalCode: this.checkoutForm.get('postalCode')?.value,
-  //       country: this.checkoutForm.get('country')?.value,
-  //       phoneNumber: this.checkoutForm.get('phoneNumber')?.value
-  //     };
-  
-  //     const paymentDetails: PaymentDetails = {
-  //       method: this.checkoutForm.get('paymentMethod')?.value,
-  //       status: 'pending'
-  //     };
-  
-  //     const currentUser = this.auth.currentUser;
-  
-  //     try {
-  //       const userData = await this.userService.getUser(currentUser!.uid);
-  //       const userName = `${userData.nombre} ${userData.apellido}` || '';
-  
-  //       const newOrder: Order = {
-  //         orderId: '', // Se generará automáticamente
-  //         userId: currentUser?.uid || '', // ID del usuario actual
-  //         userName: userName, // Nombre del usuario obtenido de Firestore
-  //         userEmail: currentUser?.email || '', // Correo electrónico del usuario
-  //         products: this.cartProducts,
-  //         shippingDetails,
-  //         paymentDetails,
-  //         status: 'pending',
-  //         createdAt: new Date(),
-  //         updatedAt: new Date()
-  //       };
-  
-  //       await this.orderService.createOrder(newOrder);
-  //       console.log('Pedido creado exitosamente');
-  //       Swal.fire({
-  //         title: "Confirmar Pedido",
-  //         text: "Una vez aceptado el pedido no se podra modificar.",
-  //         icon: "warning",
-  //         showCancelButton: true,
-  //         confirmButtonColor: "#3085d6",
-  //         cancelButtonColor: "#d33",
-  //         confirmButtonText: "Si, confirmo!"
-  //       }).then((result) => {
-  //         if (result.isConfirmed) {
-  //           this.shoppingCart.vaciarCarrito();
-  //           this.router.navigate(['/']);
-  //         }
-  //       });
-  //     } catch (error) {
-  //       console.error('Error al crear el pedido:', error);
-  //     }
-  //   } else {
-  //     console.error('Formulario inválido');
-  //   }
-  // }
-
   cartProducts: any[] = [];
   checkoutForm: FormGroup;
   step: number = 1; // Inicializa el paso en 1 (contactDetails)
+  fileUrl: string | null = null;
+  fileName: string | null = null;
+
 
   constructor(
     private fb: FormBuilder,
@@ -129,7 +34,8 @@ export class OrderCheckOutComponent {
         lastName: ['', [Validators.required]],
         email: ['', [Validators.required, Validators.email]],
         dni: ['', [Validators.required]],
-        phoneNumber: ['', [Validators.required]],
+        phoneArea: ['', [Validators.required]],  // Agregado
+        phoneNumber: ['', [Validators.required]],  // Agregado
       }),
       shippingDetails: this.fb.group({
         address: ['', [Validators.required]],
@@ -149,6 +55,12 @@ export class OrderCheckOutComponent {
   ngOnInit(): void {
     this.cartProducts = this.shoppingCart.productos;
   }
+
+  getStep(): boolean {
+    console.log(this.step === 1)
+    return this.step === 1;
+  }
+
 
   get total(): number {
     return this.cartProducts
@@ -170,6 +82,21 @@ export class OrderCheckOutComponent {
     }
   }
 
+  get paymentMethod() {
+    return this.checkoutForm.get('paymentDetails.paymentMethod');
+  }
+
+  onPaymentMethodChange(event: Event) {
+    const selectElement = event.target as HTMLSelectElement;
+    // No es necesario hacer nada aquí a menos que quieras hacer algo cuando se seleccione 'transferencia'
+  }
+
+  onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const file = input.files ? input.files[0] : null;
+    if (file) this.fileName = file?.name;
+  }
+
   async onSubmit(): Promise<void> {
     if (this.checkoutForm.valid) {
       const contactData = this.checkoutForm.get('contactDetails')?.value;
@@ -178,13 +105,13 @@ export class OrderCheckOutComponent {
         method: this.checkoutForm.get(['paymentDetails', 'paymentMethod'])?.value,
         status: 'pending'
       };
+      const comprobante = this.checkoutForm.get(['paymentDetails', 'comprobante'])?.value;
 
       const currentUser = this.auth.currentUser;
+      const phoneNumber = `${contactData.phoneArea}${contactData.phoneNumber}`;
 
       try {
-        console.log(contactData)
-        const userData = await this.userService.getUser(currentUser!.uid);
-        const userName = `${contactData.firstName} ${contactData.lastName}` || '';
+        const total = paymentDetails.method == 'transfer' ? this.total * .9 : this.total;
 
         const newOrder: Order = {
           orderId: '',
@@ -192,13 +119,15 @@ export class OrderCheckOutComponent {
           userName: `${contactData.firstName} ${contactData.lastName}`,
           userEmail: contactData.email || currentUser?.email || '',
           userDni: contactData.dni,
-          userPhoneNumber: contactData.phoneNumber,
+          userPhoneNumber: phoneNumber,
           products: this.cartProducts,
           shippingDetails,
           paymentDetails,
           status: 'pending',
           createdAt: new Date(),
-          updatedAt: new Date()
+          updatedAt: new Date(),
+          total: total,
+          // comprobante: `comprobante/${}`
         };
 
         await this.orderService.createOrder(newOrder);

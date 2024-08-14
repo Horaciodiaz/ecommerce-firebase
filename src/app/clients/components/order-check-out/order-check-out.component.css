@@ -1,37 +1,138 @@
 .order-checkout {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .order-checkout h2, .order-checkout h3 {
-    text-align: center;
-  }
-  
-  .order-checkout form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .order-checkout label {
-    margin-bottom: 15px;
-  }
-  
-  .order-checkout input, .order-checkout select {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-  }
-  
-  .order-checkout button {
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .order-checkout button[disabled] {
-    background-color: #cccccc;
-    cursor: not-allowed;
-  }
-  
+  background-color: #f9f9f9;
+  border-radius: 12px 0 0 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 520px;
+  margin: 20px auto;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.sombra{
+  background-color: #003d7a;
+  width: 20px;
+  height: 100%;
+  position: absolute;
+  right: -20px;
+  top: 0;
+  border-radius: 0 12px 12px 0;
+}
+
+h2 {
+  text-align: center;
+  color: #005AA7;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.step-header {
+  color: #181818;
+  padding: 10px;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+  position: relative;
+}
+
+input[type="text"],
+input[type="email"],
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder {
+  color: #bbb;
+}
+
+.phone-container {
+  display: flex;
+  gap: 15px
+}
+
+.phone-area {
+  width: 35% !important;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.phone-number {
+  width: 65% !important;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.phone-info {
+  font-size: 12px;
+  color: #777;
+  margin-top: 5px;
+  display: block;
+}
+
+button {
+  padding: 12px 20px;
+  border: 1px solid #000;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 3px 3px #000;
+  transition: background-color .3s;
+}
+
+button:hover {
+  background-color: #003d7a;
+}
+
+button[type="submit"] {
+  background-color: #005AA7;
+  color: #ffffff;
+}
+
+button[type="submit"]:hover {
+  background-color: #003d7a;
+}
+
+button[type="button"] {
+  background-color: #ffffff;
+}
+
+button[type="button"]:hover {
+  background-color: #cacaca;
+  box-shadow: -0px -0px #000 !important;
+}
+.single-button {
+  display: flex;
+  margin-top: 20px;
+  justify-content: flex-end !important;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}

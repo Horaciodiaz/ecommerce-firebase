@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 export class LoginComponent {
 
   loginForm: FormGroup;
+  showPassword = false;
 
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
     this.loginForm = this.fb.group({
@@ -19,21 +21,32 @@ export class LoginComponent {
     });
   }
 
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+
   async onSubmit() {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
       try {
         const rol = await this.userService.login(email, password);
-        if (rol == 'admin') {
+        if (rol === 'admin') {
           this.router.navigate(['/admin']); // Redirige a la ruta deseada
-        } else {
+        } else if(rol === 'user') {
           this.router.navigate(['/']);
+        } else{
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Correo o Contraseña incorrecta!"
+          });
         }
       } catch (error) {
         console.error('Error during login:', error);
-        // Manejo del error, como mostrar un mensaje de error al usuario
       }
     }
   }
-  
+
+
 }

@@ -9,23 +9,23 @@
       <p><strong>Fecha de Pedido:</strong> {{ getDate(selectedOrder) | date }}</p>
       <p><strong>Estado del Pedido:</strong> {{ selectedOrder.status | titlecase }}</p>
     </div>
-    
+
     <div class="ticket-products">
       <h4>Productos</h4>
       <ul>
         <li *ngFor="let product of selectedOrder.products">
           {{ product.nombre }} - Precio: {{ formatPrice(product.precio) }}
         </li>
-        <li>Total: {{ formatPrice(getOrderTotal()) }}</li>
+        <li>Total: {{ formatPrice(selectedOrder.total) }}</li>
       </ul>
     </div>
-    
+
     <div class="ticket-details">
       <h4>Datos de Envío</h4>
       <p>{{ selectedOrder.shippingDetails.address }}, {{ selectedOrder.shippingDetails.city }}, {{ selectedOrder.shippingDetails.country }}</p>
       <h4>Datos de Pago</h4>
-      <p><strong>Método:</strong> {{ selectedOrder.paymentDetails.method }}</p>
-      <p><strong>Estado:</strong> {{ selectedOrder.paymentDetails.status | titlecase }}</p>
+      <p><strong>Método:</strong> {{ selectedOrder.paymentDetails.method == 'transfer' ? 'Transferencia' : 'Tarjeta' }}</p>
+      <p><strong>Estado:</strong> {{ selectedOrder.paymentDetails.status == 'pending' ? 'Pendiente' : 'Pagado' }}</p>
     </div>
   </div>
 </div>

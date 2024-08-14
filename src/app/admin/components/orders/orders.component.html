@@ -9,17 +9,21 @@
     <option value="processing">En Proceso</option>
     <option value="shipped">Enviado</option>
     <option value="delivered">Entregado</option>
+    <option value="canceled">Cancelado</option>
   </select>
-  
+
 
   <label for="sort-field">Ordenar por:</label>
   <select id="sort-field" (change)="onSortFieldChange($event)">
     <option value="date">Fecha</option>
     <option value="status">Estado</option>
     <option value="user">Usuario</option>
-    <option value="">Sin orden específico</option> <!-- Opción para no ordenar -->
+    <option value="" selected="true" disabled>Sin orden específico</option> <!-- Opción para no ordenar -->
   </select>
-  
+  <button class="direction" (click)="toggleSortDirection()">
+    {{ sortDirection === 'asc' ? 'Ascendente' : 'Descendente' }}
+  </button>
+
 </div>
 
 <table>
@@ -45,6 +49,7 @@
           <option value="processing">En Proceso</option>
           <option value="shipped">Enviado</option>
           <option value="delivered">Entregado</option>
+          <option value="canceled">Cancelado</option>
         </select>
       </td>
       <td>
@@ -62,50 +67,59 @@
   <div class="ticket-container">
     <button class="close-button" (click)="closeTicket()"><i class="fa-solid fa-xmark"></i></button>
     <div class="ticket-header">
-      <h3>Detalles del Pedido</h3>
+      <h3>Detalles del Pedido: {{ selectedOrder.orderId }}</h3>
     </div>
-    <div class="ticket-details">
-      <p><strong>ID Pedido:</strong> {{ selectedOrder.orderId }}</p>
-      <div class="ticket-user">
-        <h4>Usuario</h4>
-        <p><strong>Nombre:</strong> {{ selectedOrder.userName }}</p>
-        <p><strong>Email:</strong> {{ selectedOrder.userEmail }}</p>
-        <p><strong>Teléfono:</strong> {{ selectedOrder.shippingDetails.phoneNumber }}</p>
+    <div class="ticket-body">
+
+      <div class="ticket-details">
+        <div class="ticket-user">
+          <h4>Datos del cliente</h4>
+          <p><strong>Nombre:</strong> {{ selectedOrder.userName }}</p>
+          <p><strong>Email:</strong> {{ selectedOrder.userEmail }}</p>
+          <p><strong>Teléfono:</strong> {{ selectedOrder.userPhoneNumber }}</p>
+          <p><strong>DNI:</strong> {{ selectedOrder.userDni }}</p>
+        </div>
+        <p><strong>Fecha de Pedido:</strong> {{ getDate(selectedOrder) | date }}</p>
+        <p><strong>Estado del Pedido:</strong>
+          <select [(ngModel)]="selectedOrder.status" (change)="updateOrderStatus(selectedOrder.orderId, selectedOrder.status)">
+            <option value="pending">Pendiente</option>
+            <option value="processing">En Proceso</option>
+            <option value="shipped">Enviado</option>
+            <option value="delivered">Entregado</option>
+            <option value="canceled">Cancelado</option>
+          </select>
+        </p>
       </div>
-      <p><strong>Fecha de Creación:</strong> {{ getDate(selectedOrder) | date }}</p>
-      <p><strong>Estado del Pedido:</strong> 
-        <select [(ngModel)]="selectedOrder.status" (change)="updateOrderStatus(selectedOrder.orderId, selectedOrder.status)">
-          <option value="pending">Pendiente</option>
-          <option value="processing">En Proceso</option>
-          <option value="shipped">Enviado</option>
-          <option value="delivered">Entregado</option>
-          <option value="canceled">Cancelado</option>
-        </select>
-      </p>
-    </div>
-    
-    <div class="ticket-products">
-      <h4>Productos</h4>
-      <ul>
-        <li *ngFor="let product of selectedOrder.products">
-          {{ product.nombre }} - Precio: {{ formatPrice(product.precio) }}
-          <img width="75px" height="75px" [src]="product.imagenes[0]" [alt]="product.nombre">
-        </li>
-      </ul>
-    </div>
-    
-    <div class="ticket-details">
-      <h4>Datos de Envío</h4>
-      <p>{{ selectedOrder.shippingDetails.address }}, {{ selectedOrder.shippingDetails.city }}, {{ selectedOrder.shippingDetails.country }}</p>
-      <h4>Datos de Pago</h4>
-      <p><strong>Método:</strong> {{ selectedOrder.paymentDetails.method }}</p>
-      <p>
-        <strong>Status:</strong> {{ selectedOrder.paymentDetails.status }} 
-        <select [(ngModel)]="selectedOrder.paymentDetails.status" (change)="updatePaymentStatus(selectedOrder.orderId, selectedOrder.paymentDetails.status)">
-          <option value="pending">Pendiente</option>
-          <option value="paid">Pagado</option>
-        </select>
-      </p>
+
+      <div class="ticket-products">
+        <h4>Productos</h4>
+        <ul>
+          <li *ngFor="let product of selectedOrder.products">
+            <p>{{ product.nombre }}: {{ formatPrice(product.precio) }}</p>
+          </li>
+        </ul>
+        <p><strong>Total:</strong>{{selectedOrder.total}}</p>
+      </div>
+
+      <div class="ticket-details">
+        <h4>Datos de Envío</h4>
+        <p><strong>Provincia:</strong> {{ selectedOrder.shippingDetails.province }}</p>
+        <p><strong>Ciudad:</strong> {{ selectedOrder.shippingDetails.city }}</p>
+        <p><strong>Codigo Postal:</strong> {{ selectedOrder.shippingDetails.postalCode }}</p>
+        <p><strong>Dirección:</strong> {{ selectedOrder.shippingDetails.address }}</p>
+        <p><strong>Número:</strong> {{ selectedOrder.shippingDetails.streetNumber }}</p>
+        <p *ngIf="selectedOrder.shippingDetails.floor != ''"><strong>Piso:</strong> {{ selectedOrder.shippingDetails.floor }}</p>
+        <p *ngIf="selectedOrder.shippingDetails.apartment != ''"><strong>Depto:</strong> {{ selectedOrder.shippingDetails.apartment }}</p>
+        <h4>Datos de Pago</h4>
+        <p><strong>Método:</strong> {{ selectedOrder.paymentDetails.method == 'transfer' ? 'Transferencia' : 'Tarjeta' }}</p>
+        <p>
+          <strong>Estado:</strong> {{ selectedOrder.paymentDetails.status == 'pending' ? 'Pendiente' : 'Pagado' }}
+          <select [(ngModel)]="selectedOrder.paymentDetails.status" (change)="updatePaymentStatus(selectedOrder.orderId, selectedOrder.paymentDetails.status)">
+            <option value="pending">Pendiente</option>
+            <option value="paid">Pagado</option>
+          </select>
+        </p>
+      </div>
     </div>
   </div>
 </div>

@@ -42,4 +42,17 @@ export class FileUploadService {
     const imgRef = ref(this.storage, `images/${folder}/${product}/${imagen}`);
     return getDownloadURL(imgRef);
   }
+
+  uploadFile(file: File, folder: string)  {
+      console.log(file);
+      const FileRef = ref(this.storage, folder);
+      uploadBytes(FileRef, file)
+      .then(res => console.log("uploadFile: ",res))
+      .catch(error => console.log(error));
+  }
+
+  getFile(folder: string){
+    const FileRef = ref(this.storage, folder);
+    return getDownloadURL(FileRef);
+  }
 }

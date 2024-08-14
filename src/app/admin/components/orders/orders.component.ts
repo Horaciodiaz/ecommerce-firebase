@@ -35,6 +35,11 @@ export class OrdersComponent {
     }
   }
 
+  toggleSortDirection(): void {
+    this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    this.applyFilters(); // Vuelve a aplicar los filtros con la nueva dirección de ordenación
+  }
+
   applyFilters(): void {
     let filtered = [...this.orders];
 
@@ -78,10 +83,10 @@ export class OrdersComponent {
   onFilterStatusChange(event: Event): void {
     const target = event.target as HTMLSelectElement; // Asegurar que es un HTMLSelectElement
     const status = target.value || null; // Asignar `null` si el valor es una cadena vacía
-  
+
     this.setFilterStatus(status);
   }
-  
+
   setFilterStatus(status: string | null): void {
     if (status === null || status === '') {
       // Resetear o mostrar todos los estados
@@ -91,14 +96,14 @@ export class OrdersComponent {
     }
     this.applyFilters(); // Aplicar los filtros según el estado seleccionado
   }
-  
+
   onSortFieldChange(event: Event): void {
     const target = event.target as HTMLSelectElement; // Asegurarse de que es un HTMLSelectElement
     const field = target.value || null; // Asignar `null` si el valor es una cadena vacía
-  
+
     this.setSortField(field);
   }
-  
+
   setSortField(field: string | null): void {
     if (field === null || field === '') {
       this.sortField = ''; // Resetear el campo si es necesario
@@ -113,7 +118,7 @@ export class OrdersComponent {
     }
     this.applyFilters();
   }
-  
+
 
   async updateOrderStatus(orderId: string, status: Order['status']): Promise<void> {
     try {

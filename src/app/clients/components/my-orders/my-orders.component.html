@@ -1,6 +1,6 @@
 <div class="order-history" *ngIf="!loading">
     <h2>Mis Pedidos</h2>
-    
+
     <table *ngIf="orders.length > 0; else withOut">
       <thead>
         <tr>
@@ -16,7 +16,7 @@
           <td>{{ order.orderId }}</td>
           <td>{{ getDate(order)| date: 'dd/MM/yyyy' }}</td>
           <td>{{ order.status == 'pending' ? 'Pendiente' : order.status == 'processing' ? 'En Proceso' : order.status == 'shipped' ? 'Enviado' : order.status == 'delivered' ? 'Entregado' : 'Cancelado' }}</td>
-          <td>${{ getOrderTotal(order) | number: '1.2-2' }}</td>
+          <td>${{ order.total | number: '1.2-2' }}</td>
           <td>
             <button (click)="viewDetails(order.orderId)">Ver Detalles</button>
           </td>

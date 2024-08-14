@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -8,8 +9,9 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class DashboardComponent {
 
-  constructor(private userService: UserService){}
+  constructor(private userService: UserService, private router: Router){}
   logOut(){
     this.userService.signOut();
+    this.router.navigate(['/']);
   }
 }

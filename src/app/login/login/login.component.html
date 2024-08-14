@@ -1,16 +1,20 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form">
     <p class="title">Iniciar Sesión</p>
-    
+
     <label>
         <input formControlName="email" placeholder="" type="email" class="input">
         <span>Email</span>
-    </label> 
-        
-    <label>
-        <input formControlName="password" placeholder="" type="password" class="input">
-        <span>Contraseña</span>
     </label>
 
-    <button type="submit" class="submit">Submit</button>
+    <label class="password-container">
+      <input formControlName="password" [type]="showPassword ? 'text' : 'password'" placeholder="" class="input">
+      <span>Contraseña</span>
+      <button type="button" class="toggle-password" (click)="togglePasswordVisibility()">
+          <i class="fa-solid" [class.fa-eye]="!showPassword" [class.fa-eye-slash]="showPassword"></i>
+      </button>
+  </label>
+
+
+    <button type="submit" class="submit">Iniciar Sesión</button>
     <p class="signin">¿No tienes cuenta? <a routerLink="/login/register">Regístrate</a></p>
 </form>
