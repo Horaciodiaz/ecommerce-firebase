@@ -6,6 +6,7 @@ import { Order, OrderProduct, OrderService, PaymentDetails, ShippingDetails } fr
 import { UserService } from 'src/app/services/user.service';
 import { ShoppingCartService } from '../../shopping-cart/shopping-cart.service';
 import Swal from 'sweetalert2';
+import { FileUploadService } from 'src/app/services/file-upload.service';
 
 @Component({
   selector: 'app-order-check-out',
@@ -18,6 +19,8 @@ export class OrderCheckOutComponent {
   step: number = 1; // Inicializa el paso en 1 (contactDetails)
   fileUrl: string | null = null;
   fileName: string | null = null;
+  file!: File;
+  total!: number;
 
 
   constructor(
@@ -25,7 +28,7 @@ export class OrderCheckOutComponent {
     private orderService: OrderService,
     private auth: Auth,
     private router: Router,
-    private userService: UserService,
+    private fileService: FileUploadService,
     private shoppingCart: ShoppingCartService
   ) {
     this.checkoutForm = this.fb.group({
@@ -56,16 +59,24 @@ export class OrderCheckOutComponent {
     this.cartProducts = this.shoppingCart.productos;
   }
 
-  getStep(): boolean {
-    console.log(this.step === 1)
-    return this.step === 1;
-  }
 
 
-  get total(): number {
+  getTotal(): number {
+    if(this.paymentMethod?.value == 'transfer') {
+      return this.cartProducts
+      .map((product: any) => product.precio)
+      .reduce((accumulator: number, price: number) => accumulator + price, 0)
+      * 0.9;
+    }
     return this.cartProducts
       .map((product: any) => product.precio)
       .reduce((accumulator: number, price: number) => accumulator + price, 0);
+  }
+
+  getTotalsinDesc(){
+    return this.cartProducts
+    .map((product: any) => product.precio)
+    .reduce((accumulator: number, price: number) => accumulator + price, 0);
   }
 
   nextStep(): void {
@@ -91,7 +102,8 @@ export class OrderCheckOutComponent {
     // No es necesario hacer nada aquí a menos que quieras hacer algo cuando se seleccione 'transferencia'
   }
 
-  onFileSelected(event: Event) {
+  onFileSelected(event: any) {
+    this.file = event.target.files[0]
     const input = event.target as HTMLInputElement;
     const file = input.files ? input.files[0] : null;
     if (file) this.fileName = file?.name;
@@ -105,13 +117,12 @@ export class OrderCheckOutComponent {
         method: this.checkoutForm.get(['paymentDetails', 'paymentMethod'])?.value,
         status: 'pending'
       };
-      const comprobante = this.checkoutForm.get(['paymentDetails', 'comprobante'])?.value;
 
       const currentUser = this.auth.currentUser;
       const phoneNumber = `${contactData.phoneArea}${contactData.phoneNumber}`;
 
       try {
-        const total = paymentDetails.method == 'transfer' ? this.total * .9 : this.total;
+        this.total = paymentDetails.method == 'transfer' ? this.total * .9 : this.getTotal();
 
         const newOrder: Order = {
           orderId: '',
@@ -126,8 +137,8 @@ export class OrderCheckOutComponent {
           status: 'pending',
           createdAt: new Date(),
           updatedAt: new Date(),
-          total: total,
-          // comprobante: `comprobante/${}`
+          total: this.total,
+          comprobante: `comprobantes/${contactData.dni}/${this.fileName}`
         };
 
         await this.orderService.createOrder(newOrder);
@@ -141,6 +152,7 @@ export class OrderCheckOutComponent {
           confirmButtonText: "Sí, confirmo!"
         }).then((result) => {
           if (result.isConfirmed) {
+            if (newOrder.comprobante) this.fileService.uploadFile(this.file, newOrder.comprobante);
             this.shoppingCart.vaciarCarrito();
             this.router.navigate(['/']);
           }
@@ -151,5 +163,16 @@ export class OrderCheckOutComponent {
     } else {
       console.error('Formulario inválido');
     }
+  }
+
+  formatPrice(price: number): string {
+    const formattedPrice = new Intl.NumberFormat('es-ES', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }).format(price);
+
+    return '$' + formattedPrice.replace('US$', '');
   }
 }

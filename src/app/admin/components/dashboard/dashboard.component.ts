@@ -11,7 +11,8 @@ export class DashboardComponent {
 
   constructor(private userService: UserService, private router: Router){}
   logOut(){
-    this.userService.signOut();
-    this.router.navigate(['/']);
+    this.userService.signOut()
+    .then(() => this.router.navigate(['/']) );
+    
   }
 }

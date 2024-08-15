@@ -3,7 +3,9 @@ ul{
     gap: 15px;
     padding: 0;
 }
-
+h2{
+    margin: 0;
+}
 li{
     list-style: none;
 }
@@ -11,12 +13,17 @@ li{
 a{
     color: #000;
     text-decoration: none;
-    background-color: #ffb3b3;
+    background-color: #fff;
     padding: 10px 20px;
     border-radius: 10px;
-    box-shadow: 2px 2px 0px;
+    border: 1px solid #000;
+    box-shadow: 2px 2px;
 }
 
 .active{
     box-shadow: 2px 2px 0px -5px;
+}
+
+.products{
+    margin: 20px;
 }

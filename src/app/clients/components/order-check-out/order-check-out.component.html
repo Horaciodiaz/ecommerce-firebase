@@ -30,6 +30,7 @@
     <!-- Paso 2: Detalles de Envío -->
     <div *ngIf="step === 2" formGroupName="shippingDetails" class="step-header">
       <h3>Datos de Envío</h3>
+      <span>Nos pondremos en contacto con usted para coordinar el envio.</span>
       <label>Calle:
         <input formControlName="address" type="text">
       </label>
@@ -59,16 +60,16 @@
       <label>Método de Pago:
         <select formControlName="paymentMethod" #paymentMethod>
           <option value="credit_card">Tarjeta</option>
-          <option value="transfer">Transferencia</option>
+          <option value="transfer" selected="selected">Transferencia (10% de descuento)</option>
         </select>
       </label>
 
-      <div *ngIf="paymentMethod.value == 'transfer'">
+      <div *ngIf="paymentMethod.value == 'transfer'; else tarjeta">
 
-        <p><strong>Banco: </strong></p>
-        <p><strong>Nombre: </strong></p>
+        <p><strong>Banco: </strong>Mercado Pago</p>
+        <p><strong>Nombre: </strong>Leonardo Tomas Ferrari</p>
         <p><strong>CUIL: </strong></p>
-        <p><strong>ALIAS: </strong></p>
+        <p><strong>ALIAS: </strong>leonardo.ferrari</p>
         <p><strong>CVU: </strong></p>
 
 
@@ -83,14 +84,38 @@
         </div>
 
       </div>
+      <ng-template #tarjeta>
+        <div>
+          <p><strong>AVISO: </strong>Nos estaremos comunicando con usted para enviarle un link de pago.</p>
+        </div>
+      </ng-template>
     </div>
 
     <!-- Navegación entre pasos -->
-    <div [ngClass]="getStep() ? 'single-button' : 'navigation-buttons'">
+    <div [ngClass]="step === 1 ? 'single-button' : 'navigation-buttons'">
       <button type="button" (click)="previousStep()" *ngIf="step > 1">Anterior</button>
       <button type="button" (click)="nextStep()" *ngIf="step < 3">Siguiente</button>
       <button type="submit" *ngIf="step === 3">Realizar Pedido</button>
     </div>
 
   </form>
+
+  <div class="products">
+    <div class="sombraproducts"></div>
+    <h3>Tus Productos</h3>
+    <ul>
+      <li *ngFor="let product of cartProducts">
+        <p>{{product.nombre}}: {{product.precio}}</p>
+        <img [src]="product.imagenes[0]" [alt]="product.nombre">
+      </li>
+      <li *ngIf="paymentMethod?.value === 'transfer'">
+        Total: <span class="discounted">{{ formatPrice(getTotal()) }}</span> 
+        <span class="original" style="text-decoration: line-through;">{{ formatPrice(getTotalsinDesc()) }}</span>
+      </li>
+      <li *ngIf="paymentMethod?.value !== 'transfer' && paymentMethod?.value !== null">
+        Total: {{ formatPrice(getTotalsinDesc()) }}
+      </li>
+    </ul>
+  </div>
+
 </div>

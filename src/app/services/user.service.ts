@@ -33,7 +33,7 @@ export class UserService {
   }
 
   signOut(){
-    signOut(this.auth);
+    return signOut(this.auth);
   }
 
 

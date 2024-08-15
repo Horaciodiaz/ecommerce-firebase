@@ -19,7 +19,9 @@ export class NavbarComponent {
   }
 
   logOut(){
-    this.userService.signOut();
-    this.isLoggedIn = false;
+    this.userService.signOut().then(
+      () => this.isLoggedIn = false
+    );
+    
   }
 }

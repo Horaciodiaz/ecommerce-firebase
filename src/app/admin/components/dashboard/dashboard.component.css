@@ -11,7 +11,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #007bff;
+  background-color: #002c5b;
   color: white;
   padding: 10px 20px;
   font-size: 1.2em;
@@ -26,7 +26,7 @@
   display: flex;
   align-items: center;
   padding: 5px 10px;
-  background-color: #0056b3;
+  background-color: #e84a3e;
   color: white;
   border-radius: 5px;
   cursor: pointer;
