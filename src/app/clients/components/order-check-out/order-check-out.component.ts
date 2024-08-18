@@ -6,6 +6,14 @@ import { Order, OrderProduct, OrderService, PaymentDetails, ShippingDetails } fr
 import { ShoppingCartService } from '../../shopping-cart/shopping-cart.service';
 import Swal from 'sweetalert2';
 import { FileUploadService } from 'src/app/services/file-upload.service';
+// import { loadMercadoPago } from "@mercadopago/sdk-js";
+
+declare global {
+  interface Window {
+    MercadoPago: any;
+    paymentBrickController: any;
+  }
+}
 
 @Component({
   selector: 'app-order-check-out',
@@ -96,11 +104,6 @@ export class OrderCheckOutComponent {
     return this.checkoutForm.get('paymentDetails.paymentMethod');
   }
 
-  onPaymentMethodChange(event: Event) {
-    const selectElement = event.target as HTMLSelectElement;
-    // No es necesario hacer nada aquí a menos que quieras hacer algo cuando se seleccione 'transferencia'
-  }
-
   onFileSelected(event: any) {
     this.file = event.target.files[0]
     const input = event.target as HTMLInputElement;
@@ -121,7 +124,7 @@ export class OrderCheckOutComponent {
       const phoneNumber = `${contactData.phoneArea}${contactData.phoneNumber}`;
 
       try {
-        this.total = paymentDetails.method == 'transfer' ? this.total * .9 : this.getTotal();
+        this.total = this.getTotal();
 
         const newOrder: Order = {
           orderId: '',
@@ -140,26 +143,40 @@ export class OrderCheckOutComponent {
           comprobante: this.file ? `comprobantes/${contactData.dni}/${this.fileName}` : ''
         };
 
-        await this.orderService.createOrder(newOrder);
-        Swal.fire({
-          title: "Confirmar Pedido",
-          text: "Una vez aceptado el pedido no se podrá modificar.",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Sí, confirmo!"
-        }).then((result) => {
-          if (result.isConfirmed) {
-            if (newOrder.comprobante) this.fileService.uploadFile(this.file, newOrder.comprobante);
-            this.shoppingCart.vaciarCarrito();
-            Swal.fire({
-              title: "Pedido Realizado 😎",
-              text: "En breve nos estaremos comunicando con usted para coordinar",
-              icon: "success"
-            }).then(() => this.router.navigate(['/']))
-          }
-        });
+        if(paymentDetails.method != 'transfer' || this.file != null){
+          Swal.fire({
+            title: "Confirmar Pedido",
+            text: "Una vez aceptado el pedido no se podrá modificar.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Sí, confirmo!"
+          }).then(async (result) => {
+            if (result.isConfirmed) {
+              await this.orderService.createOrder(newOrder);
+              if (newOrder.comprobante) this.fileService.uploadFile(this.file, newOrder.comprobante);
+              this.shoppingCart.vaciarCarrito();
+              Swal.fire({
+                title: "Pedido Realizado 😎",
+                text: "En breve nos estaremos comunicando con usted para coordinar",
+                icon: "success"
+              }).then(() => this.router.navigate(['/']))
+            }
+          });
+        }
+        else{
+          Swal.fire({
+            title: "Falta Comprobante de pago",
+            text: "Debe agregar un comprobante de transferencia.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Ok"
+          })
+        }
+        
       } catch (error) {
         console.error('Error al crear el pedido:', error);
       }
@@ -178,4 +195,6 @@ export class OrderCheckOutComponent {
 
     return '$' + formattedPrice.replace('US$', '');
   }
+
+
 }
