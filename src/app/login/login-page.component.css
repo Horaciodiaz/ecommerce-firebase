@@ -184,3 +184,32 @@
 .toggle-password:focus {
   outline: none;
 }
+
+@media (width <= 480px) {
+    #login-page{
+        width: 100vw;
+    }
+    .form{
+        width: 88vw;
+    }
+    .back{
+        font-size: 25px;
+    }
+    .signin, .message{
+        font-size: 17px;
+        margin: 0;
+    }
+    .form label .input:focus+span,
+    .form label .input:valid+span{
+        font-size: 1em;
+    }
+
+    .form label .input{
+        font-size: 18px;
+    }
+
+    .title{
+        margin: 0;
+        font-size: 25px;
+    }
+}

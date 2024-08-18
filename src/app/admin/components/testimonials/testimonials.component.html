@@ -12,10 +12,10 @@
   </thead>
   <tbody *ngIf="testimonios.length > 0">
     <tr *ngFor="let testimonio of testimonios; let i = index" class="Animation">
-      <td>{{ i+1 }}</td>
-      <td>{{ testimonio.nombre }}</td>
-      <td id="cita-skeleton">{{ testimonio.cita }}</td>
-      <td class="buttons">
+      <td data-label="ID: ">{{ i+1 }}</td>
+      <td data-label="Nombre: ">{{ testimonio.nombre }}</td>
+      <td data-label="Cita: " id="cita-skeleton">{{ testimonio.cita }}</td>
+      <td data-label="Acciones: " class="buttons">
         <button (click)="edit = true; id = testimonio.id; setForm(testimonio)">Editar</button>
         <button class="eliminar" (click)="deleteTestimonio(testimonio.id)">Eliminar</button>
       </td>

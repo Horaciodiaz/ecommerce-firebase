@@ -1,3 +1,4 @@
+/* Estilos generales */
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -24,6 +25,8 @@
 
 .form-container {
   width: 90%;
+  max-height: 75svh;
+  overflow-y: scroll;
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
@@ -97,7 +100,7 @@
   background-color: #28a745;
   color: white;
 }
- 
+
 .button-group .submit-button:hover {
   background-color: #218838;
 }
@@ -119,28 +122,29 @@
   background-color: #bd2130;
 }
 
-.images-group{
+.images-group {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
 }
 
-.images-group .images-item{
+.images-group .images-item {
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
-.images-group .images-item button{
+.images-group .images-item button {
   position: absolute;
-    border: none;
-    cursor: pointer;
-    background-color: #33333382;
-    border-radius: 0 50% 50% 0;
-    padding: 3px 6px;
+  border: none;
+  cursor: pointer;
+  background-color: #33333382;
+  border-radius: 0 50% 50% 0;
+  padding: 3px 6px;
 }
-.images-group .images-item img{
+
+.images-group .images-item img {
   width: 100px;
   height: 100px;
   border-radius: 0 10px 10px;
@@ -197,4 +201,93 @@
 
 .form-row .form-group:first-child {
   margin-right: 20px;
+}
+
+/* Responsividad */
+
+/* Pantallas menores a 768px (tabletas y teléfonos) */
+@media (max-width: 768px) {
+  .form-container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .button-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button-group .submit-button,
+  .button-group .cancel-button {
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-row .form-group {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .images-group .images-item img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Pantallas menores a 480px (teléfonos pequeños) */
+@media (max-width: 480px) {
+.form-container{
+  max-height: 100svh;
+  overflow-y: scroll;
+}
+
+  .form-container h2 {
+    font-size: 20px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .file-select input[type="file"] {
+    width: 150px;
+    height: 30px;
+  }
+
+  .images-group .images-item img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .button-group .submit-button,
+  .button-group .cancel-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .button-group .submit-button,
+  .button-group .cancel-button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-row .form-group {
+    width: 100%;
+    margin-right: 0;
+  }
 }

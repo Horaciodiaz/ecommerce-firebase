@@ -13,12 +13,12 @@
       </thead>
       <tbody>
         <tr *ngFor="let order of orders">
-          <td>{{ order.orderId }}</td>
-          <td>{{ getDate(order)| date: 'dd/MM/yyyy' }}</td>
-          <td>{{ order.status == 'pending' ? 'Pendiente' : order.status == 'processing' ? 'En Proceso' : order.status == 'shipped' ? 'Enviado' : order.status == 'delivered' ? 'Entregado' : 'Cancelado' }}</td>
-          <td>${{ order.total | number: '1.2-2' }}</td>
-          <td>
-            <button (click)="viewDetails(order.orderId)">Ver Detalles</button>
+          <td data-label="ID Pedido: ">{{ order.orderId }}</td>
+          <td data-label="Fecha: ">{{ getDate(order)| date: 'dd/MM/yyyy' }}</td>
+          <td data-label="Estado: ">{{ order.status == 'pending' ? 'Pendiente' : order.status == 'processing' ? 'En Proceso' : order.status == 'shipped' ? 'Enviado' : order.status == 'delivered' ? 'Entregado' : 'Cancelado' }}</td>
+          <td data-label="Total: ">${{ order.total | number: '1.2-2' }}</td>
+          <td data-label="Detalles: ">
+            <button (click)="viewDetails(order)">Ver Detalles</button>
           </td>
         </tr>
       </tbody>
@@ -27,4 +27,4 @@
       <p style="margin-top: 50px;">Aun no ha realizado ningun pedido!!!</p>
     </ng-template>
   </div>
-  <app-order-details *ngIf="selectedOrder" [selectedOrder]="selectedOrder"></app-order-details>
+  <app-order-details *ngIf="selectedOrder != null" [selectedOrder]="selectedOrder" (close)="selectedOrder = null"></app-order-details>

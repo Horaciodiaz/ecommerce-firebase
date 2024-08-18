@@ -3,7 +3,6 @@ import { Auth } from '@angular/fire/auth';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Order, OrderProduct, OrderService, PaymentDetails, ShippingDetails } from 'src/app/services/order.service';
-import { UserService } from 'src/app/services/user.service';
 import { ShoppingCartService } from '../../shopping-cart/shopping-cart.service';
 import Swal from 'sweetalert2';
 import { FileUploadService } from 'src/app/services/file-upload.service';
@@ -138,7 +137,7 @@ export class OrderCheckOutComponent {
           createdAt: new Date(),
           updatedAt: new Date(),
           total: this.total,
-          comprobante: `comprobantes/${contactData.dni}/${this.fileName}`
+          comprobante: this.file ? `comprobantes/${contactData.dni}/${this.fileName}` : ''
         };
 
         await this.orderService.createOrder(newOrder);
@@ -154,7 +153,11 @@ export class OrderCheckOutComponent {
           if (result.isConfirmed) {
             if (newOrder.comprobante) this.fileService.uploadFile(this.file, newOrder.comprobante);
             this.shoppingCart.vaciarCarrito();
-            this.router.navigate(['/']);
+            Swal.fire({
+              title: "Pedido Realizado 😎",
+              text: "En breve nos estaremos comunicando con usted para coordinar",
+              icon: "success"
+            }).then(() => this.router.navigate(['/']))
           }
         });
       } catch (error) {

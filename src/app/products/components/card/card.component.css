@@ -171,9 +171,9 @@ a:visited{
         margin: 7px 8px;
         font-size: 15px;
     }
-    .button-1{
+    /* .button-1{
         display: none;
-    }
+    } */
     .description{
         max-height: 32px;
         font-size: 12px;
@@ -183,13 +183,13 @@ a:visited{
     }
 }
 
-@media (width <= 425px){
+@media (width <= 480px){
     .card{
         width: auto;
         height: auto;
     }
     .text{
-        grid-template-rows: 35px 38px 25px;
+        grid-template-rows: 40px 38px 25px;
     }
 
     .text h4{
@@ -215,7 +215,7 @@ a:visited{
     }
 
     .buttons button{
-        font-size: 10px;
+        font-size: 13px;
         padding: 3px 7px;
         margin: 0;
     }
@@ -231,7 +231,7 @@ a:visited{
 }
 
 @media (width <= 350px){
-    .button-1{
+    /* .button-1{
         display: none;
-    }
+    } */
 }

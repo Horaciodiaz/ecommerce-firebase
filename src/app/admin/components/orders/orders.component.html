@@ -40,11 +40,11 @@
     </thead>
     <tbody>
       <tr *ngFor="let order of filteredOrders; let i = index">
-        <td>{{ i + 1 }}</td>
-        <td>{{ order.userEmail }}</td>
-        <td>{{ order.products.length }}</td>
-        <td>{{ getDate(order) | date}}</td>
-        <td>
+        <td  data-label="#: ">{{ i + 1 }}</td>
+        <td  data-label="Usuario: ">{{ order.userEmail }}</td>
+        <td  data-label="Cantidad: ">{{ order.products.length }}</td>
+        <td  data-label="Fecha: ">{{ getDate(order) | date}}</td>
+        <td  data-label="Estado: ">
           <select [(ngModel)]="order.status" (change)="updateOrderStatus(order.orderId, order.status)">
             <option value="pending">Pendiente</option>
             <option value="processing">En Proceso</option>
@@ -53,7 +53,7 @@
             <option value="canceled">Cancelado</option>
           </select>
         </td>
-        <td>
+        <td  data-label="Acciones: ">
           <button (click)="viewOrderDetails(order)">Ver Detalles</button>
         </td>
       </tr>
@@ -125,10 +125,10 @@
               <option value="paid">Pagado</option>
             </select>
           </p>
-          <p><strong>Comprobante: </strong> </p>
-          <img width="50px" height="50px" *ngIf="selectedOrder && selectedOrder.comprobanteFile"
+          <p *ngIf="selectedOrder && selectedOrder.paymentDetails.method == 'transfer'"><strong>Comprobante: </strong> </p>
+          <img width="50px" height="50px" *ngIf="selectedOrder && selectedOrder.paymentDetails.method == 'transfer'"
             [src]="selectedOrder.comprobanteFile" alt="Comprobante" loading="lazy">
-          <p><strong>Whatsapp: </strong> <a href="http://wa.me/{{selectedOrder.userPhoneNumber}"></a> </p>
+          <p><strong>Whatsapp: </strong> <a [href]="'https://wa.me/'.concat(selectedOrder.userPhoneNumber)">click aquí</a> </p>
         </div>
       </div>
     </div>

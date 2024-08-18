@@ -10,7 +10,7 @@
     <ul class="header-list">
         <!-- <li class="header-list-item"><i class="fa-solid fa-magnifying-glass"></i></li> -->
         <li routerLink="mi-carrito" class="header-list-item"><i class="fa-solid fa-cart-shopping"></i></li>
-        <li class="header-list-item"><i class="fa-brands fa-whatsapp"></i></li>
+        <li class="header-list-item"><a href="https://wa.me/+5493755274555"><i class="fa-brands fa-whatsapp"></i></a></li>
         <li *ngIf="!isLoggedIn; else logged" routerLink="/login" class="header-list-item"><i class="fa-solid fa-right-to-bracket"></i></li>
         <ng-template #logged>
             <li routerLink="/mis-pedidos" class="header-list-item"><i class="fa-solid fa-user"></i></li>

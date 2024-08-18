@@ -206,6 +206,20 @@ button:hover {
   font-size: 20px;
 }
 
+@media (width <= 1030px){
+  .carousel-buttons button{
+    padding: 6px 11px 10px;
+    font-size: 25px;
+  }
+  .carousel-caption h3{
+    font-size: 45px;
+  }
+  .carousel-caption p, .carousel-caption button{
+    font-size: 17px !important;
+  }
+
+}
+
 @media (width < 480px){
   .carousel-inner{
     /* aspect-ratio: none; */

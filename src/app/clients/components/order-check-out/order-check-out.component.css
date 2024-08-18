@@ -177,3 +177,12 @@ button[type="button"]:hover {
   margin-left: 8px;
   display: block;
 }
+
+@media (width <= 480px) {
+  .order-checkout{
+    width: 100vw;
+  }
+  .products{
+    display: none;
+  }
+}

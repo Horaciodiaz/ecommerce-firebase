@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ShoppingCartService } from 'src/app/clients/shopping-cart/shopping-cart.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -8,11 +9,11 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class NavbarComponent {
   isLoggedIn: boolean = false;
+  cart: boolean = this.shoppingCartService.productos.length > 0;
 
-  constructor(private userService: UserService){}
+  constructor(private userService: UserService, private shoppingCartService: ShoppingCartService){}
 
   ngOnInit(): void {
-    // Suscribirse al estado de autenticación
     this.userService.isLoggedIn().subscribe(isLoggedIn => {
       this.isLoggedIn = isLoggedIn;
     });

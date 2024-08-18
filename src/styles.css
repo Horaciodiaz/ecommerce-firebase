@@ -10,7 +10,7 @@ body, html{
     margin: 0;
     scroll-behavior: smooth;
     overflow-x: hidden;
-    
+    position: relative;
 }
 
 h1,h2,h3,h4{

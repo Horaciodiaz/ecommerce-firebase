@@ -15,10 +15,12 @@
   padding: 10px 20px;
   font-size: 1.2em;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
 }
 
 .header .title {
   margin: 0;
+  font-size: 1.5em;
 }
 
 .header .header-list-item {
@@ -32,6 +34,7 @@
   font-size: 15px;
   transition: background-color 0.3s, color 0.3s;
   text-decoration: none;
+  margin: 5px 0;
 }
 
 .header .header-list-item i {
@@ -41,4 +44,37 @@
 .header .header-list-item:hover {
   background-color: #f61100;
   color: #e2e2e2;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header .title {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+  }
+
+  .header .header-list-item {
+    width: auto;
+    justify-content: center;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 10px;
+  }
+
+  .header .title {
+    font-size: 1.2em;
+  }
+
+  .header .header-list-item {
+    font-size: 0.9em;
+    padding: 8px 10px;
+  }
 }

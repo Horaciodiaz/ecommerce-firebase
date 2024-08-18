@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FileUploadService } from 'src/app/services/file-upload.service';
 import { Order, OrderService } from 'src/app/services/order.service';
 
@@ -9,9 +9,13 @@ import { Order, OrderService } from 'src/app/services/order.service';
 })
 export class OrderDetailsComponent {
   @Input() selectedOrder: Order | null = null;
+  @Output() close: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor(private orderService: OrderService, private fileService: FileUploadService) {}
+  constructor(private orderService: OrderService) { }
 
+  ngOnInit(){
+    console.log(this.selectedOrder)
+  }
   getOrderTotal(): number {
     if (this.selectedOrder) {
       return this.orderService.calculateOrderTotal(this.selectedOrder);
@@ -27,12 +31,13 @@ export class OrderDetailsComponent {
     return new Intl.NumberFormat('es-ES', {
       style: 'currency',
       currency: 'USD',
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
     }).format(price).replace('US$', '$');
   }
 
   closeTicket(){
     this.selectedOrder = null;
+    this.close.emit();
   }
 }

@@ -8,14 +8,17 @@ table {
     width: 100%;
     border-collapse: collapse;
     min-height: 300px;
+    margin-bottom: 15px;
 }
 th, td {
     padding: 8px;
     text-align: left;
     vertical-align: top; 
+    border: 1px solid #ddd;
 }
 th {
-    background-color: #f2f2f2;
+    background-color: #484848;
+    color: #fff;
 }
 
 tfoot td{
@@ -37,6 +40,7 @@ button{
 .delete{
     background-color: red;
     color: #f2f2f2;
+    transform: translate(80%, 0);
 }
 
 .vacio{
@@ -61,4 +65,16 @@ button{
 .vacio button:hover{
     padding: 10px 20px;
     box-shadow: 3px 3px 10px #8b8b8b;
+}
+
+@media (width <= 480px ){
+    .shoppingCart{
+        width: 100vw;
+        box-sizing: border-box;
+        padding: 0 10px;
+    }
+    .vacio{
+        width: auto;
+        height: 55svh;
+    }
 }

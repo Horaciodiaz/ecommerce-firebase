@@ -91,6 +91,12 @@ img{
     color: #fff;
     text-shadow: 3px 1px 12px #000;
 }
+@media (width <= 1400px){
+    .category{
+        height: 245px;
+    }
+}
+
 
 @media (width < 480px){
     .byCategories{
@@ -102,7 +108,7 @@ img{
         font-size: 8vw;
     }
     .category{
-        height: 172px;
+        height: 150px;
     }
     .category .texto{
         font-size: 30px;

@@ -45,7 +45,7 @@
 
 @media (width < 480px){
   #testimonials{
-    height: 75vh;
+    height: 77vh;
   }
   .testimonials{
     grid-template-columns: repeat(2, 1fr);

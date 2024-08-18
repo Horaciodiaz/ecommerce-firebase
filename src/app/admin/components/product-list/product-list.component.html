@@ -1,34 +1,37 @@
 <h2>Productos - {{ category | titlecase }}</h2>
 <button (click)="create = true">Agregar {{category | titlecase}}</button>
-<table *ngIf="!loading">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Nombre</th>
-      <th>Foto</th>
-      <th>Descripción</th>
-      <th>Precio</th>
-      <th *ngIf="products[0]['inStock'] != null">En Stock</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody *ngIf="!loading && products.length  > 0">
-    <tr *ngFor="let product of products; let i = index">
-      <td>{{ i+1 }}</td>
-      <td>{{ product.nombre }}</td>
-      <td>
-        <img [src]="product.imagenes[0]" [alt]="product.nombre " width="50" height="50" loading="lazy">
-      </td>
-      <td [style.white-space]="'pre-wrap'" [style.width]="'450px'">{{ product.descripcion }}</td>
-      <td>{{ formatPrice(product.precio) }}</td>
-      <td *ngIf="products[0]['inStock'] != null">{{ product['inStock'] ? 'Sí' : 'No' }}</td>
-      <td>
-        <button style="background-color: #0075d5; margin-right: 10px;" (click)="edit = true; id = product.id; productToEdit = product"><i class="fa-solid fa-pen-to-square"></i>Editar</button>
-        <button style="background-color: red;" (click)="deleteProduct(product)"><i class="fa-solid fa-trash"></i>Eliminar</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="table-responsive">
+
+  <table *ngIf="!loading">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Foto</th>
+        <th>Descripción</th>
+        <th>Precio</th>
+        <th *ngIf="products[0]['inStock'] != null">En Stock</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="!loading && products.length  > 0">
+      <tr *ngFor="let product of products; let i = index">
+        <td data-label="ID: ">{{ i+1 }}</td>
+        <td data-label="Nombre: ">{{ product.nombre }}</td>
+        <td data-label="Foto: ">
+          <img [src]="product.imagenes[0]" [alt]="product.nombre " width="50" height="50" loading="lazy">
+        </td>
+        <td data-label="Descripción: " [style.white-space]="'pre-wrap'" [style.width]="'450px'">{{ product.descripcion }}</td>
+        <td data-label="Precio: ">{{ formatPrice(product.precio) }}</td>
+        <td data-label="En Stock: " *ngIf="products[0]['inStock'] != null">{{ product['inStock'] ? 'Sí' : 'No' }}</td>
+        <td data-label="Acciones: ">
+          <button style="background-color: #0075d5; margin-right: 10px;" (click)="edit = true; id = product.id; productToEdit = product"><i class="fa-solid fa-pen-to-square"></i>Editar</button>
+          <button style="background-color: red;" (click)="deleteProduct(product)"><i class="fa-solid fa-trash"></i>Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 
  <app-form [create]="true" [edit]="false" *ngIf="create" (cerrar)="create = false" (datos)="onFormSubmit($event)"></app-form>

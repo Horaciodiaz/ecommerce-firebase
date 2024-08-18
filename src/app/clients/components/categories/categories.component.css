@@ -58,7 +58,6 @@ h2 {
 
 .poster {
     position: relative;
-    /* width: fit-content; */
     height: 655px;  
     overflow: hidden;
     cursor: pointer;
@@ -112,20 +111,29 @@ h2 {
     z-index: 300;
 }
 
+@media(width <= 1400px){
+    .new-offers{
+        min-height: 535px;
+    }
+    .poster{
+        height: 520px !important;
+    }
+}
+
 @media (width < 480px){
     .new-offers{
         grid-template-columns: 1fr;
         grid-template-rows: repeat(3, 1fr);
         grid-template-areas: "new-props" "new-backdrops" "offers-props";
         gap: 0;
-        min-height: 550px;
+        min-height: 478px;
     }
     .title{
         font-size: 30px;
         padding: 10px 0 0 0;
     }
     .poster{
-        height: 183px;
+        height: 157px !important;
     }
     h2{
         font-size: 42px;

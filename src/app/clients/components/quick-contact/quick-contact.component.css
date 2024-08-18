@@ -81,6 +81,7 @@ img {
         align-items: center;
         flex-direction: column;
         flex-wrap: nowrap;
+        padding: 9px 7px 8px;
     }
     .message a{
         background-color: #fff;
@@ -93,7 +94,7 @@ img {
         grid-template-areas:
             "title"
             "message";
-        height: 77vh;
+        height: 80vh;
         width: 100%;
         gap: 10px 0;
         /* margin: 30px 0 0 0; */
@@ -118,5 +119,6 @@ img {
         color: #fff;
         text-shadow: 2px 2px 15px #000;
         text-align: end;
+        height: 120px;
     }
 }

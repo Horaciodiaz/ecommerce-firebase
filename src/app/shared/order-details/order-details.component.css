@@ -16,6 +16,8 @@
 
 .ticket-container {
   width: 350px;
+  height: 450px;
+  overflow-y: scroll;
   padding: 20px;
   border: 2px dashed #333;
   border-radius: 10px;
@@ -107,4 +109,10 @@
   margin-left: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
+}
+
+@media (width <= 480px) {
+  .ticket-header h3{
+    font-size: 1.3em;
+  }
 }

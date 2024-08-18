@@ -32,8 +32,8 @@ export class ShoppingCartComponent {
     return new Intl.NumberFormat('es-ES', {
       style: 'currency',
       currency: 'USD',
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
     }).format(price).replace('US$', '$');
   }
 

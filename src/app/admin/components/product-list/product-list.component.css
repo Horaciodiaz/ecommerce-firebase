@@ -1,3 +1,4 @@
+/* Estilos generales */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -51,3 +52,61 @@ button:active {
   background-color: #004085;
 }
 
+/* Responsividad */
+
+/* Pantallas menores a 768px (tabletas y teléfonos) */
+@media (max-width: 768px) {
+  /* Ajuste del tamaño de fuente en tablas para que sea más pequeño */
+  table {
+    font-size: 14px;
+  }
+
+  /* Permite scroll horizontal en tablas para evitar el desbordamiento */
+  .table-responsive {
+    overflow-x: auto;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
+/* Pantallas menores a 480px (teléfonos pequeños) */
+@media (max-width: 480px) {
+  thead {
+    display: none; /* Oculta los encabezados originales en pantallas pequeñas */
+  }
+
+  tr {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px; /* Añade espacio entre filas */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    /* padding: 10px; */
+  }
+
+  td {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 10px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+  }
+
+  td::before {
+    content: attr(data-label); /* Muestra el encabezado antes de cada celda */
+    font-weight: bold;
+    color: #333;
+  }
+
+  td:last-child {
+    border-bottom: none; /* Remueve la línea del último td */
+  }
+}

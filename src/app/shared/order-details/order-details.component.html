@@ -7,7 +7,7 @@
     <div class="ticket-details">
       <p><strong>ID Pedido:</strong> {{ selectedOrder.orderId }}</p>
       <p><strong>Fecha de Pedido:</strong> {{ getDate(selectedOrder) | date }}</p>
-      <p><strong>Estado del Pedido:</strong> {{ selectedOrder.status | titlecase }}</p>
+      <p><strong>Estado del Pedido:</strong> {{ selectedOrder.status == 'pending' ? 'Pendiente' : selectedOrder.status == 'processing' ? 'En Proceso' : selectedOrder.status == 'shipped' ? 'Enviado' : selectedOrder.status == 'delivered' ? 'Entregado' : 'Cancelado' }}</p>
     </div>
 
     <div class="ticket-products">

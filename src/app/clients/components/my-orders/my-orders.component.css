@@ -35,3 +35,40 @@
     background-color: #0056b3;
   }
   
+  @media (max-width: 480px) {
+    .order-history{
+      width: 100vw;
+      box-sizing: border-box;
+    }
+    thead {
+      display: none; /* Oculta los encabezados originales en pantallas pequeñas */
+    }
+  
+    tr {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px; /* Añade espacio entre filas */
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      /* padding: 10px; */
+    }
+  
+    td {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 10px;
+      border: none;
+      border-bottom: 1px solid #ddd;
+      position: relative;
+    }
+  
+    td::before {
+      content: attr(data-label); /* Muestra el encabezado antes de cada celda */
+      font-weight: bold;
+      color: #333;
+    }
+  
+    td:last-child {
+      border-bottom: none; /* Remueve la línea del último td */
+    }
+  }

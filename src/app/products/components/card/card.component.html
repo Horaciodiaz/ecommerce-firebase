@@ -9,7 +9,7 @@
         <p class="description">{{product.descripcion}}</p>
         <div class="buttons">
             <button class="button-1">Ver más</button>
-            <button class="button-2"  (click)="handleDudasClick($event)"><a [href]="'https://api.whatsapp.com/send?phone=5493755274555&text=Hola%2C%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20' + product.nombre" class="btn add-to-favorite-btn" target="_blank">Dudas?</a></button>
+            <!-- <button class="button-2"  (click)="handleDudasClick($event)"><a [href]="'https://api.whatsapp.com/send?phone=5493755274555&text=Hola%2C%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20' + product.nombre" class="btn add-to-favorite-btn" target="_blank">Dudas?</a></button> -->
             <button class="button-3" (click)="addToCart($event, product)"><i class="fa-solid fa-cart-plus"></i></button>
         </div>
     </div>

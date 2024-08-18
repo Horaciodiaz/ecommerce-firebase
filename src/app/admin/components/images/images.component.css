@@ -107,3 +107,53 @@
 .admin-carousel .images-container button.delete-button:hover {
   background-color: #d32f2f;
 }
+
+/* Media Queries para diseño responsive */
+@media (max-width: 768px) {
+  .admin-carousel {
+    padding: 15px;
+  }
+
+  .admin-carousel .images-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .admin-carousel button[type="submit"] {
+    font-size: 15px;
+    padding: 8px;
+  }
+
+  .admin-carousel .images-container button.edit-button,
+  .admin-carousel .images-container button.delete-button {
+    font-size: 13px;
+    padding: 7px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-carousel {
+    padding: 10px;
+  }
+
+  .admin-carousel h2 {
+    font-size: 20px;
+  }
+
+  .admin-carousel input[type="text"],
+  .admin-carousel select {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .admin-carousel button[type="submit"] {
+    font-size: 14px;
+    padding: 7px;
+  }
+
+  .admin-carousel .images-container button.edit-button,
+  .admin-carousel .images-container button.delete-button {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}

@@ -190,7 +190,7 @@
   }
 }
 
-@media (width <= 425px){
+@media (width <= 480px){
   .product-container{
     display: grid;
     grid-template-areas:
@@ -198,16 +198,18 @@
         "imagenes imagen imagen"
         "detalles detalles detalles";
     height: auto;
+    padding-top: 10px;
   }
 
   .main-image{
     grid-area: imagen;
-    width: 340px;
-    height: 340px;
+    width: 300px;
+    height: 300px;
   }
 
   .thumbnail-images{
     grid-area: imagenes;
+    height: 300px;
   }
   .thumbnail-image{
     width: 50px;
@@ -215,6 +217,7 @@
 
   .product-details{
     grid-area: detalles;
+    height: 380px;
   }
 
   .product-name, .product-price{

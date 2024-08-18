@@ -55,16 +55,8 @@ export class MyOrdersComponent {
     }
   }
 
-  viewDetails(orderId: string): void {
-    this.orderService.getOrderById(orderId)
-      .then(order => {
-        if (order) {
-          this.selectedOrder = order;
-        }
-      })
-      .catch(error => {
-        console.error('Error loading order details:', error);
-      });
+  viewDetails(order: Order): void {
+    this.selectedOrder = order;
   }
 
   getOrderTotal(order: Order): number {
