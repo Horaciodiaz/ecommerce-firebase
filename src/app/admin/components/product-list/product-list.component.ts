@@ -44,11 +44,26 @@ export class ProductListComponent {
     });
   }
 
+  sortProductosByName(productos: any ) {
+    return productos.sort((a: any, b: any) => {
+      const nombreA = a.nombre.toLowerCase();
+      const nombreB = b.nombre.toLowerCase();
+  
+      if (nombreA < nombreB) {
+        return -1;
+      } else if (nombreA > nombreB) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+  }
+
   loadProductsByCategory(category: string) {
     this.loading = true;
     this.productService.getProducts(category).subscribe(
       data => {
-        this.products = data;
+        this.products = this.sortProductosByName(data);
         this.loading = false;
       },
       error => {
@@ -64,7 +79,7 @@ export class ProductListComponent {
     this.loading = true;
     this.productService.getProductsWithCategory(category, subcategory).subscribe(
       data => {
-        this.products = data;
+        this.products = this.sortProductosByName(data);
         this.loading = false;
       },
       error => {
@@ -92,9 +107,9 @@ export class ProductListComponent {
       ...product.files.map((file: File) => file.name)
     ];
   
-    const { nombre, tapizados, inStock, precio, categoria, imagenes } = product;
+    const { nombre, descripcion, inStock, precio, categoria, imagenes } = product;
   
-    this.productService.updateItem(this.category, this.id, { nombre, tapizados, inStock, precio, categoria, imagenes }).subscribe(
+    this.productService.updateItem(this.category, this.id, { nombre, descripcion, inStock, precio, categoria, imagenes }).subscribe(
       () => {
         if (product.files.length > 0) this.fileUploadService.uploadImage(product.files, this.category, nombre);
         if (product.imagesToDelete.length > 0) 
@@ -114,9 +129,9 @@ export class ProductListComponent {
 
 
   addItem(product: any) {
-    const { nombre, tapizados, inStock, precio, categoria } = product;
+    const { nombre, descripcion, inStock, precio, categoria } = product;
     const Item = {
-      nombre, tapizados, inStock, precio, categoria,
+      nombre, descripcion, inStock, precio, categoria,
       imagenes: product.files.map((file: File) => file.name as string)
     };
   
@@ -163,8 +178,8 @@ export class ProductListComponent {
     const formattedPrice = new Intl.NumberFormat('es-ES', {
       style: 'currency',
       currency: 'USD',
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
     }).format(price);
 
     return '$' + formattedPrice.replace('US$', '');

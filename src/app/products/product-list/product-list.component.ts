@@ -35,11 +35,26 @@ export class ProductListComponent {
     });
   }
 
+  sortProductosByName(productos: any ) {
+    return productos.sort((a: any, b: any) => {
+      const nombreA = a.nombre.toLowerCase();
+      const nombreB = b.nombre.toLowerCase();
+  
+      if (nombreA < nombreB) {
+        return -1;
+      } else if (nombreA > nombreB) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+  }
+
   loadProductsByCategory(category: string) {
     this.loading = true;
     this.productService.getProducts(category).subscribe(
       data => {
-        this.products = data;
+        this.products = this.sortProductosByName(data);
         this.loading = false;
       },
       error => {
@@ -55,7 +70,7 @@ export class ProductListComponent {
     this.loading = true;
     this.productService.getProductsWithCategory(category, subcategory).subscribe(
       data => {
-        this.products = data;
+        this.products = this.sortProductosByName(data);
         this.loading = false;
       },
       error => {
@@ -68,5 +83,4 @@ export class ProductListComponent {
   sendToProduct(product: Product){
     this.router.url.includes('admin') ? this.router.navigate(['admin/productos', this.category, product.id]) : this.router.navigate(['/productos', this.category, product.id])
   }
-
 }

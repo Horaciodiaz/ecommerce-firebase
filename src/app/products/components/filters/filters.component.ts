@@ -12,6 +12,7 @@ export class FiltersComponent {
   category: string = '';
   openCategory: string = '';
   categoryKeys: string[] = []; // Para almacenar las claves de las categorías
+  isFilterPanelOpen = false;
 
   constructor(public router: Router, private route: ActivatedRoute, private filterService: FilterService) {}
 
@@ -28,10 +29,14 @@ export class FiltersComponent {
     }
   }
 
+  toggleFilterPanel() {
+    this.isFilterPanelOpen = !this.isFilterPanelOpen;
+  }
+
   private loadCategories() {
     this.filterService.getAllCategories().subscribe(
       categories => {
-        this.categories = categories;
+        this.categories = this.sortCategoryByKey(categories);
         this.categoryKeys = Object.keys(categories); // Obtener las claves de las categorías
         if (this.categoryKeys.includes(this.category)) {
           this.openCategory = this.category;
@@ -39,6 +44,16 @@ export class FiltersComponent {
       }
     );
 
+  }
+  private sortCategoryByKey(categories: { [key: string]: string[] }): { [key: string]: string[] } {
+    // Itera sobre cada clave del objeto categories
+    Object.keys(categories).forEach(key => {
+      // Asegúrate de que la propiedad sea un array y luego ordénalo alfabéticamente
+      if (Array.isArray(categories[key])) {
+        categories[key].sort((a, b) => a.localeCompare(b));
+      }
+    });
+    return categories;
   }
 
   filterBySubCategory(subcategory: string) {

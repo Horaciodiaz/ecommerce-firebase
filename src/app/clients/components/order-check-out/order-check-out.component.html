@@ -52,6 +52,8 @@
       <label>Código Postal:
         <input formControlName="postalCode" type="text">
       </label>
+      <p><strong>Importante:</strong>El costo de envío será informado al coordinar la entrega.</p>
+
     </div>
 
     <!-- Paso 3: Detalles de Pago -->
@@ -106,7 +108,7 @@
     <ul>
       <li *ngFor="let product of cartProducts">
         <p>{{product.nombre}}: {{product.precio}}</p>
-        <img [src]="product.imagenes[0]" [alt]="product.nombre">
+        <img [src]="product.imagenes[0]" [alt]="product.nombre" loading="lazy">
       </li>
       <li *ngIf="paymentMethod?.value === 'transfer'">
         Total: <span class="discounted">{{ formatPrice(getTotal()) }}</span> 

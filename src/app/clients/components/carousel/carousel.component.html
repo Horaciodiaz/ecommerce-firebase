@@ -3,7 +3,7 @@
       <div *ngFor="let image of images; let i = index" class="carousel-slide"
           [ngClass]="{'active': i === currentIndex, 'inactive': i !== currentIndex, 'previous': i === previousIndex}"
           [@carouselAnimation]="i === currentIndex ? 'enter' : 'leave'">
-          <img [src]="image.ImageUrl" class="carousel-image">
+          <img [src]="image.ImageUrl" class="carousel-image" [alt]="image.title" loading="lazy">
           <div class="carousel-caption" [ngClass]="{'text-active': i === currentIndex, 'text-inactive': i !== currentIndex}">
               <h3>{{ image.title }}</h3>
               <p>{{image.subtitle}}</p>

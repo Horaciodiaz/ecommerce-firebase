@@ -19,6 +19,7 @@ export class ShoppingCartComponent {
 
   removeProduct(index: number) {
     this.shoppingCartService.removeProduct(index);
+    // this.productos = this.shoppingCartService.productos;
   }
 
   get total(): number {

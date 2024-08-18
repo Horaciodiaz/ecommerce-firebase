@@ -5,16 +5,32 @@ import Swal from 'sweetalert2'
   providedIn: 'root'
 })
 export class ShoppingCartService {
-
   productos: any[] = [];
 
-  addProduct(product: any){
-    this.productos.push(product);
+  constructor() {
+    this.cargarCarrito();
   }
 
-  removeProduct(index: any){
+  private guardarCarrito() {
+    sessionStorage.setItem('carrito', JSON.stringify(this.productos));
+  }
+
+  private cargarCarrito() {
+    const carritoGuardado = sessionStorage.getItem('carrito');
+    if (carritoGuardado) {
+      this.productos = JSON.parse(carritoGuardado);
+    }
+  }
+
+  addProduct(product: any) {
+    this.productos.push(product);
+    this.guardarCarrito();
+  }
+
+  removeProduct(index: number) {
     console.log(index);
     this.productos.splice(index, 1);
+    this.guardarCarrito();
     Swal.fire({
       position: "top-end",
       title: "Producto Eliminado",
@@ -24,8 +40,9 @@ export class ShoppingCartService {
       timerProgressBar: true
     });
   }
-  
-  vaciarCarrito(){
+
+  vaciarCarrito() {
     this.productos = [];
+    sessionStorage.removeItem('carrito'); // Vaciar el carrito del sessionStorage
   }
 }

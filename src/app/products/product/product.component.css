@@ -27,7 +27,7 @@
 }
 
 .main-image {
-  width: 650px;
+  min-width: 650px;
   aspect-ratio: 1;
   object-fit: cover;
   border-radius: 5px;
@@ -76,7 +76,7 @@
 
 .product-description {
   margin-bottom: 20px;
-  font-size: 15px;
+  font-size: 20px;
   text-align: justify;
 }
 .product-description span{
@@ -129,15 +129,111 @@
   text-transform: capitalize;
 }
 
-.color-option button{
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: color .3s , background-color .3s ;
+
+@media (width <= 1600px){
+  .product-name{
+    font-size: 40px;
+  }
+  .product-description{
+    font-size: 15px;
+  }
 }
 
-.active{
-  background-color: #006b8b;
-  color: #fff;
+
+@media (width <= 1030px){
+  .main-image{
+    min-width: 400px;
+    max-width: 480px;
+  }
+  .product-details{
+    min-width: 360px;
+  }
+  .product-name{
+    font-size: 30px;
+  }
+  .product-price{
+    font-size: 30px;
+  }
+  .product-description{
+    font-size: 12px;
+  }
+  .btn{
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+}
+
+@media (width <= 768px){
+  .main-image{
+    min-width: 211px;
+    width: 376px;
+    height: 362px;
+  }
+  .product-details{
+    min-width: 215px;
+  }
+  .product-name{
+    font-size: 22px;
+  }
+  .product-price{
+    font-size: 22px;
+  }
+  .product-description{
+    font-size: 10px;
+  }
+  .btn{
+    font-size: 10px;
+    padding: 6px 10px;
+  }
+  .stock{
+    font-size: 10px;
+  }
+}
+
+@media (width <= 425px){
+  .product-container{
+    display: grid;
+    grid-template-areas:
+        "imagenes imagen imagen"
+        "imagenes imagen imagen"
+        "detalles detalles detalles";
+    height: auto;
+  }
+
+  .main-image{
+    grid-area: imagen;
+    width: 340px;
+    height: 340px;
+  }
+
+  .thumbnail-images{
+    grid-area: imagenes;
+  }
+  .thumbnail-image{
+    width: 50px;
+  }
+
+  .product-details{
+    grid-area: detalles;
+  }
+
+  .product-name, .product-price{
+    font-size: 30px;
+  }
+  .product-description{
+    font-size: 13px;
+  }
+
+  .buttons{
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .btn{
+    font-size: 14px;
+    padding: 8px 13px;
+  }
+  .stock{
+    font-size: 13px;
+  }
 }

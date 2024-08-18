@@ -1,7 +1,6 @@
 .dashboard-container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -40,6 +39,6 @@
 }
 
 .header .header-list-item:hover {
-  background-color: #003d80;
+  background-color: #f61100;
   color: #e2e2e2;
 }

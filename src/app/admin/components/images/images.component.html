@@ -17,9 +17,9 @@
   <!-- Lista de imágenes cargadas -->
   <div class="images-container">
     <div *ngFor="let image of images" class="image-item">
-      <img [src]="image.ImageUrl" alt="{{ image.title }}">
+      <img [src]="image.ImageUrl" [alt]="image.title" loading="lazy">
       <p>{{ image.title }} - {{ image.subtitle }} - {{ image.category }}</p>
-      <button class="edit-button" (click)="editImage(image)">Editar</button>
+      <!-- <button class="edit-button" (click)="editImage(image)">Editar</button> -->
       <button class="delete-button" (click)="deleteImage(image)">Eliminar</button>
     </div>
   </div>

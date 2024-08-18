@@ -158,7 +158,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 3px;
-  content: 'Seleccionar'; /* testo por defecto */
+  content: 'Seleccionar';
   position: absolute;
   left: 0;
   right: 0;
@@ -175,4 +175,26 @@
 
 #src-file1::before {
   content: 'Seleccionar Archivo 1';
+}
+
+.form-group textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.form-row .form-group:first-child {
+  margin-right: 20px;
 }

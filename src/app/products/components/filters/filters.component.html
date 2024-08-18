@@ -1,55 +1,26 @@
-<!-- <div class="filter-panel">
-    <h3>Filtros</h3>
-
-    <div class="filter-section">
-        <h4 (click)="toggleCategory('props')" routerLink="props">
-            Props
-            <span class="arrow" [ngClass]="{'rotated': isCategoryOpen('props')}"><i class="fa-solid fa-circle-chevron-down"></i></span>
-        </h4>
-        <div [ngClass]="{'subcategories': true, 'open': isCategoryOpen('props')}">
-            <button class="subCategory" *ngFor="let category of categories" (click)="filterBySubCategory(category)"> {{category | titlecase}}</button>
-        </div>
-    </div>
-
-    <div class="filter-section">
-        <h4 (click)="toggleCategory('decos')" routerLink="decos">
-            Decoraciones
-            <span class="arrow" [ngClass]="{'rotated': isCategoryOpen('decos')}"><i class="fa-solid fa-circle-chevron-down"></i></span>
-        </h4>
-        <div [ngClass]="{'subcategories': true, 'open': isCategoryOpen('decos')}">
-            <button class="subCategory" *ngFor="let category of categories" (click)="filterBySubCategory(category)"> {{category | titlecase}}</button>
-        </div>
-    </div>
-
-    <div class="filter-section">
-        <h4 (click)="toggleCategory('fondos')" routerLink="fondos">
-            Fondos
-            <span class="arrow" [ngClass]="{'rotated': isCategoryOpen('fondos')}"><i class="fa-solid fa-circle-chevron-down"></i></span>
-        </h4>
-        <div [ngClass]="{'subcategories': true, 'open': isCategoryOpen('fondos')}">
-            <button class="subCategory" *ngFor="let category of categories" (click)="filterBySubCategory(category)"> {{category | titlecase}}</button>
-        </div>
-    </div>
-
-    <button [routerLink]="['/productos', category]">Restablecer</button>
-</div> -->
-
 <div class="filter-panel">
-  <h3>Filtros</h3>
+    <h3 (click)="toggleFilterPanel()">Filtros
+        <span class="arrow" [ngClass]="{'rotated': isFilterPanelOpen}">
+            <i class="fa-solid fa-circle-chevron-down"></i>
+        </span>
+    </h3>
 
-  <div class="filter-section" *ngFor="let key of categoryKeys">
-      <h4 (click)="toggleCategory(key)" [routerLink]="key">
-          {{ key | titlecase }}
-          <span class="arrow" [ngClass]="{'rotated': isCategoryOpen(key)}">
-              <i class="fa-solid fa-circle-chevron-down"></i>
-          </span>
-      </h4>
-      <div [ngClass]="{'subcategories': true, 'open': isCategoryOpen(key)}">
-          <button class="subCategory" *ngFor="let subcategory of categories[key]" (click)="filterBySubCategory(subcategory)">
-              {{ subcategory | titlecase }}
-          </button>
-      </div>
-  </div>
+    <div *ngIf="isFilterPanelOpen">
+        <div class="filter-section" *ngFor="let key of categoryKeys">
+            <h4 (click)="toggleCategory(key)" [routerLink]="key">
+                {{ key | titlecase }}
+                <span class="arrow" [ngClass]="{'rotated': isCategoryOpen(key)}">
+                    <i class="fa-solid fa-circle-chevron-down"></i>
+                </span>
+            </h4>
+            <div [ngClass]="{'subcategories': true, 'open': isCategoryOpen(key)}">
+                <button class="subCategory" *ngFor="let subcategory of categories[key]"
+                    (click)="filterBySubCategory(subcategory)">
+                    {{ subcategory | titlecase }}
+                </button>
+            </div>
+        </div>
+        <button [routerLink]="['/productos', category]">Restablecer</button>
+    </div>
 
-  <button [routerLink]="['/productos', category]">Restablecer</button>
 </div>

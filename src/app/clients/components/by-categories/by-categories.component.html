@@ -3,7 +3,7 @@
         <h2 class="title">Nuestras Decoraciones</h2>
         <div *ngFor="let category of decos" class="category" [routerLink]="['/productos/decos']" [queryParams]="{ subcategory: category.subcategory}">
             <h3 class="texto">{{category.subcategory | titlecase}}</h3>
-            <img [src]="category.image" alt="category.subcategory">
+            <img [src]="category.image" [alt]="category.subcategory" loading="lazy">
         </div>
     </div>
 </section>

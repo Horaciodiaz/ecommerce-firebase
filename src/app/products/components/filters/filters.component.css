@@ -7,6 +7,8 @@
 }
 .filter-panel h3{
     margin: 0;
+    display: flex;
+    justify-content: space-between;
 }
 
 .filter-section {
@@ -75,4 +77,19 @@ button:hover {
 .subCategory:hover{
     background-color: inherit;
     color: aqua;
+}
+
+
+@media (width <= 1024px){
+    .filter-panel{
+        width: 210px;
+    }
+}
+
+
+@media (width <= 425px){
+    .filter-panel{
+        width: 100vw;
+        box-sizing: border-box;
+    }
 }

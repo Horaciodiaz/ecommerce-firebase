@@ -8,13 +8,19 @@
         <label for="nombre"><i class="fa-solid fa-pencil"></i> Nombre:</label>
         <input id="nombre" name="nombre" ngModel required>
       </div>
-      <div class="form-group">
-        <label for="categoria"><i class="fa-solid fa-pencil"></i> Categoría:</label>
-        <input id="categoria" name="categoria" ngModel required>
+      <div class="form-row"> <!-- Agrupa categoría y precio -->
+        <div class="form-group">
+          <label for="categoria"><i class="fa-solid fa-pencil"></i> Categoría:</label>
+          <input id="categoria" name="categoria" ngModel required>
+        </div>
+        <div class="form-group">
+          <label for="precio"><i class="fa-solid fa-dollar-sign"></i> Precio:</label>
+          <input id="precio" name="precio" type="number" ngModel required>
+        </div>
       </div>
       <div class="form-group">
-        <label for="precio"><i class="fa-solid fa-dollar-sign"></i> Precio:</label>
-        <input id="precio" name="precio" type="number" ngModel required>
+        <label for="descripcion"><i class="fa-solid fa-socks"></i> Descripción:</label>
+        <textarea id="descripcion" name="descripcion" ngModel rows="5"></textarea>
       </div>
       <div class="form-group">
         <label for="imagenes"><i class="fa-solid fa-image"></i> Imágenes:</label>
@@ -23,18 +29,10 @@
         </div>
         <div *ngIf="selectedImages.length > 0" class="images-group">
           <div *ngFor="let image of selectedImages" class="images-item">
-            <img [src]="image">
+            <img [src]="image" alt="imagen" loading="lazy">
             <button class="cancel-button" type="button" (click)="removeImage(image)"><i style="color: red;" class="fa-solid fa-trash"></i></button>
           </div>
         </div>
-      </div>
-      <!-- <div class="form-group">
-        <label for="tamaño"><i class="fa-solid fa-socks"></i> Tamaños (opcional):</label>
-        <input id="tamaño" name="tamaño" ngModel>
-      </div> -->
-      <div class="form-group">
-        <label for="tapizados"><i class="fa-solid fa-socks"></i> Tapizados (opcional):</label>
-        <input id="tapizados" name="tapizados" ngModel>
       </div>
       <div class="form-group checkbox-group">
         <label for="inStock">

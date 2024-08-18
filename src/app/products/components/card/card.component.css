@@ -1,6 +1,6 @@
-.card{
-    height: 365px;
-    width: 250px;
+.card {
+    max-height: 365px;
+    max-width: 250px;
     color: #383838;
 
     view-timeline-name: --image;
@@ -19,18 +19,19 @@
 
 }
 
-figure{
+figure {
+    position: relative;
     overflow: hidden;
     width: 100%;
-    height: 78.5%;
+    height: 68.5%;
     margin: 0;
     border-radius: 10px 10px 0 0;
 }
 
-figure img{
+figure img {
     width: 100%;
     object-fit: cover;
-    height: 100%;
+    aspect-ratio: 1;
     outline: 3px solid #fff;
     outline-offset: -10px;
     transform: scale(1);
@@ -39,10 +40,20 @@ figure img{
     position: relative;
 }
 
-figure .stock{
+figure p {
+    position: absolute;
+    bottom: -6px;
+    left: 10px;
+    color: #fff;
+    padding: 5px 10px;
+    background-color: #00000094;
+    transition: bottom 1000ms, left 1s;
+}
+
+figure .stock {
     position: absolute;
     z-index: 1;
-    top: -16px;
+    top: 0;
     right: 0px;
     box-shadow: -4px 8px 11px -4px #000;
     background-color: #fff;
@@ -50,34 +61,67 @@ figure .stock{
     border-radius: 0 10px;
 }
 
-.text h4{
+.text h4 {
     margin: 10px 8px;
-    font-size: 20px;
+    font-size: 19px;
     color: #000;
-    width: 100%;
+    width: auto;
 }
 
 
-.card:hover figure img{
+.card:hover figure img {
     transform: scale(1.07);
 
 }
 
-.text p{
-    margin: 8px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    margin: 0 10px 15px;
+.card:hover figure p {
+    bottom: -16px;
+    left: 0px;
 }
 
-.text{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+
+@keyframes show {
+    from {
+        opacity: 0;
+        /* scale: 25%; */
+        transform: translateX(25%);
+
+    }
+
+    to {
+        opacity: 1;
+        /* scale: 100%; */
+        transform: translateX(0%);
+    }
 }
-.text button{
+
+.text {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 35px 48px 35px;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "title title title title title"
+        "description description description description description"
+        "buttons buttons buttons buttons buttons";
+}
+
+.title {
+    grid-area: title;
+}
+
+.description {
+    grid-area: description;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin: 0 8px;
+    max-height: 42px;
+    overflow: hidden;
+}
+
+.buttons button {
     border: none;
     padding: 5px 10px;
     border-radius: 5px;
@@ -86,21 +130,108 @@ figure .stock{
     transition: background-color 0.3s ease-in;
     margin: 0 10px 15px;
 }
-.text button:hover{
+
+.buttons button:hover {
     background-color: #979797;
 }
 
-@keyframes show {
-    from{
-        opacity: 0;
-        /* scale: 25%; */
-        transform: translateX(25%);
+.buttons{
+    grid-area: buttons;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
 
+a{
+    text-decoration: none;
+    color: inherit;
+}
+a:visited{
+    color: inherit;
+}
+
+.buttons button i, .buttons .button-1{
+    cursor: pointer;
+}
+
+@media (width <= 1600px){
+    .card{
+        width: auto;
+    }
+}
+
+@media (width <= 1024px){
+    figure p{
+        bottom: -1px;
+    }
+    .text{
+        grid-template-rows: 28px 35px 35px;
+    }
+    .text h4{
+        margin: 7px 8px;
+        font-size: 15px;
+    }
+    .button-1{
+        display: none;
+    }
+    .description{
+        max-height: 32px;
+        font-size: 12px;
+    }
+    .buttons button{
+        font-size: 13px;
+    }
+}
+
+@media (width <= 425px){
+    .card{
+        width: auto;
+        height: auto;
+    }
+    .text{
+        grid-template-rows: 35px 38px 25px;
     }
 
-    to{
-        opacity: 1;
-        /* scale: 100%; */
-        transform: translateX(0%);
+    .text h4{
+
+        font-size: 4.2vw;
+        margin: 5px 8px;
+    }
+    .title{
+        font-size: 17px;
+        width: auto;
+        margin: 6px 8px;
+        align-self: center;
+    }
+
+    .description{
+        margin: 0 8px;
+        max-height: 8vw;
+        font-size: 3.4vw;
+    }
+
+    .buttons{
+        margin: 0 10px 10px;
+    }
+
+    .buttons button{
+        font-size: 10px;
+        padding: 3px 7px;
+        margin: 0;
+    }
+
+    figure{
+        aspect-ratio: 1 !important;
+        height: auto;
+    }
+    figure p{
+        bottom: -3px;
+        font-size: 13px;
+    }
+}
+
+@media (width <= 350px){
+    .button-1{
+        display: none;
     }
 }

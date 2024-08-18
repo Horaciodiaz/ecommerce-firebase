@@ -1,12 +1,16 @@
 <div class="card">
     <figure>
-        <p class="stock" *ngIf="product['inStock']">En Stock</p>
-        <img [src]="product.imagenes[0]" alt="sillita" loading="lazy">
+        <span class="stock" *ngIf="product['inStock']">En Stock</span>
+        <img [src]="product.imagenes[0]" [alt]="product.nombre" loading="lazy">
+        <p>{{formatPrice(product.precio)}}</p>
     </figure>
     <div class="text">
-        <h4>{{product.nombre}}</h4>
-        <!-- <p>{{product.description}}</p> -->
-        <p>{{formatPrice(product.precio)}}</p>
-        <button>Ver más</button>
+        <h4 class="title">{{product.nombre}}</h4>
+        <p class="description">{{product.descripcion}}</p>
+        <div class="buttons">
+            <button class="button-1">Ver más</button>
+            <button class="button-2"  (click)="handleDudasClick($event)"><a [href]="'https://api.whatsapp.com/send?phone=5493755274555&text=Hola%2C%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20' + product.nombre" class="btn add-to-favorite-btn" target="_blank">Dudas?</a></button>
+            <button class="button-3" (click)="addToCart($event, product)"><i class="fa-solid fa-cart-plus"></i></button>
+        </div>
     </div>
 </div>

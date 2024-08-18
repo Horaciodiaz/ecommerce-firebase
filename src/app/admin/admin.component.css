@@ -1,6 +1,5 @@
 .app-container {
   display: flex;
-  height: 100vh; /* Ocupa toda la altura de la pantalla */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -8,7 +7,7 @@
 app-sidebar {
   width: 250px;
   background-color: #002c5b;
-  height: 100%;
+  min-height: 100svh;
   box-shadow: 2px 0 5px #0000001a;
 }
 

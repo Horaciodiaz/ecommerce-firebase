@@ -1,22 +1,20 @@
 <div class="snap-section product">
     <ng-template #Cargando>
-      <!-- <div class="cargando">
-        Cargando...
-      </div> -->
       <app-product-skeleton></app-product-skeleton>
     </ng-template>
     <div class="product-container" *ngIf="!loading; else: Cargando">
         <div class="thumbnail-images">
-            <img *ngFor="let image of product.imagenes" [src]="image" alt="Product Thumbnail"
+            <img *ngFor="let image of product.imagenes" [src]="image" [alt]="product.nombre" loading="lazy"
                 (click)="selectImage(image)" class="thumbnail-image">
         </div>
-            <img [src]="selectedImage" alt="Product Image" class="main-image">
+            <img [src]="selectedImage" [alt]="product.nombre" class="main-image" loading="lazy">
 
         <div class="product-details">
             <h1 class="product-name">{{ product.nombre | titlecase }}</h1>
             <p class="product-price">{{ formatPrice(product.precio) }}</p>
             <p class="stock" *ngIf="product.inStock; else Pedido">En stock</p>
             <ng-template #Pedido><p class="stock">A pedido <i class="fa-regular fa-clock"></i></p></ng-template>
+            <p [style.white-space]="'pre-wrap'" class="product-description">{{ product.descripcion }}</p>
             <div class="buttons">
                 <button (click)="addToCart(product)" class="btn add-to-cart-btn">Añadir al Carrito <i class="fa-solid fa-cart-plus"></i></button>
                 <a [href]="'https://api.whatsapp.com/send?phone=5493755274555&text=Hola%2C%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20' + product.nombre" class="btn add-to-favorite-btn" target="_blank">Consultas? <i class="fa-brands fa-whatsapp"></i></a>

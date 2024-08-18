@@ -127,7 +127,7 @@
           </p>
           <p><strong>Comprobante: </strong> </p>
           <img width="50px" height="50px" *ngIf="selectedOrder && selectedOrder.comprobanteFile"
-            [src]="selectedOrder.comprobanteFile" alt="Comprobante">
+            [src]="selectedOrder.comprobanteFile" alt="Comprobante" loading="lazy">
           <p><strong>Whatsapp: </strong> <a href="http://wa.me/{{selectedOrder.userPhoneNumber}"></a> </p>
         </div>
       </div>

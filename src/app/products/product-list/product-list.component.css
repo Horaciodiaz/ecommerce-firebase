@@ -1,9 +1,10 @@
 
 .list{
     display: grid;
-    gap: 20px 30px;
+    gap: 20px 20px;
     grid-template-columns: repeat(4, minmax(240px, 1fr));
-    margin-bottom: 16px;
+    margin: 0 20px 20px;
+	box-sizing: border-box;
 }
 
 .cardAnimation{
@@ -18,5 +19,20 @@
 	100% {
 		opacity: 1;
 		transform: translateY(0);
+	}
+}
+@media (width <= 1024px){
+	.list{
+		gap: 10px;
+    	grid-template-columns: repeat(3, auto);
+		margin:0 10px;
+	}
+}
+
+@media (width <= 425px){
+    .list{
+		gap: 10px;
+    	grid-template-columns: repeat(2, 1fr);
+		margin: 10px;
 	}
 }

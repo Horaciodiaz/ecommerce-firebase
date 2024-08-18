@@ -6,44 +6,28 @@
       <th>ID</th>
       <th>Nombre</th>
       <th>Foto</th>
+      <th>Descripción</th>
       <th>Precio</th>
       <th *ngIf="products[0]['inStock'] != null">En Stock</th>
-      <th *ngIf="tapizados != false">Colores</th>
       <th>Acciones</th>
     </tr>
   </thead>
-  <tbody *ngIf="!loading && products.length  > 0; else: Cargando">
-    <tr *ngFor="let product of products; let i = index" class="Animation">
+  <tbody *ngIf="!loading && products.length  > 0">
+    <tr *ngFor="let product of products; let i = index">
       <td>{{ i+1 }}</td>
       <td>{{ product.nombre }}</td>
       <td>
-        <img [src]="product.imagenes[0]" [alt]="product.nombre " width="50" height="50">
+        <img [src]="product.imagenes[0]" [alt]="product.nombre " width="50" height="50" loading="lazy">
       </td>
+      <td [style.white-space]="'pre-wrap'" [style.width]="'450px'">{{ product.descripcion }}</td>
       <td>{{ formatPrice(product.precio) }}</td>
       <td *ngIf="products[0]['inStock'] != null">{{ product['inStock'] ? 'Sí' : 'No' }}</td>
-      <td *ngIf="tapizados != false">
-        <p *ngFor="let tapiza of product['tapizados']">{{ tapiza }}</p>
-      </td>
       <td>
-        <button style="background-color: #0075d5;" (click)="edit = true; id = product.id; productToEdit = product"><i class="fa-solid fa-pen-to-square"></i>Editar</button>
+        <button style="background-color: #0075d5; margin-right: 10px;" (click)="edit = true; id = product.id; productToEdit = product"><i class="fa-solid fa-pen-to-square"></i>Editar</button>
         <button style="background-color: red;" (click)="deleteProduct(product)"><i class="fa-solid fa-trash"></i>Eliminar</button>
       </td>
     </tr>
   </tbody>
-  <ng-template #Cargando>
-    <tbody class="skeleton Animation">
-      <tr *ngFor="let item of [1,2,3,4,5,6,7,8]; let i = index">
-        <td></td>
-        <td></td>
-        <td id="cita-skeleton"></td>
-        <td></td>
-        <td>
-          <button></button>
-          <button></button>
-        </td>
-      </tr>
-    </tbody>
-  </ng-template>
 </table>
 
 

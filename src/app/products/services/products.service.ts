@@ -7,6 +7,7 @@ import { FileUploadService } from 'src/app/services/file-upload.service';
 interface Producto {
   categoria: string;
   nombre: string,
+  descripcion: string,
   imagenes: string[]
   [key: string]: any; // Esto permite otras propiedades dinámicas
 }
