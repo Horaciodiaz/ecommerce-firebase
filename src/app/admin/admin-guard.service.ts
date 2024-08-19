@@ -14,10 +14,10 @@ export class AdminGuard implements CanActivate {
   canActivate(): Observable<boolean> {
     return this.authService.user$.pipe(
       map(user => {
-        if (user && user.rol === 'admin') {
+        if (user?.rol === 'admin') {
           return true;
         } else {
-          this.router.navigate(['/']);
+          this.router.navigate(['/login']);
           return false;
         }
       })

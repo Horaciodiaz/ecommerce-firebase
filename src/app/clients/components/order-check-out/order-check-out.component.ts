@@ -6,6 +6,7 @@ import { Order, OrderProduct, OrderService, PaymentDetails, ShippingDetails } fr
 import { ShoppingCartService } from '../../shopping-cart/shopping-cart.service';
 import Swal from 'sweetalert2';
 import { FileUploadService } from 'src/app/services/file-upload.service';
+import { UserService } from 'src/app/services/user.service';
 // import { loadMercadoPago } from "@mercadopago/sdk-js";
 
 declare global {
@@ -36,7 +37,8 @@ export class OrderCheckOutComponent {
     private auth: Auth,
     private router: Router,
     private fileService: FileUploadService,
-    private shoppingCart: ShoppingCartService
+    private shoppingCart: ShoppingCartService,
+    private userService: UserService
   ) {
     this.checkoutForm = this.fb.group({
       contactDetails: this.fb.group({
@@ -64,8 +66,23 @@ export class OrderCheckOutComponent {
 
   ngOnInit(): void {
     this.cartProducts = this.shoppingCart.productos;
+    this.loadUserData();
   }
 
+  async loadUserData() {
+    try {
+      const userData = await this.userService.getUser(this.auth.currentUser?.uid!);
+      this.checkoutForm.patchValue({
+        contactDetails: {
+          firstName: userData.nombre,
+          lastName: userData.apellido,
+          email: userData.correo,
+        }
+      });
+    } catch (error) {
+      console.error('Error loading user data:', error);
+    }
+  }
 
 
   getTotal(): number {
